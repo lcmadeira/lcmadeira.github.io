@@ -159,8 +159,8 @@ h3.group::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .badge svg { width: 0.7rem; height: 0.7rem; fill: currentColor; }
 .goal { margin: 0; color: var(--fg); }
 .goal strong { color: var(--fg-strong); font-weight: 600; }
-.card ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.3rem; font-size: 0.93rem; }
-.card li::marker { color: var(--accent); }
+.card ul:not(.tags) { margin: 0; padding-left: 1.1rem; display: grid; align-content: start; gap: 0.3rem; font-size: 0.93rem; }
+.card ul:not(.tags) li::marker { color: var(--accent); }
 .cadence {
   margin: 0;
   font: 400 0.8rem/1.45 var(--font-mono);
