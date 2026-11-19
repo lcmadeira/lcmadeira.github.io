@@ -40,6 +40,7 @@
   <symbol id="i-gh" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></symbol>
   <symbol id="i-x" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></symbol>
   <symbol id="i-at" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 4.2 14.8l-.8-1.3A6.5 6.5 0 1 1 14.5 8v.8c0 .9-.6 1.5-1.3 1.5s-1.2-.6-1.2-1.5V4.5h-1.5v.7A3.6 3.6 0 0 0 8 4.3a3.7 3.7 0 1 0 2.7 6.2 2.7 2.7 0 0 0 2.5 1.3C14.8 11.8 16 10.5 16 8.8V8a8 8 0 0 0-8-8Zm0 10.2A2.2 2.2 0 1 1 8 5.8a2.2 2.2 0 0 1 0 4.4Z"/></symbol>
+  <symbol id="i-flask" viewBox="0 0 16 16"><path d="M5.5 1h5v1.5h-.8v3.6l4 6.6A1.5 1.5 0 0 1 12.4 15H3.6a1.5 1.5 0 0 1-1.3-2.3l4-6.6V2.5h-.8V1Zm2.3 1.5v4l-1.6 2.7h3.6L8.2 6.5v-4h-.4Z"/></symbol>
   <symbol id="i-globe" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm5.9 7.2h-2.5a12 12 0 0 0-1-4.8 6.4 6.4 0 0 1 3.5 4.8ZM8 1.7c.6.8 1.6 2.6 1.8 5.5H6.2C6.4 4.3 7.4 2.5 8 1.7ZM5.6 2.4a12 12 0 0 0-1 4.8H2.1a6.4 6.4 0 0 1 3.5-4.8ZM2.1 8.8h2.5a12 12 0 0 0 1 4.8 6.4 6.4 0 0 1-3.5-4.8ZM8 14.3c-.6-.8-1.6-2.6-1.8-5.5h3.6c-.2 2.9-1.2 4.7-1.8 5.5Zm2.4-.7a12 12 0 0 0 1-4.8h2.5a6.4 6.4 0 0 1-3.5 4.8Z"/></symbol>
   <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M9.3 2.3 14.9 8l-5.6 5.7-1.1-1.1 3.8-3.8H1V7.2h11L8.2 3.4l1.1-1.1Z"/></symbol>
 </svg>
@@ -70,8 +71,9 @@
       <h3 class="group">Em destaque · público</h3>
       <article class="card feature">
         <div class="feature-main">
-          <div class="card-top"><h4>Painel Pessoal · Portugal</h4><span class="badge public"><svg aria-hidden="true"><use href="#i-globe"/></svg>Público</span></div>
+          <div class="card-top"><h4>Painel Pessoal · Portugal</h4><span class="badges"><span class="badge wip"><svg aria-hidden="true"><use href="#i-flask"/></svg>Em desenvolvimento</span><span class="badge public"><svg aria-hidden="true"><use href="#i-globe"/></svg>Público</span></span></div>
           <p class="goal"><strong>Objetivo:</strong> ver numa só página o que interessa sobre Portugal, os mercados e o mundo, sempre com a fonte e a idade de cada dado.</p>
+          <p class="note"><strong>Projeto de aprendizagem e experimentação</strong>, em desenvolvimento e manutenção contínuos: algumas fontes podem falhar ou mudar sem aviso.</p>
           <ul>
             <li>Corre no browser, sem servidor próprio; um gateway na Cloudflare trata das fontes que bloqueiam pedidos diretos.</li>
             <li>Cada cartão mostra de onde vêm os dados e quando foram observados, e avisa quando estão desatualizados.</li>
