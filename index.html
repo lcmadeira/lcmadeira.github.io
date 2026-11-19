@@ -13,234 +13,25 @@
 <meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
 <link rel="canonical" href="https://lcmadeira.github.io/">
+<link rel="alternate" hreflang="pt-PT" href="https://lcmadeira.github.io/">
+<link rel="alternate" hreflang="en" href="https://lcmadeira.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://lcmadeira.github.io/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_PT">
+<meta property="og:locale:alternate" content="en_GB">
 <meta property="og:url" content="https://lcmadeira.github.io/">
 <meta property="og:title" content="Luís Carlos Madeira">
 <meta property="og:description" content="Automatizo tarefas repetitivas e construo painéis para acompanhar dados e sistemas.">
 <meta property="og:image" content="https://lcmadeira.github.io/assets/og.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
-<meta property="og:image:alt" content="Luís Carlos Madeira: ferramentas que tiram trabalho repetitivo do dia a dia. Automação, dados, homelab.">
+<meta property="og:image:alt" content="Luís Carlos Madeira: automatizo tarefas repetitivas e construo painéis para acompanhar dados e sistemas.">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:creator" content="@lcmadeira">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
-<style>
-/* Layout: coluna única à esquerda, cabeçalho curto, projetos em grelhas por tema, cada cartão com a cadência real a que o projeto corre. Paleta Catppuccin (Latte / Mocha), a do ambiente de trabalho do autor. */
-:root {
-  --bg: #eff1f5;
-  --surface: #ffffff;
-  --line: #ccd0da;
-  --fg: #4c4f69;
-  --fg-strong: #1e2030;
-  --muted: #6c6f85;
-  --accent: #8839ef;
-  --accent-soft: #e6dbfb;
-  --tag-bg: #e6e9ef;
-  --ok: #40a02b;
-  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --bg: #1e1e2e; --surface: #24273a; --line: #363a4f; --fg: #cdd6f4; --fg-strong: #f5f5fa;
-    --muted: #a6adc8; --accent: #cba6f7; --accent-soft: #3b3354; --tag-bg: #313244; --ok: #a6e3a1;
-    color-scheme: dark;
-  }
-}
-:root[data-theme="dark"] {
-  --bg: #1e1e2e; --surface: #24273a; --line: #363a4f; --fg: #cdd6f4; --fg-strong: #f5f5fa;
-  --muted: #a6adc8; --accent: #cba6f7; --accent-soft: #3b3354; --tag-bg: #313244; --ok: #a6e3a1;
-  color-scheme: dark;
-}
-
-* { box-sizing: border-box; }
-body {
-  background: var(--bg);
-  color: var(--fg);
-  font: 400 1rem/1.6 var(--font-body);
-  -webkit-font-smoothing: antialiased;
-}
-.wrap {
-  max-width: 68rem;
-  margin: 0 auto;
-  padding-block: 4rem 3rem;
-  padding-left: max(16px, env(safe-area-inset-left, 0px));
-  padding-right: max(16px, env(safe-area-inset-right, 0px));
-  display: grid;
-  gap: 4rem;
-}
-@media (min-width: 720px) { .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); } }
-
-a { color: var(--accent); text-underline-offset: 3px; }
-a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
-
-/* Cabeçalho */
-.intro { display: grid; gap: 1.25rem; max-width: 42rem; }
-.prompt {
-  font: 500 0.85rem/1 var(--font-mono);
-  color: var(--muted);
-}
-.prompt b { color: var(--accent); font-weight: 500; }
-h1 {
-  margin: 0;
-  font: 700 clamp(2.4rem, 6vw, 3.6rem)/1.05 var(--font-display);
-  color: var(--fg-strong);
-  letter-spacing: -0.02em;
-  text-wrap: balance;
-}
-.lede { margin: 0; font-size: 1.15rem; line-height: 1.55; }
-.links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
-.links a {
-  display: inline-flex; align-items: center; gap: 0.45rem;
-  padding: 0.45rem 0.85rem;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  color: var(--fg-strong);
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.92rem;
-  background: var(--surface);
-}
-.links a:hover { border-color: var(--accent); }
-.links svg { width: 1rem; height: 1rem; fill: currentColor; }
-
-/* Secções */
-section { display: grid; gap: 1.5rem; }
-.sec-head { display: grid; gap: 0.35rem; max-width: 42rem; }
-h2 {
-  margin: 0;
-  font: 700 1.6rem/1.2 var(--font-display);
-  color: var(--fg-strong);
-  text-wrap: balance;
-}
-.sec-head p { margin: 0; color: var(--muted); }
-h3.group {
-  margin: 0;
-  font: 500 0.78rem/1 var(--font-mono);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--muted);
-  display: flex; align-items: center; gap: 0.75rem;
-}
-h3.group::after { content: ""; flex: 1; height: 1px; background: var(--line); }
-.group-block { display: grid; gap: 1rem; }
-
-.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
-
-.card {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 1.25rem 1.35rem 1.1rem;
-  display: grid;
-  grid-template-rows: auto auto 1fr auto auto;
-  gap: 0.8rem;
-  min-width: 0;
-}
-.card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; }
-.card h4 {
-  margin: 0;
-  font: 700 1.2rem/1.25 var(--font-display);
-  color: var(--fg-strong);
-}
-.badge {
-  flex: none;
-  display: inline-flex; align-items: center; gap: 0.3rem;
-  font: 500 0.72rem/1 var(--font-mono);
-  color: var(--muted);
-  border: 1px solid var(--line);
-  border-radius: 4px;
-  padding: 0.25rem 0.4rem;
-}
-.badge svg { width: 0.7rem; height: 0.7rem; fill: currentColor; }
-.goal { margin: 0; color: var(--fg); }
-.goal strong { color: var(--fg-strong); font-weight: 600; }
-.card ul:not(.tags) { margin: 0; padding-left: 1.1rem; display: grid; align-content: start; gap: 0.3rem; font-size: 0.93rem; }
-.card ul:not(.tags) li::marker { color: var(--accent); }
-.cadence {
-  margin: 0;
-  font: 400 0.8rem/1.45 var(--font-mono);
-  color: var(--muted);
-  padding-top: 0.7rem;
-  border-top: 1px dashed var(--line);
-}
-.cadence span { color: var(--ok); }
-.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0; padding: 0; list-style: none; }
-.tags li {
-  font: 500 0.75rem/1 var(--font-mono);
-  background: var(--tag-bg);
-  color: var(--fg);
-  padding: 0.3rem 0.45rem;
-  border-radius: 4px;
-}
-
-/* O que uso: bloco de terminal ao estilo fastfetch (sempre Mocha, de propósito) */
-.term {
-  --t-bg: #181825; --t-line: #313244; --t-fg: #cdd6f4; --t-muted: #7f849c; --t-key: #cba6f7; --t-ok: #a6e3a1;
-  background: var(--t-bg); color: var(--t-fg);
-  border: 1px solid var(--t-line); border-radius: 10px;
-  padding: 1.4rem 1.6rem 1.5rem;
-  font: 400 0.9rem/1.7 var(--font-mono);
-  display: grid; gap: 1.1rem; min-width: 0;
-}
-.term-cmd { margin: 0; color: var(--t-muted); }
-.term-cmd b { color: var(--t-key); font-weight: 500; }
-.term-cmd span { color: var(--t-ok); }
-.ff { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2.25rem; align-items: start; }
-.ff-logo {
-  width: 7.5rem; aspect-ratio: 1; max-width: 100%;
-  border-radius: 1.6rem; background: #1e1e2e; border: 1px solid var(--t-line);
-  display: grid; place-items: center;
-  font: 800 3.1rem/1 var(--font-display); color: var(--t-key); letter-spacing: -0.04em;
-}
-.ff-info { display: grid; gap: 0.05rem; min-width: 0; }
-.ff-host { margin: 0; color: var(--t-key); font-weight: 500; }
-.ff-host span { color: var(--t-fg); }
-.ff-rule { margin: 0 0 0.35rem; color: var(--t-muted); overflow: hidden; white-space: nowrap; }
-.ff dl { margin: 0; display: grid; gap: 0.05rem; }
-.ff dl div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.75rem; align-items: baseline; }
-.ff dt { color: var(--t-key); font-weight: 500; }
-.ff dd { margin: 0; min-width: 0; }
-.ff dd a { color: var(--t-fg); text-decoration: none; border-bottom: 1px dotted var(--t-muted); }
-.ff dd a:hover { color: var(--t-key); border-bottom-color: var(--t-key); }
-.ff dd a:focus-visible { outline: 2px solid var(--t-key); outline-offset: 2px; }
-.ff dd .sep { color: var(--t-muted); }
-.ff-palette { display: flex; flex-wrap: nowrap; gap: 0; margin: 0.9rem 0 0; padding: 0; list-style: none; }
-.ff-palette li { flex: 1 1 0; max-width: 1.9rem; height: 1.05rem; }
-@media (max-width: 560px) {
-  .term { padding: 1.1rem 1rem 1.2rem; font-size: 0.84rem; }
-  .ff { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; }
-  .ff-logo { width: 4.5rem; border-radius: 1rem; font-size: 1.9rem; }
-  .ff dl div { grid-template-columns: 5.6rem minmax(0, 1fr); gap: 0.5rem; }
-}
-
-footer { color: var(--muted); font-size: 0.85rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
-
-@media (prefers-reduced-motion: no-preference) {
-  .links a, .card { transition: border-color .15s ease; }
-  .card:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
-}
-body { margin: 0; }
-img { max-width: 100%; }
-[hidden] { display: none !important; }
-
-/* Destaque (projeto público) */
-.card.feature { grid-template-rows: none; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: 2.5rem; row-gap: 0.8rem; padding: 1.6rem 1.75rem; border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
-.feature-main, .feature-side { display: grid; gap: 0.8rem; align-content: start; min-width: 0; }
-.feature h4 { font-size: 1.5rem; }
-.badge.public { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, var(--line)); }
-.actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.3rem; }
-.actions a { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 0.9rem; border-radius: 8px; font-weight: 600; font-size: 0.92rem; text-decoration: none; border: 1px solid var(--line); color: var(--fg-strong); background: var(--surface); }
-.actions a.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
-.actions a:hover { border-color: var(--accent); }
-.actions svg { width: 0.95rem; height: 0.95rem; fill: currentColor; }
-.side-label { margin: 0; font: 500 0.75rem/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
-@media (max-width: 760px) { .card.feature { grid-template-columns: minmax(0, 1fr); row-gap: 1.6rem; padding: 1.25rem 1.35rem; } }
-</style>
+<link rel="stylesheet" href="assets/site.css">
 </head>
 <body>
 
@@ -256,7 +47,10 @@ img { max-width: 100%; }
 <main class="wrap">
 
   <header class="intro">
-    <p class="prompt"><b>~</b> $ whoami</p>
+    <div class="intro-top">
+      <p class="prompt"><b>~</b> $ whoami</p>
+      <nav class="lang" aria-label="Idioma"><a href="./" aria-current="page" hreflang="pt-PT" lang="pt-PT">PT</a><a href="en/" hreflang="en" lang="en">EN</a></nav>
+    </div>
     <h1>Luís Carlos Madeira</h1>
     <p class="lede">Automatizo tarefas repetitivas e construo painéis para acompanhar dados e sistemas.</p>
     <ul class="links">
@@ -298,6 +92,7 @@ img { max-width: 100%; }
           </ul>
           <p class="cadence"><span>●</span> sem build: HTML, CSS e JavaScript; CI com 6 jobs e verificação diária da página publicada</p>
           <ul class="tags"><li>JavaScript</li><li>Chart.js</li><li>Cloudflare Workers</li><li>PWA</li></ul>
+          <p class="activity" data-activity="painel-pessoal" hidden></p>
         </div>
       </article>
     </div>
@@ -316,6 +111,7 @@ img { max-width: 100%; }
           </ul>
           <p class="cadence"><span>●</span> corre nos dias úteis, de 15 em 15 min, das 09:15 às 17:45</p>
           <ul class="tags"><li>Python</li><li>Excel</li><li>systemd</li></ul>
+          <p class="activity" data-activity="monitor-sla" hidden></p>
         </article>
 
         <article class="card">
@@ -328,6 +124,7 @@ img { max-width: 100%; }
           </ul>
           <p class="cadence"><span>●</span> base de dados local com backup diário verificado</p>
           <ul class="tags"><li>JavaScript</li><li>Node.js</li><li>SQLite</li></ul>
+          <p class="activity" data-activity="painel-operacao" hidden></p>
         </article>
 
         <article class="card">
@@ -340,6 +137,7 @@ img { max-width: 100%; }
           </ul>
           <p class="cadence"><span>●</span> atualiza a cada extração; aviso se passar 30 min sem dados</p>
           <ul class="tags"><li>Python</li><li>GTK</li><li>GNOME</li></ul>
+          <p class="activity" data-activity="indicador-servico" hidden></p>
         </article>
 
       </div>
@@ -359,6 +157,7 @@ img { max-width: 100%; }
           </ul>
           <p class="cadence"><span>●</span> 9 stacks num servidor Debian com 3 GB de RAM</p>
           <ul class="tags"><li>Docker</li><li>Traefik</li><li>GitHub Actions</li><li>Tailscale</li></ul>
+          <p class="activity" data-activity="servidor-domestico" hidden></p>
         </article>
 
         <article class="card">
@@ -371,6 +170,7 @@ img { max-width: 100%; }
           </ul>
           <p class="cadence"><span>●</span> backups às 18:00, 19:30 e 20:00; desliga entre as 20:30 e as 22:30</p>
           <ul class="tags"><li>Python</li><li>Bash</li><li>Restic</li><li>ShellCheck</li></ul>
+          <p class="activity" data-activity="automacao-servidor" hidden></p>
         </article>
 
         <article class="card">
@@ -383,6 +183,7 @@ img { max-width: 100%; }
           </ul>
           <p class="cadence"><span>●</span> atualiza a cada 30 s; só acessível na rede de casa</p>
           <ul class="tags"><li>Python</li><li>JavaScript</li><li>systemd</li></ul>
+          <p class="activity" data-activity="homelab-control" hidden></p>
         </article>
 
       </div>
@@ -402,6 +203,7 @@ img { max-width: 100%; }
           </ul>
           <p class="cadence"><span>●</span> só biblioteca padrão do Python, sem dependências externas</p>
           <ul class="tags"><li>Python</li><li>IMAP</li><li>SQLite</li></ul>
+          <p class="activity" data-activity="inbox-assistant" hidden></p>
         </article>
 
         <article class="card">
@@ -414,6 +216,7 @@ img { max-width: 100%; }
           </ul>
           <p class="cadence"><span>●</span> fontes: Google News, RTP, Parlamento, Comissão Europeia, BCE</p>
           <ul class="tags"><li>Python</li><li>RSS</li><li>LLM</li></ul>
+          <p class="activity" data-activity="radar-x" hidden></p>
         </article>
 
         <article class="card">
@@ -426,6 +229,7 @@ img { max-width: 100%; }
           </ul>
           <p class="cadence"><span>●</span> <code>buffer --via x,threads --in 2h "…"</code></p>
           <ul class="tags"><li>Python</li><li>API Buffer</li><li>CLI</li></ul>
+          <p class="activity" data-activity="buffer-cli" hidden></p>
         </article>
 
       </div>
@@ -466,5 +270,6 @@ img { max-width: 100%; }
   </footer>
 
 </main>
+<script src="assets/activity.js" defer></script>
 </body>
 </html>

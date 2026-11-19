@@ -1,0 +1,275 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Luís Carlos Madeira</title>
+<meta name="description" content="Personal page of Luís Carlos Madeira: automation, data and homelab projects.">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
+<link rel="canonical" href="https://lcmadeira.github.io/en/">
+<link rel="alternate" hreflang="pt-PT" href="https://lcmadeira.github.io/">
+<link rel="alternate" hreflang="en" href="https://lcmadeira.github.io/en/">
+<link rel="alternate" hreflang="x-default" href="https://lcmadeira.github.io/">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="en_GB">
+<meta property="og:locale:alternate" content="pt_PT">
+<meta property="og:url" content="https://lcmadeira.github.io/en/">
+<meta property="og:title" content="Luís Carlos Madeira">
+<meta property="og:description" content="I automate repetitive tasks and build dashboards to keep track of data and systems.">
+<meta property="og:image" content="https://lcmadeira.github.io/assets/og-en.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Luís Carlos Madeira: I automate repetitive tasks and build dashboards to keep track of data and systems.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@lcmadeira">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-lock" viewBox="0 0 16 16"><path d="M4 7V5a4 4 0 1 1 8 0v2h1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1Zm2 0h4V5a2 2 0 1 0-4 0v2Z"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></symbol>
+  <symbol id="i-at" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 4.2 14.8l-.8-1.3A6.5 6.5 0 1 1 14.5 8v.8c0 .9-.6 1.5-1.3 1.5s-1.2-.6-1.2-1.5V4.5h-1.5v.7A3.6 3.6 0 0 0 8 4.3a3.7 3.7 0 1 0 2.7 6.2 2.7 2.7 0 0 0 2.5 1.3C14.8 11.8 16 10.5 16 8.8V8a8 8 0 0 0-8-8Zm0 10.2A2.2 2.2 0 1 1 8 5.8a2.2 2.2 0 0 1 0 4.4Z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm5.9 7.2h-2.5a12 12 0 0 0-1-4.8 6.4 6.4 0 0 1 3.5 4.8ZM8 1.7c.6.8 1.6 2.6 1.8 5.5H6.2C6.4 4.3 7.4 2.5 8 1.7ZM5.6 2.4a12 12 0 0 0-1 4.8H2.1a6.4 6.4 0 0 1 3.5-4.8ZM2.1 8.8h2.5a12 12 0 0 0 1 4.8 6.4 6.4 0 0 1-3.5-4.8ZM8 14.3c-.6-.8-1.6-2.6-1.8-5.5h3.6c-.2 2.9-1.2 4.7-1.8 5.5Zm2.4-.7a12 12 0 0 0 1-4.8h2.5a6.4 6.4 0 0 1-3.5 4.8Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M9.3 2.3 14.9 8l-5.6 5.7-1.1-1.1 3.8-3.8H1V7.2h11L8.2 3.4l1.1-1.1Z"/></symbol>
+</svg>
+
+<main class="wrap">
+
+  <header class="intro">
+    <div class="intro-top">
+      <p class="prompt"><b>~</b> $ whoami</p>
+      <nav class="lang" aria-label="Language"><a href="../" hreflang="pt-PT" lang="pt-PT">PT</a><a href="./" aria-current="page" hreflang="en" lang="en">EN</a></nav>
+    </div>
+    <h1>Luís Carlos Madeira</h1>
+    <p class="lede">I automate repetitive tasks and build dashboards to keep track of data and systems.</p>
+    <ul class="links">
+      <li><a href="https://github.com/lcmadeira" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a></li>
+      <li><a href="https://x.com/lcmadeira" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-x"/></svg>X</a></li>
+      <li><a href="https://www.threads.com/@luiscarlosmadeira" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-at"/></svg>Threads</a></li>
+    </ul>
+  </header>
+
+  <section aria-labelledby="projetos">
+    <div class="sec-head">
+      <h2 id="projetos">Projects</h2>
+      <p>The featured dashboard is public. The code for the others is private: here is what each one solves and how it works.</p>
+    </div>
+
+    <div class="group-block">
+      <h3 class="group">Featured · public</h3>
+      <article class="card feature">
+        <div class="feature-main">
+          <div class="card-top"><h4>Personal Dashboard · Portugal</h4><span class="badge public"><svg aria-hidden="true"><use href="#i-globe"/></svg>Public</span></div>
+          <p class="goal"><strong>Goal:</strong> see on a single page what matters about Portugal, the markets and the world, always with the source and age of each data point.</p>
+          <ul>
+            <li>Runs in the browser with no server of its own; a Cloudflare gateway handles the sources that block direct requests.</li>
+            <li>Each card shows where its data comes from and when it was observed, and warns when it is out of date.</li>
+            <li>Installs as an app and shows the last visit when there is no network.</li>
+          </ul>
+          <div class="actions">
+            <a class="primary" href="https://lcmadeira.github.io/dash/" target="_blank" rel="noopener">Open the dashboard<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="https://github.com/lcmadeira/dash" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-gh"/></svg>Code</a>
+          </div>
+        </div>
+        <div class="feature-side">
+          <p class="side-label">What it shows</p>
+          <ul>
+            <li>IPMA weather, petrol prices in Portugal and Spain, HICP and Euribor</li>
+            <li>Hourly OMIE electricity prices and the cheapest window of the day</li>
+            <li>PSI 20, exchange rates, crypto and 7, 30 and 90-day charts</li>
+            <li>News, earthquakes, air quality and air and sea traffic</li>
+          </ul>
+          <p class="cadence"><span>●</span> no build step: HTML, CSS and JavaScript; CI with 6 jobs and a daily check of the live page</p>
+          <ul class="tags"><li>JavaScript</li><li>Chart.js</li><li>Cloudflare Workers</li><li>PWA</li></ul>
+          <p class="activity" data-activity="painel-pessoal" hidden></p>
+        </div>
+      </article>
+    </div>
+
+    <div class="group-block">
+      <h3 class="group">Automation at work</h3>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-top"><h4>SLA Monitor</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <p class="goal"><strong>Goal:</strong> end the manual copy and paste in calculating service levels for a contact centre operation.</p>
+          <ul>
+            <li>Downloads the monitoring file from the platform and fills in the Excel template on its own.</li>
+            <li>Retries the extraction on failure and warns when the data goes stale.</li>
+            <li>Keeps a history of calculations and exports a CSV summary.</li>
+          </ul>
+          <p class="cadence"><span>●</span> runs on weekdays, every 15 min, from 09:15 to 17:45</p>
+          <ul class="tags"><li>Python</li><li>Excel</li><li>systemd</li></ul>
+          <p class="activity" data-activity="monitor-sla" hidden></p>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h4>Operations Dashboard</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <p class="goal"><strong>Goal:</strong> bring a customer service team's daily indicators and monthly report together in one place.</p>
+          <ul>
+            <li>Readings throughout the day per service, with trends and alerts.</li>
+            <li>Imports reports received by email, with a preview of the differences before saving.</li>
+            <li>Monthly report ready to send, in HTML and Excel.</li>
+          </ul>
+          <p class="cadence"><span>●</span> local database with a verified daily backup</p>
+          <ul class="tags"><li>JavaScript</li><li>Node.js</li><li>SQLite</li></ul>
+          <p class="activity" data-activity="painel-operacao" hidden></p>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h4>Service Indicator</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <p class="goal"><strong>Goal:</strong> see the current service level without opening any app.</p>
+          <ul>
+            <li>Value and change in the GNOME top bar.</li>
+            <li>Chart of the day compared with the same day of the previous week.</li>
+            <li>Notifications when the value drops below the set limits or keeps falling.</li>
+          </ul>
+          <p class="cadence"><span>●</span> updates with every extraction; warns after 30 min without data</p>
+          <ul class="tags"><li>Python</li><li>GTK</li><li>GNOME</li></ul>
+          <p class="activity" data-activity="indicador-servico" hidden></p>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="group-block">
+      <h3 class="group">Homelab</h3>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-top"><h4>Home Server</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <p class="goal"><strong>Goal:</strong> keep my files, documents and services at home, without depending on third parties.</p>
+          <ul>
+            <li>Nextcloud, Paperless-ngx, FreshRSS, Uptime Kuma and Netdata behind a reverse proxy.</li>
+            <li>Each service is a Docker Compose stack versioned in Git.</li>
+            <li>A push to the main branch deploys it, once CI passes.</li>
+          </ul>
+          <p class="cadence"><span>●</span> 9 stacks on a Debian server with 3 GB of RAM</p>
+          <ul class="tags"><li>Docker</li><li>Traefik</li><li>GitHub Actions</li><li>Tailscale</li></ul>
+          <p class="activity" data-activity="servidor-domestico" hidden></p>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h4>Server Automation</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <p class="goal"><strong>Goal:</strong> have the server maintain and protect itself, and say when something goes wrong.</p>
+          <ul>
+            <li>Verified daily backups, with an encrypted off-site copy and Telegram alerts.</li>
+            <li>Tests the disk and backup restores, and warns before problems arise.</li>
+            <li>Shuts itself down at night, only after the backups finish.</li>
+          </ul>
+          <p class="cadence"><span>●</span> backups at 18:00, 19:30 and 20:00; shuts down between 20:30 and 22:30</p>
+          <ul class="tags"><li>Python</li><li>Bash</li><li>Restic</li><li>ShellCheck</li></ul>
+          <p class="activity" data-activity="automacao-servidor" hidden></p>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h4>Homelab Control</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <p class="goal"><strong>Goal:</strong> tell at a glance whether the server is fine, without opening a terminal.</p>
+          <ul>
+            <li>Memory, load, disks with a space forecast, services and Docker containers.</li>
+            <li>Age and result of every backup, including the off-site copy, and of scheduled tasks.</li>
+            <li>Disk health, pending updates and Internet connection quality; warnings link to the section with the problem.</li>
+          </ul>
+          <p class="cadence"><span>●</span> refreshes every 30 s; only reachable on the home network</p>
+          <ul class="tags"><li>Python</li><li>JavaScript</li><li>systemd</li></ul>
+          <p class="activity" data-activity="homelab-control" hidden></p>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="group-block">
+      <h3 class="group">Personal tools</h3>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-top"><h4>Inbox Assistant</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <p class="goal"><strong>Goal:</strong> keep the inbox tidy and important documents filed without effort.</p>
+          <ul>
+            <li>Sorts read messages by rules and, optionally, with AI.</li>
+            <li>Saves attachments without duplicates and sends invoices and documents to Paperless-ngx.</li>
+            <li>Never repeats an operation that may already have been done.</li>
+          </ul>
+          <p class="cadence"><span>●</span> Python standard library only, no external dependencies</p>
+          <ul class="tags"><li>Python</li><li>IMAP</li><li>SQLite</li></ul>
+          <p class="activity" data-activity="inbox-assistant" hidden></p>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h4>Radar X</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <p class="goal"><strong>Goal:</strong> follow the news and write posts with the sources in view.</p>
+          <ul>
+            <li>Searches news in Portugal, Europe and the world, and groups articles that tell the same story.</li>
+            <li>Shows what is trending and drafts posts in European Portuguese in several tones.</li>
+            <li>Posts or schedules on X and Threads, always after confirmation.</li>
+          </ul>
+          <p class="cadence"><span>●</span> sources: Google News, RTP, Portuguese Parliament, European Commission, ECB</p>
+          <ul class="tags"><li>Python</li><li>RSS</li><li>LLM</li></ul>
+          <p class="activity" data-activity="radar-x" hidden></p>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h4>buffer-cli</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <p class="goal"><strong>Goal:</strong> post to social media from the terminal, fast and without mistakes.</p>
+          <ul>
+            <li>Posts or schedules on X and Threads, with its own text for each network.</li>
+            <li>Threads, images and videos, and several posts at once from a file.</li>
+            <li>Preview, character count and a warning before duplicating.</li>
+          </ul>
+          <p class="cadence"><span>●</span> <code>buffer --via x,threads --in 2h "…"</code></p>
+          <ul class="tags"><li>Python</li><li>Buffer API</li><li>CLI</li></ul>
+          <p class="activity" data-activity="buffer-cli" hidden></p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="uso">
+    <div class="sec-head">
+      <h2 id="uso">What I use</h2>
+    </div>
+    <div class="term">
+      <p class="term-cmd"><b>~</b> $ fastfetch</p>
+      <div class="ff">
+        <div class="ff-logo" aria-hidden="true">LM</div>
+        <div class="ff-info">
+          <p class="ff-host">lcmadeira<span>@</span>github.io</p>
+          <p class="ff-rule" aria-hidden="true">-------------------</p>
+          <dl>
+            <div><dt>os</dt><dd><a href="https://ubuntu.com/" target="_blank" rel="noopener">Ubuntu</a> <span class="sep">·</span> <a href="https://www.gnome.org/" target="_blank" rel="noopener">GNOME</a> (Wayland)</dd></div>
+            <div><dt>terminal</dt><dd><a href="https://sw.kovidgoyal.net/kitty/" target="_blank" rel="noopener">kitty</a> <span class="sep">·</span> <a href="https://github.com/tmux/tmux" target="_blank" rel="noopener">tmux</a> <span class="sep">·</span> <a href="https://www.zsh.org/" target="_blank" rel="noopener">zsh</a> <span class="sep">·</span> <a href="https://starship.rs/" target="_blank" rel="noopener">starship</a></dd></div>
+            <div><dt>editor</dt><dd><a href="https://www.sublimetext.com/" target="_blank" rel="noopener">Sublime Text</a></dd></div>
+            <div><dt>theme</dt><dd><a href="https://catppuccin.com/" target="_blank" rel="noopener">Catppuccin</a> Mocha</dd></div>
+            <div><dt>ai</dt><dd><a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a></dd></div>
+            <div><dt>browser</dt><dd><a href="https://brave.com/" target="_blank" rel="noopener">Brave</a></dd></div>
+            <div><dt>server</dt><dd><a href="https://www.debian.org/" target="_blank" rel="noopener">Debian 12</a> <span class="sep">·</span> <a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a> <span class="sep">·</span> <a href="https://tailscale.com/" target="_blank" rel="noopener">Tailscale</a></dd></div>
+            <div><dt>ci</dt><dd><a href="https://github.com/features/actions" target="_blank" rel="noopener">GitHub Actions</a></dd></div>
+            <div><dt>code</dt><dd><a href="https://www.python.org/" target="_blank" rel="noopener">Python</a> <span class="sep">·</span> <a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noopener">JavaScript</a> <span class="sep">·</span> <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener">Bash</a> <span class="sep">·</span> <a href="https://sqlite.org/" target="_blank" rel="noopener">SQLite</a></dd></div>
+          </dl>
+          <ul class="ff-palette" aria-hidden="true"><li style="background:#f5e0dc"></li><li style="background:#f2cdcd"></li><li style="background:#f5c2e7"></li><li style="background:#cba6f7"></li><li style="background:#f38ba8"></li><li style="background:#eba0ac"></li><li style="background:#fab387"></li><li style="background:#f9e2af"></li><li style="background:#a6e3a1"></li><li style="background:#94e2d5"></li><li style="background:#89dceb"></li><li style="background:#74c7ec"></li><li style="background:#89b4fa"></li><li style="background:#b4befe"></li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span>Luís Carlos Madeira · Portugal</span>
+    <span>Static page hosted on GitHub Pages</span>
+  </footer>
+
+</main>
+<script src="../assets/activity.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<title>Página não encontrada · Luís Carlos Madeira</title>
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+<meta name="theme-color" content="#eff1f5" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1e1e2e" media="(prefers-color-scheme: dark)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="/assets/site.css">
+</head>
+<body>
+<main class="wrap">
+  <section class="notfound" aria-labelledby="nf-title">
+    <div class="term">
+      <pre class="term-cmd"><b>~</b> $ cd <span id="nf-path">página-que-não-existe</span>
+<span class="nf-err">cd: não existe: esta página não foi encontrada (404)</span>
+<b>~</b> $ <span class="nf-cursor" aria-hidden="true">▋</span></pre>
+    </div>
+    <h1 id="nf-title">Página não encontrada</h1>
+    <p class="lede">O endereço pode estar errado ou a página pode ter mudado de sítio.</p>
+    <p class="lede" lang="en">This page could not be found.</p>
+    <div class="actions">
+      <a class="primary" href="/">Voltar ao início</a>
+      <a href="/en/" hreflang="en" lang="en">Go to the English page</a>
+    </div>
+  </section>
+</main>
+<script>
+  // Mostra o caminho pedido na linha do "cd" (só texto, sem HTML).
+  try {
+    var p = decodeURIComponent(location.pathname).replace(/^\/+/, '');
+    if (p) document.getElementById('nf-path').textContent = p.length > 60 ? p.slice(0, 57) + '…' : p;
+  } catch (e) {}
+</script>
+</body>
+</html>
