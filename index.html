@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light dark">
+<title>Luís Carlos Madeira</title>
+<meta name="description" content="Página pessoal de Luís Carlos Madeira: projetos de automação, dados e homelab.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: coluna única à esquerda, cabeçalho curto, projetos em grelhas por tema, cada cartão com a cadência real a que o projeto corre. Paleta Catppuccin (Latte / Mocha), a do ambiente de trabalho do autor. */
+:root {
+  --bg: #eff1f5;
+  --surface: #ffffff;
+  --line: #ccd0da;
+  --fg: #4c4f69;
+  --fg-strong: #1e2030;
+  --muted: #6c6f85;
+  --accent: #8839ef;
+  --accent-soft: #e6dbfb;
+  --tag-bg: #e6e9ef;
+  --ok: #40a02b;
+  --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1e1e2e; --surface: #24273a; --line: #363a4f; --fg: #cdd6f4; --fg-strong: #f5f5fa;
+    --muted: #a6adc8; --accent: #cba6f7; --accent-soft: #3b3354; --tag-bg: #313244; --ok: #a6e3a1;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1e1e2e; --surface: #24273a; --line: #363a4f; --fg: #cdd6f4; --fg-strong: #f5f5fa;
+  --muted: #a6adc8; --accent: #cba6f7; --accent-soft: #3b3354; --tag-bg: #313244; --ok: #a6e3a1;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font: 400 1rem/1.6 var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+.wrap {
+  max-width: 68rem;
+  margin: 0 auto;
+  padding-block: 4rem 3rem;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  display: grid;
+  gap: 4rem;
+}
+@media (min-width: 720px) { .wrap { padding-left: max(32px, env(safe-area-inset-left, 0px)); padding-right: max(32px, env(safe-area-inset-right, 0px)); } }
+
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 3px; }
+
+/* Cabeçalho */
+.intro { display: grid; gap: 1.25rem; max-width: 42rem; }
+.prompt {
+  font: 500 0.85rem/1 var(--font-mono);
+  color: var(--muted);
+}
+.prompt b { color: var(--accent); font-weight: 500; }
+h1 {
+  margin: 0;
+  font: 700 clamp(2.4rem, 6vw, 3.6rem)/1.05 var(--font-display);
+  color: var(--fg-strong);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+.lede { margin: 0; font-size: 1.15rem; line-height: 1.55; }
+.links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
+.links a {
+  display: inline-flex; align-items: center; gap: 0.45rem;
+  padding: 0.45rem 0.85rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--fg-strong);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.92rem;
+  background: var(--surface);
+}
+.links a:hover { border-color: var(--accent); }
+.links svg { width: 1rem; height: 1rem; fill: currentColor; }
+
+/* Secções */
+section { display: grid; gap: 1.5rem; }
+.sec-head { display: grid; gap: 0.35rem; max-width: 42rem; }
+h2 {
+  margin: 0;
+  font: 700 1.6rem/1.2 var(--font-display);
+  color: var(--fg-strong);
+  text-wrap: balance;
+}
+.sec-head p { margin: 0; color: var(--muted); }
+h3.group {
+  margin: 0;
+  font: 500 0.78rem/1 var(--font-mono);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex; align-items: center; gap: 0.75rem;
+}
+h3.group::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.group-block { display: grid; gap: 1rem; }
+
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr)); }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.25rem 1.35rem 1.1rem;
+  display: grid;
+  grid-template-rows: auto auto 1fr auto auto;
+  gap: 0.8rem;
+  min-width: 0;
+}
+.card-top { display: flex; align-items: baseline; justify-content: space-between; gap: 0.75rem; }
+.card h4 {
+  margin: 0;
+  font: 700 1.2rem/1.25 var(--font-display);
+  color: var(--fg-strong);
+}
+.badge {
+  flex: none;
+  display: inline-flex; align-items: center; gap: 0.3rem;
+  font: 500 0.72rem/1 var(--font-mono);
+  color: var(--muted);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 0.25rem 0.4rem;
+}
+.badge svg { width: 0.7rem; height: 0.7rem; fill: currentColor; }
+.goal { margin: 0; color: var(--fg); }
+.goal strong { color: var(--fg-strong); font-weight: 600; }
+.card ul { margin: 0; padding-left: 1.1rem; display: grid; gap: 0.3rem; font-size: 0.93rem; }
+.card li::marker { color: var(--accent); }
+.cadence {
+  margin: 0;
+  font: 400 0.8rem/1.45 var(--font-mono);
+  color: var(--muted);
+  padding-top: 0.7rem;
+  border-top: 1px dashed var(--line);
+}
+.cadence span { color: var(--ok); }
+.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; margin: 0; padding: 0; list-style: none; }
+.tags li {
+  font: 500 0.75rem/1 var(--font-mono);
+  background: var(--tag-bg);
+  color: var(--fg);
+  padding: 0.3rem 0.45rem;
+  border-radius: 4px;
+}
+
+/* Ferramentas */
+.uses { display: grid; gap: 0; margin: 0; border-top: 1px solid var(--line); max-width: 42rem; }
+.uses div {
+  display: grid; grid-template-columns: 9rem 1fr; gap: 1rem;
+  padding: 0.7rem 0; border-bottom: 1px solid var(--line);
+}
+.uses dt { font: 500 0.82rem/1.6 var(--font-mono); color: var(--muted); }
+.uses dd { margin: 0; color: var(--fg-strong); }
+@media (max-width: 480px) { .uses div { grid-template-columns: 1fr; gap: 0.1rem; } }
+
+footer { color: var(--muted); font-size: 0.85rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
+
+@media (prefers-reduced-motion: no-preference) {
+  .links a, .card { transition: border-color .15s ease; }
+  .card:hover { border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
+}
+body { margin: 0; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-lock" viewBox="0 0 16 16"><path d="M4 7V5a4 4 0 1 1 8 0v2h1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1Zm2 0h4V5a2 2 0 1 0-4 0v2Z"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></symbol>
+  <symbol id="i-x" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></symbol>
+  <symbol id="i-at" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 4.2 14.8l-.8-1.3A6.5 6.5 0 1 1 14.5 8v.8c0 .9-.6 1.5-1.3 1.5s-1.2-.6-1.2-1.5V4.5h-1.5v.7A3.6 3.6 0 0 0 8 4.3a3.7 3.7 0 1 0 2.7 6.2 2.7 2.7 0 0 0 2.5 1.3C14.8 11.8 16 10.5 16 8.8V8a8 8 0 0 0-8-8Zm0 10.2A2.2 2.2 0 1 1 8 5.8a2.2 2.2 0 0 1 0 4.4Z"/></symbol>
+  <symbol id="i-pen" viewBox="0 0 16 16"><path d="M11.1 1.3a1.5 1.5 0 0 1 2.1 0l1.5 1.5a1.5 1.5 0 0 1 0 2.1L5.4 14.2 1 15l.8-4.4 9.3-9.3ZM3.6 11.2l-.3 1.5 1.5-.3 7.6-7.6-1.2-1.2-7.6 7.6Z"/></symbol>
+</svg>
+
+<main class="wrap">
+
+  <header class="intro">
+    <p class="prompt"><b>~</b> $ whoami</p>
+    <h1>Luís Carlos Madeira</h1>
+    <p class="lede">Faço ferramentas que tiram trabalho repetitivo do dia a dia: extração de dados, painéis de acompanhamento, automação de email e um servidor em casa que se gere sozinho.</p>
+    <ul class="links">
+      <li><a href="https://github.com/lcmadeira"><svg aria-hidden="true"><use href="#i-gh"/></svg>GitHub</a></li>
+      <li><a href="https://x.com/lcmadeira"><svg aria-hidden="true"><use href="#i-x"/></svg>X</a></li>
+      <li><a href="https://www.threads.com/@luiscarlosmadeira"><svg aria-hidden="true"><use href="#i-at"/></svg>Threads</a></li>
+      <li><a href="https://mrwood.bearblog.dev"><svg aria-hidden="true"><use href="#i-pen"/></svg>Blog</a></li>
+    </ul>
+  </header>
+
+  <section aria-labelledby="projetos">
+    <div class="sec-head">
+      <h2 id="projetos">Projetos</h2>
+      <p>O código destes projetos é privado. Aqui fica o que cada um resolve e como funciona.</p>
+    </div>
+
+    <div class="group-block">
+      <h3 class="group">Automação no trabalho</h3>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-top"><h4>Monitor de SLA</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
+          <p class="goal"><strong>Objetivo:</strong> acabar com o copiar e colar manual no cálculo dos níveis de serviço de uma operação de contact center.</p>
+          <ul>
+            <li>Descarrega o ficheiro de monitorização da plataforma e preenche o modelo Excel sozinho.</li>
+            <li>Repete a extração em caso de falha e avisa quando os dados ficam desatualizados.</li>
+            <li>Guarda histórico dos cálculos e exporta um resumo em CSV.</li>
+          </ul>
+          <p class="cadence"><span>●</span> corre nos dias úteis, de 15 em 15 min, das 09:15 às 17:45</p>
+          <ul class="tags"><li>Python</li><li>Excel</li><li>systemd</li></ul>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h4>Painel de operação</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
+          <p class="goal"><strong>Objetivo:</strong> juntar num só sítio os indicadores diários de uma equipa de atendimento e o relatório mensal.</p>
+          <ul>
+            <li>Leituras ao longo do dia por serviço, com tendência e alertas.</li>
+            <li>Importação de relatórios recebidos por email, com pré-visualização das diferenças antes de gravar.</li>
+            <li>Relatório mensal pronto a enviar, em HTML e Excel.</li>
+          </ul>
+          <p class="cadence"><span>●</span> base de dados local com backup diário verificado</p>
+          <ul class="tags"><li>JavaScript</li><li>Node.js</li><li>SQLite</li></ul>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h4>Indicador de serviço</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
+          <p class="goal"><strong>Objetivo:</strong> ver o nível de serviço do momento sem abrir nenhuma aplicação.</p>
+          <ul>
+            <li>Valor e variação na barra superior do GNOME.</li>
+            <li>Gráfico do dia comparado com o mesmo dia da semana anterior.</li>
+            <li>Notificações quando o valor desce abaixo dos limites definidos ou a tendência é de queda.</li>
+          </ul>
+          <p class="cadence"><span>●</span> atualiza a cada extração; aviso se passar 30 min sem dados</p>
+          <ul class="tags"><li>Python</li><li>GTK</li><li>GNOME</li></ul>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="group-block">
+      <h3 class="group">Homelab</h3>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-top"><h4>Servidor doméstico</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
+          <p class="goal"><strong>Objetivo:</strong> ter em casa os meus ficheiros, documentos e serviços, sem depender de terceiros.</p>
+          <ul>
+            <li>Nextcloud, Paperless-ngx, FreshRSS, Uptime Kuma e Netdata atrás de um reverse proxy.</li>
+            <li>Cada serviço é uma stack Docker Compose versionada em Git.</li>
+            <li>Um push para o ramo principal faz o deploy, depois de o CI validar.</li>
+          </ul>
+          <p class="cadence"><span>●</span> 9 stacks num servidor Debian com 3 GB de RAM</p>
+          <ul class="tags"><li>Docker</li><li>Traefik</li><li>GitHub Actions</li><li>Tailscale</li></ul>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h4>Automação do servidor</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
+          <p class="goal"><strong>Objetivo:</strong> que o servidor se mantenha e se proteja sozinho, e avise quando algo corre mal.</p>
+          <ul>
+            <li>Backups diários verificados, com cópia externa cifrada e alertas no Telegram.</li>
+            <li>Painel de estado com backups, discos e serviços.</li>
+            <li>Desliga-se sozinho à noite, só depois de os backups terminarem.</li>
+          </ul>
+          <p class="cadence"><span>●</span> backups às 18:00, 19:30 e 20:00; desliga entre as 20:30 e as 22:30</p>
+          <ul class="tags"><li>Python</li><li>Bash</li><li>Restic</li><li>ShellCheck</li></ul>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="group-block">
+      <h3 class="group">Ferramentas pessoais</h3>
+      <div class="grid">
+
+        <article class="card">
+          <div class="card-top"><h4>Inbox Assistant</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
+          <p class="goal"><strong>Objetivo:</strong> manter a caixa de email arrumada e os documentos importantes arquivados sem esforço.</p>
+          <ul>
+            <li>Classifica as mensagens lidas por regras e, opcionalmente, com IA.</li>
+            <li>Guarda os anexos sem duplicados e envia faturas e documentos para o Paperless-ngx.</li>
+            <li>Nunca repete uma operação que possa já ter sido feita.</li>
+          </ul>
+          <p class="cadence"><span>●</span> só biblioteca padrão do Python, sem dependências externas</p>
+          <ul class="tags"><li>Python</li><li>IMAP</li><li>SQLite</li></ul>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h4>Radar X</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
+          <p class="goal"><strong>Objetivo:</strong> acompanhar a atualidade e escrever publicações com as fontes à vista.</p>
+          <ul>
+            <li>Pesquisa notícias em Portugal, na Europa e no mundo, e agrupa as que contam a mesma história.</li>
+            <li>Mostra o que está em alta e gera rascunhos em pt-PT em vários tons.</li>
+            <li>Publica ou agenda no X e no Threads, sempre com confirmação.</li>
+          </ul>
+          <p class="cadence"><span>●</span> fontes: Google News, RTP, Parlamento, Comissão Europeia, BCE</p>
+          <ul class="tags"><li>Python</li><li>RSS</li><li>LLM</li></ul>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h4>buffer-cli</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
+          <p class="goal"><strong>Objetivo:</strong> publicar nas redes sociais a partir do terminal, rápido e sem enganos.</p>
+          <ul>
+            <li>Publica ou agenda no X e no Threads, com texto próprio para cada rede.</li>
+            <li>Fios, imagens e vídeos, e vários posts de uma vez a partir de um ficheiro.</li>
+            <li>Pré-visualização, contagem de caracteres e aviso antes de duplicar.</li>
+          </ul>
+          <p class="cadence"><span>●</span> <code>buffer --via x,threads --in 2h "…"</code></p>
+          <ul class="tags"><li>Python</li><li>API Buffer</li><li>CLI</li></ul>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="uso">
+    <div class="sec-head">
+      <h2 id="uso">O que uso</h2>
+      <p>O ambiente onde estes projetos nascem.</p>
+    </div>
+    <dl class="uses">
+      <div><dt>sistema</dt><dd>Ubuntu, GNOME em Wayland</dd></div>
+      <div><dt>terminal</dt><dd>kitty + tmux + zsh + starship</dd></div>
+      <div><dt>tema</dt><dd>Catppuccin Mocha, em todo o lado</dd></div>
+      <div><dt>servidor</dt><dd>Debian 12 com Docker, ligado por Tailscale</dd></div>
+      <div><dt>linguagens</dt><dd>Python, JavaScript, Bash</dd></div>
+    </dl>
+  </section>
+
+  <footer>
+    <span>Luís Carlos Madeira · Portugal</span>
+    <span>Página estática alojada no GitHub Pages</span>
+  </footer>
+
+</main>
+</body>
+</html>
