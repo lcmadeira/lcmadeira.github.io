@@ -197,6 +197,19 @@ footer { color: var(--muted); font-size: 0.85rem; display: flex; flex-wrap: wrap
 body { margin: 0; }
 img { max-width: 100%; }
 [hidden] { display: none !important; }
+
+/* Destaque (projeto público) */
+.card.feature { grid-template-rows: none; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); column-gap: 2.5rem; row-gap: 0.8rem; padding: 1.6rem 1.75rem; border-color: color-mix(in srgb, var(--accent) 40%, var(--line)); }
+.feature-main, .feature-side { display: grid; gap: 0.8rem; align-content: start; min-width: 0; }
+.feature h4 { font-size: 1.5rem; }
+.badge.public { color: var(--ok); border-color: color-mix(in srgb, var(--ok) 45%, var(--line)); }
+.actions { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.3rem; }
+.actions a { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 0.9rem; border-radius: 8px; font-weight: 600; font-size: 0.92rem; text-decoration: none; border: 1px solid var(--line); color: var(--fg-strong); background: var(--surface); }
+.actions a.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+.actions a:hover { border-color: var(--accent); }
+.actions svg { width: 0.95rem; height: 0.95rem; fill: currentColor; }
+.side-label { margin: 0; font: 500 0.75rem/1 var(--font-mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+@media (max-width: 760px) { .card.feature { grid-template-columns: minmax(0, 1fr); row-gap: 1.6rem; padding: 1.25rem 1.35rem; } }
 </style>
 </head>
 <body>
@@ -207,6 +220,8 @@ img { max-width: 100%; }
   <symbol id="i-x" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></symbol>
   <symbol id="i-at" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 4.2 14.8l-.8-1.3A6.5 6.5 0 1 1 14.5 8v.8c0 .9-.6 1.5-1.3 1.5s-1.2-.6-1.2-1.5V4.5h-1.5v.7A3.6 3.6 0 0 0 8 4.3a3.7 3.7 0 1 0 2.7 6.2 2.7 2.7 0 0 0 2.5 1.3C14.8 11.8 16 10.5 16 8.8V8a8 8 0 0 0-8-8Zm0 10.2A2.2 2.2 0 1 1 8 5.8a2.2 2.2 0 0 1 0 4.4Z"/></symbol>
   <symbol id="i-pen" viewBox="0 0 16 16"><path d="M11.1 1.3a1.5 1.5 0 0 1 2.1 0l1.5 1.5a1.5 1.5 0 0 1 0 2.1L5.4 14.2 1 15l.8-4.4 9.3-9.3ZM3.6 11.2l-.3 1.5 1.5-.3 7.6-7.6-1.2-1.2-7.6 7.6Z"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0Zm5.9 7.2h-2.5a12 12 0 0 0-1-4.8 6.4 6.4 0 0 1 3.5 4.8ZM8 1.7c.6.8 1.6 2.6 1.8 5.5H6.2C6.4 4.3 7.4 2.5 8 1.7ZM5.6 2.4a12 12 0 0 0-1 4.8H2.1a6.4 6.4 0 0 1 3.5-4.8ZM2.1 8.8h2.5a12 12 0 0 0 1 4.8 6.4 6.4 0 0 1-3.5-4.8ZM8 14.3c-.6-.8-1.6-2.6-1.8-5.5h3.6c-.2 2.9-1.2 4.7-1.8 5.5Zm2.4-.7a12 12 0 0 0 1-4.8h2.5a6.4 6.4 0 0 1-3.5 4.8Z"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 16 16"><path d="M9.3 2.3 14.9 8l-5.6 5.7-1.1-1.1 3.8-3.8H1V7.2h11L8.2 3.4l1.1-1.1Z"/></symbol>
 </svg>
 
 <main class="wrap">
@@ -226,7 +241,37 @@ img { max-width: 100%; }
   <section aria-labelledby="projetos">
     <div class="sec-head">
       <h2 id="projetos">Projetos</h2>
-      <p>O código destes projetos é privado. Aqui fica o que cada um resolve e como funciona.</p>
+      <p>O painel em destaque é público. O código dos restantes é privado: aqui fica o que cada um resolve e como funciona.</p>
+    </div>
+
+    <div class="group-block">
+      <h3 class="group">Em destaque · público</h3>
+      <article class="card feature">
+        <div class="feature-main">
+          <div class="card-top"><h4>Painel Pessoal · Portugal</h4><span class="badge public"><svg aria-hidden="true"><use href="#i-globe"/></svg>Público</span></div>
+          <p class="goal"><strong>Objetivo:</strong> ver numa só página o que interessa sobre Portugal, os mercados e o mundo, sempre com a fonte e a idade de cada dado.</p>
+          <ul>
+            <li>Corre no browser, sem servidor próprio; um gateway na Cloudflare trata das fontes que bloqueiam pedidos diretos.</li>
+            <li>Cada cartão mostra de onde vêm os dados e quando foram observados, e avisa quando estão desatualizados.</li>
+            <li>Instala-se como aplicação e mostra a última visita quando não há rede.</li>
+          </ul>
+          <div class="actions">
+            <a class="primary" href="https://lcmadeira.github.io/dash/">Abrir o painel<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+            <a href="https://github.com/lcmadeira/dash"><svg aria-hidden="true"><use href="#i-gh"/></svg>Código</a>
+          </div>
+        </div>
+        <div class="feature-side">
+          <p class="side-label">O que mostra</p>
+          <ul>
+            <li>Meteorologia IPMA, gasolina 95 em Portugal e Espanha, IHPC e Euribor</li>
+            <li>Preço da eletricidade OMIE por hora e a janela mais barata do dia</li>
+            <li>PSI 20, câmbios, cripto e gráficos de 7, 30 e 90 dias</li>
+            <li>Notícias, sismos, qualidade do ar e tráfego aéreo e marítimo</li>
+          </ul>
+          <p class="cadence"><span>●</span> sem build: HTML, CSS e JavaScript; CI com 6 jobs e verificação diária da página publicada</p>
+          <ul class="tags"><li>JavaScript</li><li>Chart.js</li><li>Cloudflare Workers</li><li>PWA</li></ul>
+        </div>
+      </article>
     </div>
 
     <div class="group-block">
