@@ -338,11 +338,23 @@ img { max-width: 100%; }
           <p class="goal"><strong>Objetivo:</strong> que o servidor se mantenha e se proteja sozinho, e avise quando algo corre mal.</p>
           <ul>
             <li>Backups diários verificados, com cópia externa cifrada e alertas no Telegram.</li>
-            <li>Painel de estado com backups, discos e serviços.</li>
+            <li>Testa o disco e a reposição dos backups, e avisa antes de haver problemas.</li>
             <li>Desliga-se sozinho à noite, só depois de os backups terminarem.</li>
           </ul>
           <p class="cadence"><span>●</span> backups às 18:00, 19:30 e 20:00; desliga entre as 20:30 e as 22:30</p>
           <ul class="tags"><li>Python</li><li>Bash</li><li>Restic</li><li>ShellCheck</li></ul>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><h4>Homelab Control</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
+          <p class="goal"><strong>Objetivo:</strong> saber de relance se o servidor está bem, sem abrir um terminal.</p>
+          <ul>
+            <li>Memória, carga, discos com previsão de espaço, serviços e contentores Docker.</li>
+            <li>Idade e resultado de cada backup, incluindo a cópia externa, e das tarefas agendadas.</li>
+            <li>Saúde do disco, atualizações pendentes e qualidade da ligação à Internet; os avisos levam à secção com o problema.</li>
+          </ul>
+          <p class="cadence"><span>●</span> atualiza a cada 30 s; só acessível na rede de casa</p>
+          <ul class="tags"><li>Python</li><li>JavaScript</li><li>systemd</li></ul>
         </article>
 
       </div>
