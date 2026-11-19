@@ -1,0 +1,41 @@
+name: Atualizar atividade dos projetos
+
+on:
+  schedule:
+    - cron: '30 6 * * *'   # todos os dias às 06:30 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: activity
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ler a data do último push de cada projeto
+        env:
+          # Token só de leitura para os repositórios privados; sem ele, só os públicos.
+          GH_TOKEN: ${{ secrets.REPOS_READ_TOKEN || github.token }}
+          ACTIVITY_MAP: ${{ secrets.ACTIVITY_MAP }}
+        run: python3 scripts/update-activity.py
+      - name: Verificar antes de publicar
+        env:
+          PRIVATE_TERMS: ${{ secrets.PRIVATE_TERMS }}
+        run: python3 scripts/check-site.py
+      - name: Publicar se mudou
+        run: |
+          if git diff --quiet -- data/activity.json; then
+            echo "Sem alterações."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/activity.json
+          git commit -m "Atualiza a atividade dos projetos"
+          git push
