@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19T20:57:42Z",
+  "updated": "2026-11-20T15:39:58Z",
   "projects": {
     "automacao-servidor": "2026-11-10T23:25:49Z",
     "buffer-cli": "2026-11-10T18:46:20Z",
@@ -8,7 +8,7 @@
     "indicador-servico": "2026-11-19T17:56:48Z",
     "monitor-sla": "2026-11-16T12:08:46Z",
     "painel-operacao": "2026-11-12T20:26:49Z",
-    "painel-pessoal": "2026-11-02T19:55:42Z",
+    "painel-pessoal": "2026-11-20T15:38:11Z",
     "radar-x": "2026-11-19T11:15:27Z",
     "servidor-domestico": "2026-11-18T21:57:46Z"
   }
