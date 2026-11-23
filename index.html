@@ -72,12 +72,12 @@
       <article class="card feature">
         <div class="feature-main">
           <div class="card-top"><h4>Painel Pessoal · Portugal</h4><span class="badges"><span class="badge wip"><svg aria-hidden="true"><use href="#i-flask"/></svg>Em desenvolvimento</span><span class="badge public"><svg aria-hidden="true"><use href="#i-globe"/></svg>Público</span></span></div>
-          <p class="goal"><strong>Objetivo:</strong> ver numa só página o que interessa sobre Portugal, os mercados e o mundo, sempre com a fonte e a idade de cada dado.</p>
+          <p class="goal"><strong>Objetivo:</strong> agregar numa única página indicadores de Portugal, dos mercados e da atualidade internacional, com a fonte e a data de observação de cada dado.</p>
           <p class="note"><strong>Projeto de aprendizagem e experimentação</strong>, em desenvolvimento e manutenção contínuos: algumas fontes podem falhar ou mudar sem aviso.</p>
           <ul>
-            <li>Corre no browser, sem servidor próprio; um gateway na Cloudflare trata das fontes que bloqueiam pedidos diretos.</li>
-            <li>Cada cartão mostra de onde vêm os dados e quando foram observados, e avisa quando estão desatualizados.</li>
-            <li>Instala-se como aplicação e mostra a última visita quando não há rede.</li>
+            <li>Aplicação estática executada no browser; um gateway em Cloudflare Workers serve de proxy às fontes que bloqueiam pedidos diretos do browser.</li>
+            <li>Cada cartão indica a origem e a data dos dados e sinaliza quando estão desatualizados.</li>
+            <li>PWA instalável, com cache da última sessão para uso offline.</li>
           </ul>
           <div class="actions">
             <a class="primary" href="https://lcmadeira.github.io/dash/" target="_blank" rel="noopener">Abrir o painel<svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -105,24 +105,24 @@
 
         <article class="card">
           <div class="card-top"><h4>Monitor de SLA</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
-          <p class="goal"><strong>Objetivo:</strong> acabar com o copiar e colar manual no cálculo dos níveis de serviço de uma operação de contact center.</p>
+          <p class="goal"><strong>Objetivo:</strong> automatizar o cálculo dos níveis de serviço (SLA) de uma operação de contact center, eliminando o processamento manual.</p>
           <ul>
-            <li>Descarrega o ficheiro de monitorização da plataforma e preenche o modelo Excel sozinho.</li>
-            <li>Repete a extração em caso de falha e avisa quando os dados ficam desatualizados.</li>
-            <li>Guarda histórico dos cálculos e exporta um resumo em CSV.</li>
+            <li>Extração automática do ficheiro de monitorização da plataforma e preenchimento do modelo Excel.</li>
+            <li>Novas tentativas em caso de falha e alerta de dados desatualizados.</li>
+            <li>Histórico de cálculos persistente e exportação de resumo em CSV.</li>
           </ul>
-          <p class="cadence"><span>●</span> corre nos dias úteis, de 15 em 15 min, das 09:15 às 17:45</p>
+          <p class="cadence"><span>●</span> agendado nos dias úteis, a cada 15 min, das 09:15 às 17:45</p>
           <ul class="tags"><li>Python</li><li>Excel</li><li>systemd</li></ul>
           <p class="activity" data-activity="monitor-sla" hidden></p>
         </article>
 
         <article class="card">
           <div class="card-top"><h4>Painel de operação</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
-          <p class="goal"><strong>Objetivo:</strong> juntar num só sítio os indicadores diários de uma equipa de atendimento e o relatório mensal.</p>
+          <p class="goal"><strong>Objetivo:</strong> centralizar os KPI diários de uma equipa de atendimento e a produção do relatório mensal.</p>
           <ul>
-            <li>Leituras ao longo do dia por serviço, com tendência e alertas.</li>
-            <li>Importação de relatórios recebidos por email, com pré-visualização das diferenças antes de gravar.</li>
-            <li>Relatório mensal pronto a enviar, em HTML e Excel.</li>
+            <li>Registo intradiário por serviço, com análise de tendência e alertas.</li>
+            <li>Importação de relatórios recebidos por email, com pré-visualização das diferenças antes da gravação.</li>
+            <li>Geração do relatório mensal em HTML e Excel.</li>
           </ul>
           <p class="cadence"><span>●</span> base de dados local com backup diário verificado</p>
           <ul class="tags"><li>JavaScript</li><li>Node.js</li><li>SQLite</li></ul>
@@ -131,11 +131,11 @@
 
         <article class="card">
           <div class="card-top"><h4>Indicador de serviço</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
-          <p class="goal"><strong>Objetivo:</strong> ver o nível de serviço do momento sem abrir nenhuma aplicação.</p>
+          <p class="goal"><strong>Objetivo:</strong> monitorizar o nível de serviço em tempo real a partir do ambiente de trabalho.</p>
           <ul>
-            <li>Valor e variação na barra superior do GNOME.</li>
-            <li>Gráfico do dia comparado com o mesmo dia da semana anterior.</li>
-            <li>Notificações quando o valor desce abaixo dos limites definidos ou a tendência é de queda.</li>
+            <li>Valor atual e variação na barra superior do GNOME.</li>
+            <li>Gráfico intradiário comparado com o mesmo dia da semana anterior.</li>
+            <li>Notificações quando o valor desce abaixo dos limiares definidos ou a tendência é descendente.</li>
           </ul>
           <p class="cadence"><span>●</span> atualiza a cada extração; aviso se passar 30 min sem dados</p>
           <ul class="tags"><li>Python</li><li>GTK</li><li>GNOME</li></ul>
@@ -151,11 +151,11 @@
 
         <article class="card">
           <div class="card-top"><h4>Servidor doméstico</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
-          <p class="goal"><strong>Objetivo:</strong> ter em casa os meus ficheiros, documentos e serviços, sem depender de terceiros.</p>
+          <p class="goal"><strong>Objetivo:</strong> alojar localmente ficheiros, documentos e serviços (self-hosting), sem dependência de fornecedores externos.</p>
           <ul>
             <li>Nextcloud, Paperless-ngx, FreshRSS, Uptime Kuma e Netdata atrás de um reverse proxy.</li>
-            <li>Cada serviço é uma stack Docker Compose versionada em Git.</li>
-            <li>Um push para o ramo principal faz o deploy, depois de o CI validar.</li>
+            <li>Infraestrutura como código: cada serviço é uma stack Docker Compose versionada em Git.</li>
+            <li>Deploy contínuo: um push para o ramo principal dispara o deploy depois da validação em CI.</li>
           </ul>
           <p class="cadence"><span>●</span> 9 stacks num servidor Debian com 3 GB de RAM</p>
           <ul class="tags"><li>Docker</li><li>Traefik</li><li>GitHub Actions</li><li>Tailscale</li></ul>
@@ -164,11 +164,11 @@
 
         <article class="card">
           <div class="card-top"><h4>Automação do servidor</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
-          <p class="goal"><strong>Objetivo:</strong> que o servidor se mantenha e se proteja sozinho, e avise quando algo corre mal.</p>
+          <p class="goal"><strong>Objetivo:</strong> manutenção, proteção e monitorização autónomas do servidor, com alertas em caso de falha.</p>
           <ul>
-            <li>Backups diários verificados, com cópia externa cifrada e alertas no Telegram.</li>
-            <li>Testa o disco e a reposição dos backups, e avisa antes de haver problemas.</li>
-            <li>Desliga-se sozinho à noite, só depois de os backups terminarem.</li>
+            <li>Backups diários verificados, com réplica externa cifrada e alertas via Telegram.</li>
+            <li>Monitorização da saúde do disco e testes periódicos de reposição, com alertas preventivos.</li>
+            <li>Encerramento automático noturno, condicionado à conclusão dos backups.</li>
           </ul>
           <p class="cadence"><span>●</span> backups às 18:00, 19:30 e 20:00; desliga entre as 20:30 e as 22:30</p>
           <ul class="tags"><li>Python</li><li>Bash</li><li>Restic</li><li>ShellCheck</li></ul>
@@ -177,13 +177,13 @@
 
         <article class="card">
           <div class="card-top"><h4>Homelab Control</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
-          <p class="goal"><strong>Objetivo:</strong> saber de relance se o servidor está bem, sem abrir um terminal.</p>
+          <p class="goal"><strong>Objetivo:</strong> visão consolidada do estado do servidor, sem acesso por terminal.</p>
           <ul>
-            <li>Memória, carga, discos com previsão de espaço, serviços e contentores Docker.</li>
-            <li>Idade e resultado de cada backup, incluindo a cópia externa, e das tarefas agendadas.</li>
-            <li>Saúde do disco, atualizações pendentes e qualidade da ligação à Internet; os avisos levam à secção com o problema.</li>
+            <li>Memória, carga, ocupação dos discos com previsão de capacidade, serviços e contentores Docker.</li>
+            <li>Idade e resultado de cada backup, incluindo a réplica externa, e das tarefas agendadas.</li>
+            <li>Saúde do disco, atualizações pendentes e qualidade da ligação; cada alerta encaminha para a secção afetada.</li>
           </ul>
-          <p class="cadence"><span>●</span> atualiza a cada 30 s; só acessível na rede de casa</p>
+          <p class="cadence"><span>●</span> atualização a cada 30 s; acesso restrito à rede local</p>
           <ul class="tags"><li>Python</li><li>JavaScript</li><li>systemd</li></ul>
           <p class="activity" data-activity="homelab-control" hidden></p>
         </article>
@@ -197,11 +197,11 @@
 
         <article class="card">
           <div class="card-top"><h4>Inbox Assistant</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
-          <p class="goal"><strong>Objetivo:</strong> manter a caixa de email arrumada e os documentos importantes arquivados sem esforço.</p>
+          <p class="goal"><strong>Objetivo:</strong> automatizar a triagem do email e o arquivo de documentos.</p>
           <ul>
-            <li>Classifica as mensagens lidas por regras e, opcionalmente, com IA.</li>
-            <li>Guarda os anexos sem duplicados e envia faturas e documentos para o Paperless-ngx.</li>
-            <li>Nunca repete uma operação que possa já ter sido feita.</li>
+            <li>Classificação das mensagens lidas por regras, com classificação opcional por LLM.</li>
+            <li>Extração de anexos com deduplicação e envio de faturas e documentos para o Paperless-ngx.</li>
+            <li>Operações idempotentes: nenhuma ação que possa já ter sido executada é repetida.</li>
           </ul>
           <p class="cadence"><span>●</span> só biblioteca padrão do Python, sem dependências externas</p>
           <ul class="tags"><li>Python</li><li>IMAP</li><li>SQLite</li></ul>
@@ -210,11 +210,11 @@
 
         <article class="card">
           <div class="card-top"><h4>Radar X</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
-          <p class="goal"><strong>Objetivo:</strong> acompanhar a atualidade e escrever publicações com as fontes à vista.</p>
+          <p class="goal"><strong>Objetivo:</strong> acompanhar a atualidade e redigir publicações com as fontes referenciadas.</p>
           <ul>
-            <li>Pesquisa notícias em Portugal, na Europa e no mundo, e agrupa as que contam a mesma história.</li>
-            <li>Mostra o que está em alta e gera rascunhos em pt-PT em vários tons.</li>
-            <li>Publica ou agenda no X e no Threads, sempre com confirmação.</li>
+            <li>Agregação de notícias nacionais, europeias e internacionais, com agrupamento dos artigos sobre o mesmo tema.</li>
+            <li>Deteção de temas em tendência e geração de rascunhos em pt-PT com vários registos de tom.</li>
+            <li>Publicação ou agendamento no X e no Threads, sempre com confirmação explícita.</li>
           </ul>
           <p class="cadence"><span>●</span> fontes: Google News, RTP, Parlamento, Comissão Europeia, BCE</p>
           <ul class="tags"><li>Python</li><li>RSS</li><li>LLM</li></ul>
@@ -223,11 +223,11 @@
 
         <article class="card">
           <div class="card-top"><h4>buffer-cli</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Privado</span></div>
-          <p class="goal"><strong>Objetivo:</strong> publicar nas redes sociais a partir do terminal, rápido e sem enganos.</p>
+          <p class="goal"><strong>Objetivo:</strong> publicar e agendar nas redes sociais a partir da linha de comandos, de forma rápida e segura.</p>
           <ul>
-            <li>Publica ou agenda no X e no Threads, com texto próprio para cada rede.</li>
-            <li>Fios, imagens e vídeos, e vários posts de uma vez a partir de um ficheiro.</li>
-            <li>Pré-visualização, contagem de caracteres e aviso antes de duplicar.</li>
+            <li>Publicação ou agendamento no X e no Threads, com texto adaptado a cada rede.</li>
+            <li>Suporte a fios, imagens e vídeo, e publicação em lote a partir de ficheiro.</li>
+            <li>Pré-visualização, contagem de caracteres e deteção de duplicados.</li>
           </ul>
           <p class="cadence"><span>●</span> <code>buffer --via x,threads --in 2h "…"</code></p>
           <ul class="tags"><li>Python</li><li>API Buffer</li><li>CLI</li></ul>
