@@ -110,7 +110,7 @@
         <div><dt data-count="cards">10</dt><dd>projetos, 1 deles público</dd></div>
         <div><dt data-count="stacks">9</dt><dd>stacks Docker no servidor</dd></div>
         <div><dt>3</dt><dd>backups diários verificados</dd></div>
-        <div><dt>15 min</dt><dd>ciclo de monitorização do SLA</dd></div>
+        <div><dt>30 s</dt><dd>atualização do painel do servidor</dd></div>
       </dl>
     </div>
   </header>
@@ -154,28 +154,28 @@
     </div>
 
     <div class="group-block">
-      <h3 class="group">Automação no trabalho</h3>
+      <h3 class="group">Automação operacional</h3>
       <div class="grid">
 
         <article class="card">
           <div class="card-top"><h4><span class="card-ico"><svg aria-hidden="true"><use href="#c-gauge"/></svg></span>Monitor de SLA</h4></div>
-          <p class="goal"><strong>Objetivo:</strong> automatizar o cálculo dos níveis de serviço (SLA) de uma operação de contact center, eliminando o processamento manual.</p>
+          <p class="goal"><strong>Objetivo:</strong> automatizar o cálculo de indicadores de nível de serviço (SLA), eliminando o processamento manual.</p>
           <ul>
-            <li>Extração automática do ficheiro de monitorização da plataforma e preenchimento do modelo Excel.</li>
+            <li>Extração automática de dados de monitorização e preenchimento de um modelo Excel.</li>
             <li>Novas tentativas em caso de falha e alerta de dados desatualizados.</li>
             <li>Histórico de cálculos persistente e exportação de resumo em CSV.</li>
           </ul>
-          <p class="cadence">agendado nos dias úteis, a cada 15 min, das 09:15 às 17:45</p>
+          <p class="cadence">agendado em ciclos regulares durante o horário de serviço</p>
           <ul class="tags"><li>Python</li><li>Excel</li><li>systemd</li></ul>
           <p class="activity" data-activity="monitor-sla" hidden></p>
         </article>
 
         <article class="card">
           <div class="card-top"><h4><span class="card-ico"><svg aria-hidden="true"><use href="#c-chart"/></svg></span>Painel de operação</h4></div>
-          <p class="goal"><strong>Objetivo:</strong> centralizar os KPI diários de uma equipa de atendimento e a produção do relatório mensal.</p>
+          <p class="goal"><strong>Objetivo:</strong> centralizar os KPI diários de uma equipa operacional e a produção do relatório mensal.</p>
           <ul>
             <li>Registo intradiário por serviço, com análise de tendência e alertas.</li>
-            <li>Importação de relatórios recebidos por email, com pré-visualização das diferenças antes da gravação.</li>
+            <li>Importação de relatórios periódicos, com pré-visualização das diferenças antes da gravação.</li>
             <li>Geração do relatório mensal em HTML e Excel.</li>
           </ul>
           <p class="cadence">base de dados local com backup diário verificado</p>
@@ -191,7 +191,7 @@
             <li>Gráfico intradiário comparado com o mesmo dia da semana anterior.</li>
             <li>Notificações quando o valor desce abaixo dos limiares definidos ou a tendência é descendente.</li>
           </ul>
-          <p class="cadence">atualiza a cada extração; aviso se passar 30 min sem dados</p>
+          <p class="cadence">atualiza a cada extração; aviso se os dados ficarem desatualizados</p>
           <ul class="tags"><li>Python</li><li>GTK</li><li>GNOME</li></ul>
           <p class="activity" data-activity="indicador-servico" hidden></p>
         </article>
