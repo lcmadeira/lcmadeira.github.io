@@ -4,6 +4,18 @@ Página pessoal de Luís Carlos Madeira, publicada pelo GitHub Pages em <https:/
 
 É um site estático em HTML, CSS e um pouco de JavaScript, sem build e sem Jekyll (o ficheiro `.nojekyll` faz o Pages servir os ficheiros tal como estão). O Pages publica a partir do ramo `master`.
 
+## Documentação
+
+| Documento | Conteúdo |
+| --- | --- |
+| `README.md` (este) | Como o site funciona e como se altera |
+| [`docs/decisoes.md`](docs/decisoes.md) | Porque é que o site é como é: decisões, datas e motivos |
+| [`docs/manutencao.md`](docs/manutencao.md) | Rotina mensal e o que mudar ao alterar a frase, um cartão, um recurso externo… |
+| [`docs/ideias.md`](docs/ideias.md) | Ideias por fazer e limitações conhecidas |
+| [`CLAUDE.md`](CLAUDE.md) | Regras do projeto para sessões com IA |
+
+Ao mudar o funcionamento do site, atualizar este README; ao tomar uma decisão, registá-la em `docs/decisoes.md`.
+
 ## Estrutura
 
 | Ficheiro | Para que serve |
@@ -11,14 +23,20 @@ Página pessoal de Luís Carlos Madeira, publicada pelo GitHub Pages em <https:/
 | `index.html` | Página em português |
 | `en/index.html` | Página em inglês, com a mesma estrutura e os mesmos cartões |
 | `404.html` | Página de erro; usa caminhos absolutos (`/assets/...`) porque é servida em qualquer endereço |
+| `robots.txt`, `sitemap.xml` | Indicações para os motores de pesquisa; o sitemap lista as duas línguas com `hreflang` |
 | `assets/site.css` | Estilos partilhados pelas três páginas, com tema claro e escuro (Catppuccin Latte e Mocha) |
 | `assets/activity.js` | Preenche a linha "atualizado há X" de cada cartão a partir de `data/activity.json` |
+| `assets/404.js` | Mostra na página de erro o endereço pedido |
 | `data/activity.json` | Data da última alteração de cada projeto, gerada pela automação diária |
 | `assets/og.png`, `assets/og-en.png` | Imagens de pré-visualização para as redes sociais (1200×630), geradas a partir de `scripts/og-image.html` (instruções no próprio ficheiro); a frase tem de ser igual à do topo |
 | `favicon.ico`, `assets/*icon*.png` | Ícone do site (monograma LM) |
 | `scripts/check-site.py` | Verificações antes de publicar (ver abaixo) |
 | `scripts/update-activity.py` | Atualiza `data/activity.json` |
+| `scripts/og-image.html` | Modelo das imagens de pré-visualização (não é uma página do site) |
 | `.github/workflows/` | Automação: `check.yml` e `activity.yml` |
+| `.github/dependabot.yml` | Atualizações semanais das GitHub Actions |
+| `LICENSE` | Licença MIT do código |
+| `docs/`, `CLAUDE.md` | Documentação (ver acima) |
 
 ## Alterar o conteúdo
 
@@ -31,10 +49,7 @@ Página pessoal de Luís Carlos Madeira, publicada pelo GitHub Pages em <https:/
   Sem isto o cartão funciona na mesma; só não mostra a data.
 - **Números do topo** (`<dl class="stats">`): são escritos à mão, nas duas páginas. Ao acrescentar ou retirar um cartão, atualizar o número de projetos (e o "um deles público", se mudar); a verificação falha se esse número não bater com os cartões. O número de serviços self-hosted tem de bater com a lista `ls -F apps/` da secção "O que uso" (também verificado); a lista mostra só os serviços, não as peças de infraestrutura ou administração do servidor. Os outros dois (backups diários, atualização do painel do servidor) não são verificados: atualizar quando mudarem no servidor.
 
-- **Estatísticas de visitas**: Cloudflare Web Analytics (sem cookies, só dados agregados: páginas, país, origem, dispositivo). O script está no fim de `index.html`, `en/index.html` e `404.html`; uma página nova também o deve ter. Os dados veem-se no painel da Cloudflare, em Análise → Web Analytics. Browsers com bloqueio (Brave, uBlock) não são contados.
-
-- **Pesquisa (SEO)**: `robots.txt`, `sitemap.xml` (as duas línguas, com `hreflang`) e um bloco JSON-LD `Person` no `<head>` de cada página. Se mudar a frase do topo, os links ou o email, atualizar também o JSON-LD.
-
+- **Frase do topo, imagens de pré-visualização, contactos**: estão repetidos em vários sítios; seguir as listas de `docs/manutencao.md`.
 - **Política de segurança (CSP)**: cada página tem uma meta `Content-Security-Policy` que só deixa carregar recursos do próprio site, das Google Fonts e da Cloudflare (estatísticas). Não há scripts nem estilos embutidos (`<script>` sem `src`, `style="…"`): ficam em `assets/`. Um recurso externo novo obriga a acrescentá-lo à CSP das três páginas, senão o browser bloqueia-o.
 
 ### O que pode ser público
@@ -65,6 +80,23 @@ A atividade dos cartões só aparece com o site servido por HTTP, não ao abrir 
 
 Localmente, os termos privados só são verificados com a variável `PRIVATE_TERMS` definida; sem ela aparece um aviso. Na CI são sempre verificados.
 
+## Serviços externos
+
+| Serviço | Para que serve | Onde está no site |
+| --- | --- | --- |
+| GitHub Pages | Alojamento, HTTPS | Ramo `master` |
+| Cloudflare Web Analytics | Estatísticas de visitas sem cookies (páginas, país, origem, dispositivo); painel em Análise → Web Analytics. Browsers com bloqueio (Brave, uBlock) não são contados | Script no fim das três páginas; uma página nova também o deve ter |
+| Google Search Console | Pesquisas, cliques e indexação; sitemap submetido | Meta `google-site-verification` em `index.html` (não remover) |
+| Google Fonts | Bricolage Grotesque, IBM Plex Sans e Mono | `<link>` no `<head>`; autorizado na CSP |
+
+A pesquisa usa ainda `robots.txt`, `sitemap.xml` e um bloco JSON-LD `Person` no `<head>` de cada página. Se mudar a frase do topo, os links ou o email, atualizar também o JSON-LD.
+
+## Proteções do repositório
+
+- **Regra "Proteger master"** (*Settings → Rules*): o `master` não pode ser apagado nem reescrito à força. Não exige pull request, porque o workflow diário faz push de `data/activity.json`.
+- **GitHub Actions fixadas por SHA**, com o Dependabot a propor atualizações; `check.yml` não guarda credenciais no checkout.
+- **Email dos commits**: o `noreply` do GitHub; o GitHub recusa pushes que exponham o email pessoal.
+
 ## Automação
 
 | Workflow | Quando corre | O que faz |
@@ -89,7 +121,10 @@ Para os definir ou alterar com a linha de comandos: `gh secret set <NOME> -R lcm
 1. Criar um ramo a partir do `master` atualizado.
 2. Fazer as alterações nas duas línguas e correr `python3 scripts/check-site.py`.
 3. Abrir um pull request; a CI verifica-o.
-4. Fazer o merge. O Pages publica em um ou dois minutos e o ramo é apagado automaticamente.
+4. Fazer o merge. O Pages publica em um ou dois minutos e o ramo remoto é apagado automaticamente.
+5. Atualizar a documentação na mesma alteração, se for caso disso (ver "Documentação").
+
+As descrições dos pull requests e as mensagens de commit são públicas: descrever a alteração sem citar dados privados ou o texto sensível que se retira.
 
 ## Licença
 
