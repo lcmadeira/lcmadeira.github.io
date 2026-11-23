@@ -129,7 +129,7 @@
           <p class="goal"><strong>Objetivo:</strong> agregar numa única página indicadores de Portugal, dos mercados e da atualidade internacional, com a fonte e a data de observação de cada dado.</p>
           <p class="note"><strong>Projeto de aprendizagem e experimentação</strong>, em desenvolvimento e manutenção contínuos: algumas fontes podem falhar ou mudar sem aviso.</p>
           <ul>
-            <li>Aplicação estática executada no browser; um gateway em Cloudflare Workers serve de proxy às fontes que bloqueiam pedidos diretos do browser.</li>
+            <li>Aplicação estática executada no browser; um gateway em Cloudflare Workers serve de proxy às fontes sem suporte CORS.</li>
             <li>Cada cartão indica a origem e a data dos dados e sinaliza quando estão desatualizados.</li>
             <li>PWA instalável, com cache da última sessão para uso offline.</li>
           </ul>
@@ -221,7 +221,7 @@
           <p class="goal"><strong>Objetivo:</strong> manter, proteger e monitorizar o servidor de forma autónoma, com alertas em caso de falha.</p>
           <ul>
             <li>Backups diários verificados, com réplica externa cifrada e alertas via Telegram.</li>
-            <li>Monitorização da saúde do disco e testes periódicos de reposição, com alertas preventivos.</li>
+            <li>Monitorização SMART do disco e testes periódicos de reposição, com alertas preventivos.</li>
             <li>Encerramento automático noturno, condicionado à conclusão dos backups.</li>
           </ul>
           <p class="cadence">backups às 18:00, 19:30 e 20:00; desliga entre as 20:30 e as 22:30</p>
