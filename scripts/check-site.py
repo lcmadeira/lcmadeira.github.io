@@ -10,6 +10,7 @@ Falha (código 1) se:
   - um link ou recurso interno apontar para um ficheiro que não existe;
   - as versões PT e EN não tiverem os mesmos cartões e links externos;
   - data/activity.json for inválido ou tiver cartões que a página não tem;
+  - o número de projetos no topo (data-count="cards") não bater com os cartões;
   - aparecer um endereço IPv4, um email ou um termo privado em qualquer ficheiro
     publicado. Os termos privados vêm da variável PRIVATE_TERMS (um por linha,
     segredo do repositório), para a lista não ficar ela própria pública.
@@ -28,12 +29,15 @@ class Page(html.parser.HTMLParser):
     def __init__(self, name):
         super().__init__(convert_charrefs=True)
         self.name, self.stack, self.ids, self.links, self.refs, self.activity = name, [], set(), [], [], set()
+        self.cards, self.count, self.in_count = 0, None, False
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         if 'id' in a:
             if a['id'] in self.ids: errors.append(f'{self.name}: id repetido "{a["id"]}"')
             self.ids.add(a['id'])
         if 'data-activity' in a: self.activity.add(a['data-activity'])
+        if tag == 'article' and 'card' in a.get('class', '').split(): self.cards += 1
+        if a.get('data-count') == 'cards': self.count, self.in_count = '', True
         if tag == 'a' and a.get('href', '').startswith(('http://', 'https://')):
             self.links.append(a)
         for attr in ('href', 'src'):
@@ -46,7 +50,10 @@ class Page(html.parser.HTMLParser):
         self.handle_starttag(tag, attrs)
         if tag not in VOID and tag not in SVG_LEAF and self.stack and self.stack[-1][0] == tag:
             self.stack.pop()
+    def handle_data(self, data):
+        if self.in_count: self.count += data
     def handle_endtag(self, tag):
+        self.in_count = False
         if tag in SVG_LEAF: return
         if self.stack and self.stack[-1][0] == tag: self.stack.pop()
         else: errors.append(f'{self.name}:{self.getpos()[0]}: </{tag}> sem abertura correspondente')
@@ -70,6 +77,8 @@ def check_pages():
             if clean.endswith('/'): target = os.path.join(target, 'index.html')
             if not os.path.exists(target):
                 errors.append(f'{name}: aponta para {ref}, que não existe')
+        if p.count is not None and p.count.strip() != str(p.cards):
+            errors.append(f'{name}: o topo diz {p.count.strip()!r} projetos, mas há {p.cards} cartões')
         pages[name] = p
     pt, en = pages.get('index.html'), pages.get('en/index.html')
     if pt and en:
