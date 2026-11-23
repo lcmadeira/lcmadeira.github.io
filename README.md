@@ -33,6 +33,8 @@ Página pessoal de Luís Carlos Madeira, publicada pelo GitHub Pages em <https:/
 
 - **Estatísticas de visitas**: Cloudflare Web Analytics (sem cookies, só dados agregados: páginas, país, origem, dispositivo). O script está no fim de `index.html`, `en/index.html` e `404.html`; uma página nova também o deve ter. Os dados veem-se no painel da Cloudflare, em Análise → Web Analytics. Browsers com bloqueio (Brave, uBlock) não são contados.
 
+- **Pesquisa (SEO)**: `robots.txt`, `sitemap.xml` (as duas línguas, com `hreflang`) e um bloco JSON-LD `Person` no `<head>` de cada página. Se mudar a frase do topo, os links ou o email, atualizar também o JSON-LD.
+
 ### O que pode ser público
 
 Os cartões descrevem também projetos privados, alguns do trabalho. Nunca publicar nomes de clientes ou empresas, endereços IP, domínios, portas, emails (a única exceção é o email de contacto do topo, `PUBLIC_EMAIL` em `scripts/check-site.py`), métricas ou limiares reais, nem nomes de repositórios privados. Descrever o problema e a solução de forma genérica.
@@ -53,6 +55,7 @@ A atividade dos cartões só aparece com o site servido por HTTP, não ao abrir 
 - um link externo não abrir em novo separador;
 - um link ou recurso interno apontar para um ficheiro que não existe;
 - as páginas PT e EN tiverem cartões ou links externos diferentes;
+- um bloco JSON-LD (dados estruturados no `<head>`) ou o `sitemap.xml` forem inválidos;
 - `data/activity.json` for inválido ou tiver cartões que a página não tem;
 - o número de projetos ou de stacks no topo não bater com os cartões ou com a lista de stacks;
 - aparecer um endereço IPv4, um email (exceto o de contacto, `PUBLIC_EMAIL`) ou um termo privado em qualquer ficheiro publicado;
