@@ -74,6 +74,7 @@ h1 {
   text-wrap: balance;
 }
 .lede { margin: 0; font-size: 1.15rem; line-height: 1.55; }
+.nw { white-space: nowrap; }
 .links { display: flex; flex-wrap: wrap; gap: 0.6rem; margin: 0; padding: 0; list-style: none; }
 .links a {
   display: inline-flex; align-items: center; gap: 0.45rem;
