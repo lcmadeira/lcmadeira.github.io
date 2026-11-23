@@ -20,7 +20,9 @@
     padding: 52px 64px 50px;
     display: grid; grid-template-rows: auto 1fr auto;
   }
-  .kicker { margin: 0; font: 500 20px/1 "Inter", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #8A93A5; }
+  .prompt { margin: 0; font: 700 34px/1 ui-monospace, "DejaVu Sans Mono", monospace; color: #E7EAF0; }
+  .prompt b { color: #6EA8FE; font-weight: 700; }
+  .prompt span { color: #8A93A5; }
   .main { display: grid; grid-template-columns: 150px 1fr; column-gap: 56px; align-items: center; }
   .logo { width: 150px; height: 150px; display: block; }
   h1 { margin: 0 0 18px; font: 700 68px/1.05 "Inter", sans-serif; color: #E7EAF0; letter-spacing: -0.03em; }
@@ -35,7 +37,7 @@
 </head>
 <body>
 <div class="card">
-  <p class="kicker" id="kicker">Portfólio · Évora, Portugal</p>
+  <p class="prompt"><b>~</b> <span>$</span> whoami</p>
   <div class="main">
     <img class="logo" src="../favicon.svg" alt="">
     <div>
@@ -51,7 +53,6 @@
 <script>
   if (location.search.indexOf('en') !== -1) {
     document.documentElement.lang = 'en';
-    document.getElementById('kicker').textContent = 'Portfolio · Évora, Portugal';
     document.getElementById('lede').innerHTML = 'Process automation, operations monitoring and <span class="nw">self-hosted</span> infrastructure.';
   }
 </script>
