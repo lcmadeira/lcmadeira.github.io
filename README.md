@@ -14,7 +14,7 @@ Página pessoal de Luís Carlos Madeira, publicada pelo GitHub Pages em <https:/
 | `assets/site.css` | Estilos partilhados pelas três páginas, com tema claro e escuro (Catppuccin Latte e Mocha) |
 | `assets/activity.js` | Preenche a linha "atualizado há X" de cada cartão a partir de `data/activity.json` |
 | `data/activity.json` | Data da última alteração de cada projeto, gerada pela automação diária |
-| `assets/og.png`, `assets/og-en.png` | Imagens de pré-visualização para as redes sociais (1200×630) |
+| `assets/og.png`, `assets/og-en.png` | Imagens de pré-visualização para as redes sociais (1200×630), geradas a partir de `scripts/og-image.html` (instruções no próprio ficheiro); a frase tem de ser igual à do topo |
 | `favicon.ico`, `assets/*icon*.png` | Ícone do site (monograma LM) |
 | `scripts/check-site.py` | Verificações antes de publicar (ver abaixo) |
 | `scripts/update-activity.py` | Atualiza `data/activity.json` |
