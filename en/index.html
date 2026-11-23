@@ -128,7 +128,7 @@
           <p class="goal"><strong>Goal:</strong> aggregate indicators on Portugal, the markets and international news on a single page, with the source and observation time of each data point.</p>
           <p class="note"><strong>A learning and experimentation project</strong>, under continuous development and maintenance: some sources may fail or change without notice.</p>
           <ul>
-            <li>Static application running in the browser; a Cloudflare Workers gateway proxies the sources that block direct browser requests.</li>
+            <li>Static application running in the browser; a Cloudflare Workers gateway proxies sources without CORS support.</li>
             <li>Each card states the origin and timestamp of its data and flags it when stale.</li>
             <li>Installable PWA, caching the last session for offline use.</li>
           </ul>
@@ -220,7 +220,7 @@
           <p class="goal"><strong>Goal:</strong> maintain, protect and monitor the server autonomously, with alerts on failure.</p>
           <ul>
             <li>Verified daily backups, with an encrypted off-site replica and Telegram alerts.</li>
-            <li>Disk health monitoring and periodic restore tests, with early-warning alerts.</li>
+            <li>SMART disk health monitoring and periodic restore tests, with early-warning alerts.</li>
             <li>Automatic nightly shutdown, once backups have completed.</li>
           </ul>
           <p class="cadence">backups at 18:00, 19:30 and 20:00; shuts down between 20:30 and 22:30</p>
