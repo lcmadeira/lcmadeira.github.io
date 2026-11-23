@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light dark">
 <title>Luís Carlos Madeira</title>
-<meta name="description" content="Personal page of Luís Carlos Madeira: automation, data and homelab projects.">
+<meta name="description" content="Portfolio of Luís Carlos Madeira: process automation, operations monitoring and self-hosted infrastructure.">
 <link rel="icon" href="/favicon.ico" sizes="48x48">
 <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32.png">
 <link rel="icon" type="image/png" sizes="192x192" href="/assets/icon-192.png">
@@ -106,7 +106,7 @@
         </ul>
       </div>
       <dl class="stats">
-        <div><dt data-count="cards">10</dt><dd>projects, 1 of them public</dd></div>
+        <div><dt data-count="cards">10</dt><dd>projects, one of them public</dd></div>
         <div><dt data-count="apps">7</dt><dd>self-hosted services on the server</dd></div>
         <div><dt>3</dt><dd>verified daily backups</dd></div>
         <div><dt>30 s</dt><dd>server dashboard refresh</dd></div>
@@ -143,7 +143,7 @@
             <li>IPMA weather, petrol prices in Portugal and Spain, HICP and Euribor</li>
             <li>Hourly OMIE electricity prices and the cheapest window of the day</li>
             <li>PSI 20, exchange rates, crypto and 7, 30 and 90-day charts</li>
-            <li>News, earthquakes, air quality and air and sea traffic</li>
+            <li>News, earthquakes, air quality, and air and maritime traffic</li>
           </ul>
           <p class="cadence">no build step: HTML, CSS and JavaScript; CI with 6 jobs and a daily check of the live page</p>
           <ul class="tags"><li>JavaScript</li><li>Chart.js</li><li>Cloudflare Workers</li><li>PWA</li></ul>
@@ -161,7 +161,7 @@
           <p class="goal"><strong>Goal:</strong> automate the calculation of service-level (SLA) indicators, eliminating manual processing.</p>
           <ul>
             <li>Automated extraction of monitoring data and population of an Excel template.</li>
-            <li>Retries on failure and stale-data alerting.</li>
+            <li>Automatic retries on failure, with stale-data alerts.</li>
             <li>Persistent calculation history and CSV summary export.</li>
           </ul>
           <p class="cadence">scheduled at regular intervals during service hours</p>
@@ -174,7 +174,7 @@
           <p class="goal"><strong>Goal:</strong> centralise an operations team's daily KPIs and the production of the monthly report.</p>
           <ul>
             <li>Intraday readings per service, with trend analysis and alerts.</li>
-            <li>Import of periodic reports, with a diff preview before committing.</li>
+            <li>Import of periodic reports, with a preview of changes before saving.</li>
             <li>Monthly report generation in HTML and Excel.</li>
           </ul>
           <p class="cadence">local database with a verified daily backup</p>
@@ -208,7 +208,7 @@
           <ul>
             <li>Nextcloud, Paperless-ngx, FreshRSS, Uptime Kuma and Netdata behind a reverse proxy.</li>
             <li>Infrastructure as code: each service is a Docker Compose stack versioned in Git.</li>
-            <li>Continuous deployment: a push to the main branch triggers the deploy after CI validation.</li>
+            <li>Continuous deployment: a push to the main branch triggers deployment once CI passes.</li>
           </ul>
           <p class="cadence">Docker services on a Debian server with 3 GB of RAM</p>
           <ul class="tags"><li>Docker</li><li>Traefik</li><li>GitHub Actions</li><li>Tailscale</li></ul>
@@ -217,11 +217,11 @@
 
         <article class="card">
           <div class="card-top"><h4><span class="card-ico"><svg aria-hidden="true"><use href="#c-shield"/></svg></span>Server Automation</h4></div>
-          <p class="goal"><strong>Goal:</strong> autonomous maintenance, protection and monitoring of the server, with failure alerting.</p>
+          <p class="goal"><strong>Goal:</strong> maintain, protect and monitor the server autonomously, with alerts on failure.</p>
           <ul>
             <li>Verified daily backups, with an encrypted off-site replica and Telegram alerts.</li>
             <li>Disk health monitoring and periodic restore tests, with early-warning alerts.</li>
-            <li>Automatic nightly shutdown, conditional on backup completion.</li>
+            <li>Automatic nightly shutdown, once backups have completed.</li>
           </ul>
           <p class="cadence">backups at 18:00, 19:30 and 20:00; shuts down between 20:30 and 22:30</p>
           <ul class="tags"><li>Python</li><li>Bash</li><li>Restic</li><li>ShellCheck</li></ul>
@@ -230,13 +230,13 @@
 
         <article class="card">
           <div class="card-top"><h4><span class="card-ico"><svg aria-hidden="true"><use href="#c-panels"/></svg></span>Homelab Control</h4></div>
-          <p class="goal"><strong>Goal:</strong> a consolidated view of server status, without terminal access.</p>
+          <p class="goal"><strong>Goal:</strong> give a consolidated view of server status without opening a terminal.</p>
           <ul>
             <li>Memory, load, disk usage with capacity forecasting, services and Docker containers.</li>
-            <li>Age and result of every backup, including the off-site replica, and of scheduled tasks.</li>
+            <li>Age and outcome of every backup (including the off-site replica) and of scheduled tasks.</li>
             <li>Disk health, pending updates and connection quality; each alert links to the affected section.</li>
           </ul>
-          <p class="cadence">refresh every 30 s; access restricted to the local network</p>
+          <p class="cadence">refreshes every 30 s; local network access only</p>
           <ul class="tags"><li>Python</li><li>JavaScript</li><li>systemd</li></ul>
           <p class="activity" data-activity="homelab-control" hidden></p>
         </article>
@@ -252,8 +252,8 @@
           <div class="card-top"><h4><span class="card-ico"><svg aria-hidden="true"><use href="#c-inbox"/></svg></span>Inbox Assistant</h4></div>
           <p class="goal"><strong>Goal:</strong> automate email triage and document filing.</p>
           <ul>
-            <li>Rule-based classification of read messages, with optional LLM classification.</li>
-            <li>Attachment extraction with deduplication, forwarding invoices and documents to Paperless-ngx.</li>
+            <li>Rule-based sorting of read messages, with optional LLM classification.</li>
+            <li>Deduplicated attachment extraction; invoices and documents are filed in Paperless-ngx.</li>
             <li>Idempotent operations: no action that may already have run is repeated.</li>
           </ul>
           <p class="cadence">Python standard library only, no external dependencies</p>
@@ -279,7 +279,7 @@
           <p class="goal"><strong>Goal:</strong> publish and schedule social media posts from the command line, quickly and safely.</p>
           <ul>
             <li>Publishing or scheduling on X and Threads, with text tailored to each network.</li>
-            <li>Support for threads, images and video, and batch posting from a file.</li>
+            <li>Support for multi-post threads, images and video, and batch posting from a file.</li>
             <li>Preview, character count and duplicate detection.</li>
           </ul>
           <p class="cadence"><code>buffer --via x,threads --in 2h "…"</code></p>
@@ -329,7 +329,7 @@
 
   <footer>
     <span>Luís Carlos Madeira · Évora · Portugal <svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Flag of Portugal"><rect width="12" height="20" fill="#046a38"/><rect x="12" width="18" height="20" fill="#da291c"/><circle cx="12" cy="10" r="4.6" fill="none" stroke="#ffe900" stroke-width="1.4"/><path d="M9.7 7.4h4.6v3.6a2.3 2.3 0 0 1-4.6 0Z" fill="#fff" stroke="#da291c" stroke-width=".6"/></svg></span>
-    <span>Static page hosted on GitHub Pages · anonymous visit statistics, no cookies</span>
+    <span>Static page hosted on GitHub Pages · anonymous, cookie-free visit statistics</span>
   </footer>
 
 </main>
