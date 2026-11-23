@@ -29,7 +29,7 @@ Página pessoal de Luís Carlos Madeira, publicada pelo GitHub Pages em <https:/
   2. se o repositório for privado, dar-lhe acesso no token `REPOS_READ_TOKEN` (definições do token no GitHub).
 
   Sem isto o cartão funciona na mesma; só não mostra a data.
-- **Números do topo** (`<dl class="stats">`): são escritos à mão, nas duas páginas. Ao acrescentar ou retirar um cartão, atualizar o número de projetos (e o "1 deles público", se mudar); a verificação falha se esse número não bater com os cartões. O número de stacks Docker tem de bater com a lista `ls -F stacks/` da secção "O que uso" (também verificado). Os outros dois (backups diários, atualização do painel do servidor) não são verificados: atualizar quando mudarem no servidor.
+- **Números do topo** (`<dl class="stats">`): são escritos à mão, nas duas páginas. Ao acrescentar ou retirar um cartão, atualizar o número de projetos (e o "1 deles público", se mudar); a verificação falha se esse número não bater com os cartões. O número de serviços self-hosted tem de bater com a lista `ls -F apps/` da secção "O que uso" (também verificado); a lista mostra só os serviços, não as peças de infraestrutura ou administração do servidor. Os outros dois (backups diários, atualização do painel do servidor) não são verificados: atualizar quando mudarem no servidor.
 
 - **Estatísticas de visitas**: Cloudflare Web Analytics (sem cookies, só dados agregados: páginas, país, origem, dispositivo). O script está no fim de `index.html`, `en/index.html` e `404.html`; uma página nova também o deve ter. Os dados veem-se no painel da Cloudflare, em Análise → Web Analytics. Browsers com bloqueio (Brave, uBlock) não são contados.
 
@@ -59,7 +59,7 @@ A atividade dos cartões só aparece com o site servido por HTTP, não ao abrir 
 - as páginas PT e EN tiverem cartões ou links externos diferentes;
 - um bloco JSON-LD (dados estruturados no `<head>`) ou o `sitemap.xml` forem inválidos;
 - `data/activity.json` for inválido ou tiver cartões que a página não tem;
-- o número de projetos ou de stacks no topo não bater com os cartões ou com a lista de stacks;
+- o número de projetos ou de serviços no topo não bater com os cartões ou com a lista `apps/`;
 - aparecer um endereço IPv4, um email (exceto o de contacto, `PUBLIC_EMAIL`) ou um termo privado em qualquer ficheiro publicado;
 - (com `--external`) um link externo devolver 404 ou 410. X e Threads bloqueiam pedidos automáticos e não são verificados.
 

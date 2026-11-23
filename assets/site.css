@@ -187,7 +187,7 @@ h3.group::after { content: ""; flex: 1; height: 1px; background: var(--line); }
   .term { grid-template-columns: minmax(0, 1fr) auto; column-gap: 2rem; }
   .term-ls { border-top: 0; padding-top: 0; border-left: 1px solid var(--t-line); padding-left: 2rem; }
 }
-.ls { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, auto); grid-template-rows: repeat(5, auto); grid-auto-flow: column; justify-content: start; column-gap: 2rem; color: #89b4fa; font-weight: 500; }
+.ls { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, auto); grid-template-rows: repeat(4, auto); grid-auto-flow: column; justify-content: start; column-gap: 2rem; color: #89b4fa; font-weight: 500; }
 .cursor { color: var(--t-fg); }
 @media (prefers-reduced-motion: no-preference) {
   .cursor { animation: term-blink 1.1s steps(1) infinite; }
