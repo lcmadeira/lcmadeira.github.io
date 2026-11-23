@@ -9,7 +9,7 @@ Formato: **decisão**: razão. *(data, pull request quando existe)*
 - **Site estático sem build e sem Jekyll** (`.nojekyll`): três páginas HTML, um CSS e dois scripts pequenos. Nada para compilar nem dependências para atualizar; o GitHub Pages serve os ficheiros tal como estão. *(19-11-2026)*
 - **Duas línguas em páginas separadas** (`/` e `/en/`) com a mesma estrutura: mais simples do que traduzir no browser e indexável pelo Google em cada língua (`hreflang`, sitemap). A verificação obriga a terem os mesmos cartões e links. *(19-11-2026)*
 - **Sem domínio próprio**: fica em `lcmadeira.github.io` por decisão do autor. *(23-11-2026)*
-- **Tema Catppuccin** (Latte no claro, Mocha no escuro), seguindo a preferência do sistema; o bloco de terminal é sempre Mocha, de propósito. *(19-11-2026)*
+- ~~**Tema Catppuccin** (Latte no claro, Mocha no escuro), seguindo a preferência do sistema; o bloco de terminal é sempre Mocha, de propósito.~~ *(19-11-2026; substituída a 23-11-2026, ver "Design")*
 
 ## Conteúdo
 
@@ -25,11 +25,15 @@ Formato: **decisão**: razão. *(data, pull request quando existe)*
 
 ## Design
 
+- **Sistema visual do Painel Pessoal** (`lcmadeira.github.io/dash`): fundo quase preto em três níveis (fundo, superfície, cartão), texto em três níveis, azul `#6EA8FE` para interação e destaque, verde, âmbar e vermelho só com significado (recente, aviso, erro); letra Inter; pílulas arredondadas para selos, tecnologias e estado; etiquetas em maiúsculas espaçadas. O autor preferia este estilo ao Catppuccin: o portfólio e o projeto em destaque ficam com a mesma identidade. *(23-11-2026)*
+- **Só tema escuro**, como o painel: um segundo tema duplicava o trabalho de cada alteração visual sem ganho claro para um portfólio técnico. `color-scheme: dark` e uma única `theme-color`. *(23-11-2026)*
+- **Ícone LM desenhado com traços** (`favicon.svg`), sem depender de letra instalada: L claro e M azul sobre o cartão escuro; legível a 16 px. Os PNG e o ICO são gerados a partir do SVG. *(23-11-2026)*
+- **Paleta do fastfetch** com as cores do sistema visual, em vez das 14 do Catppuccin. *(23-11-2026)*
 - **Sem selo "Privado" nos cartões**: a introdução da secção já o diz, e o selo repetido criava ruído e partia títulos. *(23-11-2026, #15)*
 - **Verde só para estado** (atividade recente); o rodapé de cada cartão (horário/contexto) é texto neutro. *(23-11-2026, #15)*
 - **Ícone de traço por cartão**, desenhado à mão em SVG (sem bibliotecas), para distinguir os grupos de relance. *(23-11-2026, #16)*
 - **Números no topo** à direita em ecrã largo, por baixo no telemóvel; os que podem ser verificados são-no (`data-count`). *(23-11-2026, #16, #17, #19)*
-- **Contraste medido pela fórmula WCAG** em todas as combinações de cores; `--ok-text` mais escuro para o selo "Público" no tema claro. As bordas dos cartões ficam abaixo de 3:1 de propósito: são decorativas. *(23-11-2026, #17)*
+- **Contraste medido pela fórmula WCAG** em todas as combinações de cores; o texto mais fraco (`--t3`) tem pelo menos 5,6:1 sobre o cartão. As bordas dos cartões ficam abaixo de 3:1 de propósito: são decorativas. *(23-11-2026, #17; refeito com o sistema visual novo)*
 
 ## Privacidade, segurança e confiança
 

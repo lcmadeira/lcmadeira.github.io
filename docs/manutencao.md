@@ -38,6 +38,16 @@ Está repetida em vários sítios; mudar todos, nas duas línguas:
 3. Rever as duas imagens antes de as copiar para `assets/`.
 4. Subir o `?v=N` do `og:image` nas duas páginas.
 
+### O ícone
+
+1. Editar `favicon.svg` (o original).
+2. Fotografá-lo com o Firefox a 512×512 (uma página com `<img src="favicon.svg" width="512">`) e reduzir com o Pillow para `assets/favicon-32.png`, `assets/icon-192.png` e `favicon.ico` (16, 32 e 48). O `assets/apple-touch-icon.png` (180×180) vai sem cantos arredondados: o iOS arredonda-os.
+3. Confirmar que se lê a 16 px.
+
+### As cores
+
+As cores estão em variáveis no topo de `assets/site.css` (as mesmas do Painel Pessoal). Ao mudar uma, medir o contraste WCAG contra os três fundos (`--bg`, `--surface`, `--card`): mínimo 4,5:1 para texto. Atualizar também `scripts/og-image.html` e `favicon.svg` se a cor lá aparecer.
+
 ### Um cartão (projeto novo ou retirado)
 
 1. Cartão nas duas páginas, com ícone (`<symbol id="c-…">` no topo de cada página) e `data-activity` próprio.
@@ -59,11 +69,10 @@ Está repetida em vários sítios; mudar todos, nas duas línguas:
 
 ## Como testar alterações visuais
 
-Servir o repositório (`python3 -m http.server 8000`) e abrir `/` e `/en/` no browser, em ecrã largo e estreito, nos temas claro e escuro. Sem browser à mão, o Firefox tira capturas sem janela:
+Servir o repositório (`python3 -m http.server 8000`) e abrir `/` e `/en/` no browser, em ecrã largo e estreito (o site só tem tema escuro). Sem browser à mão, o Firefox tira capturas sem janela:
 
 ```bash
 firefox --headless --window-size=1280,3000 --screenshot ~/snap/firefox/common/pagina.png http://localhost:8000/
 firefox --headless --window-size=390,5000  --screenshot ~/snap/firefox/common/telemovel.png http://localhost:8000/en/
 ```
 
-Para o tema escuro, numa cópia temporária da página, acrescentar `data-theme="dark"` ao `<html>`.
