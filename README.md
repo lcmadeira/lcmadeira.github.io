@@ -35,6 +35,8 @@ Página pessoal de Luís Carlos Madeira, publicada pelo GitHub Pages em <https:/
 
 - **Pesquisa (SEO)**: `robots.txt`, `sitemap.xml` (as duas línguas, com `hreflang`) e um bloco JSON-LD `Person` no `<head>` de cada página. Se mudar a frase do topo, os links ou o email, atualizar também o JSON-LD.
 
+- **Política de segurança (CSP)**: cada página tem uma meta `Content-Security-Policy` que só deixa carregar recursos do próprio site, das Google Fonts e da Cloudflare (estatísticas). Não há scripts nem estilos embutidos (`<script>` sem `src`, `style="…"`): ficam em `assets/`. Um recurso externo novo obriga a acrescentá-lo à CSP das três páginas, senão o browser bloqueia-o.
+
 ### O que pode ser público
 
 Os cartões descrevem também projetos privados, alguns do trabalho. Nunca publicar nomes de clientes ou empresas, endereços IP, domínios, portas, emails (a única exceção é o email de contacto do topo, `PUBLIC_EMAIL` em `scripts/check-site.py`), métricas ou limiares reais, nem nomes de repositórios privados. Descrever o problema e a solução de forma genérica.
@@ -88,3 +90,7 @@ Para os definir ou alterar com a linha de comandos: `gh secret set <NOME> -R lcm
 2. Fazer as alterações nas duas línguas e correr `python3 scripts/check-site.py`.
 3. Abrir um pull request; a CI verifica-o.
 4. Fazer o merge. O Pages publica em um ou dois minutos e o ramo é apagado automaticamente.
+
+## Licença
+
+O código (HTML, CSS, JavaScript e scripts) está sob a licença MIT, ver `LICENSE`. Os textos, o nome, a marca "LM" e as imagens em `assets/` não estão abrangidos: todos os direitos reservados.

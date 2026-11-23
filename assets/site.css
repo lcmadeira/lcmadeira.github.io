@@ -31,6 +31,7 @@
 }
 
 * { box-sizing: border-box; }
+.sprite { position: absolute; }
 body {
   background: var(--bg);
   color: var(--fg);
@@ -216,6 +217,20 @@ h3.group::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .ff dd .sep { color: var(--t-muted); }
 .ff-palette { display: flex; flex-wrap: nowrap; gap: 0; margin: 0.9rem 0 0; padding: 0; list-style: none; }
 .ff-palette li { flex: 1 1 0; max-width: 1.9rem; height: 1.05rem; }
+.ff-palette li:nth-child(1) { background: #f5e0dc; }
+.ff-palette li:nth-child(2) { background: #f2cdcd; }
+.ff-palette li:nth-child(3) { background: #f5c2e7; }
+.ff-palette li:nth-child(4) { background: #cba6f7; }
+.ff-palette li:nth-child(5) { background: #f38ba8; }
+.ff-palette li:nth-child(6) { background: #eba0ac; }
+.ff-palette li:nth-child(7) { background: #fab387; }
+.ff-palette li:nth-child(8) { background: #f9e2af; }
+.ff-palette li:nth-child(9) { background: #a6e3a1; }
+.ff-palette li:nth-child(10) { background: #94e2d5; }
+.ff-palette li:nth-child(11) { background: #89dceb; }
+.ff-palette li:nth-child(12) { background: #74c7ec; }
+.ff-palette li:nth-child(13) { background: #89b4fa; }
+.ff-palette li:nth-child(14) { background: #b4befe; }
 @media (max-width: 560px) {
   .term { padding: 1.1rem 1rem 1.2rem; font-size: 0.84rem; }
   .ff { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; }
