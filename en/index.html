@@ -36,7 +36,6 @@
 <body>
 
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
-  <symbol id="i-lock" viewBox="0 0 16 16"><path d="M4 7V5a4 4 0 1 1 8 0v2h1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V8a1 1 0 0 1 1-1h1Zm2 0h4V5a2 2 0 1 0-4 0v2Z"/></symbol>
   <symbol id="i-gh" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8Z"/></symbol>
   <symbol id="i-x" viewBox="0 0 16 16"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75Zm-.86 13.028h1.36L4.323 2.145H2.865z"/></symbol>
   <symbol id="i-at" viewBox="0 0 16 16"><path d="M8 0a8 8 0 1 0 4.2 14.8l-.8-1.3A6.5 6.5 0 1 1 14.5 8v.8c0 .9-.6 1.5-1.3 1.5s-1.2-.6-1.2-1.5V4.5h-1.5v.7A3.6 3.6 0 0 0 8 4.3a3.7 3.7 0 1 0 2.7 6.2 2.7 2.7 0 0 0 2.5 1.3C14.8 11.8 16 10.5 16 8.8V8a8 8 0 0 0-8-8Zm0 10.2A2.2 2.2 0 1 1 8 5.8a2.2 2.2 0 0 1 0 4.4Z"/></symbol>
@@ -92,7 +91,7 @@
             <li>PSI 20, exchange rates, crypto and 7, 30 and 90-day charts</li>
             <li>News, earthquakes, air quality and air and sea traffic</li>
           </ul>
-          <p class="cadence"><span>●</span> no build step: HTML, CSS and JavaScript; CI with 6 jobs and a daily check of the live page</p>
+          <p class="cadence">no build step: HTML, CSS and JavaScript; CI with 6 jobs and a daily check of the live page</p>
           <ul class="tags"><li>JavaScript</li><li>Chart.js</li><li>Cloudflare Workers</li><li>PWA</li></ul>
           <p class="activity" data-activity="painel-pessoal" hidden></p>
         </div>
@@ -104,40 +103,40 @@
       <div class="grid">
 
         <article class="card">
-          <div class="card-top"><h4>SLA Monitor</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <div class="card-top"><h4>SLA Monitor</h4></div>
           <p class="goal"><strong>Goal:</strong> automate the calculation of service levels (SLA) for a contact centre operation, eliminating manual processing.</p>
           <ul>
             <li>Automated extraction of the platform's monitoring file and population of the Excel template.</li>
             <li>Retries on failure and stale-data alerting.</li>
             <li>Persistent calculation history and CSV summary export.</li>
           </ul>
-          <p class="cadence"><span>●</span> scheduled on weekdays, every 15 min, from 09:15 to 17:45</p>
+          <p class="cadence">scheduled on weekdays, every 15 min, from 09:15 to 17:45</p>
           <ul class="tags"><li>Python</li><li>Excel</li><li>systemd</li></ul>
           <p class="activity" data-activity="monitor-sla" hidden></p>
         </article>
 
         <article class="card">
-          <div class="card-top"><h4>Operations Dashboard</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <div class="card-top"><h4>Operations Dashboard</h4></div>
           <p class="goal"><strong>Goal:</strong> centralise a customer service team's daily KPIs and the production of the monthly report.</p>
           <ul>
             <li>Intraday readings per service, with trend analysis and alerts.</li>
             <li>Import of reports received by email, with a diff preview before committing.</li>
             <li>Monthly report generation in HTML and Excel.</li>
           </ul>
-          <p class="cadence"><span>●</span> local database with a verified daily backup</p>
+          <p class="cadence">local database with a verified daily backup</p>
           <ul class="tags"><li>JavaScript</li><li>Node.js</li><li>SQLite</li></ul>
           <p class="activity" data-activity="painel-operacao" hidden></p>
         </article>
 
         <article class="card">
-          <div class="card-top"><h4>Service Indicator</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <div class="card-top"><h4>Service Indicator</h4></div>
           <p class="goal"><strong>Goal:</strong> monitor the service level in real time from the desktop.</p>
           <ul>
             <li>Current value and change in the GNOME top bar.</li>
             <li>Intraday chart compared with the same day of the previous week.</li>
             <li>Notifications when the value drops below defined thresholds or the trend is downward.</li>
           </ul>
-          <p class="cadence"><span>●</span> updates with every extraction; warns after 30 min without data</p>
+          <p class="cadence">updates with every extraction; warns after 30 min without data</p>
           <ul class="tags"><li>Python</li><li>GTK</li><li>GNOME</li></ul>
           <p class="activity" data-activity="indicador-servico" hidden></p>
         </article>
@@ -150,40 +149,40 @@
       <div class="grid">
 
         <article class="card">
-          <div class="card-top"><h4>Home Server</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <div class="card-top"><h4>Home Server</h4></div>
           <p class="goal"><strong>Goal:</strong> host files, documents and services locally (self-hosting), with no dependency on external providers.</p>
           <ul>
             <li>Nextcloud, Paperless-ngx, FreshRSS, Uptime Kuma and Netdata behind a reverse proxy.</li>
             <li>Infrastructure as code: each service is a Docker Compose stack versioned in Git.</li>
             <li>Continuous deployment: a push to the main branch triggers the deploy after CI validation.</li>
           </ul>
-          <p class="cadence"><span>●</span> 9 stacks on a Debian server with 3 GB of RAM</p>
+          <p class="cadence">9 stacks on a Debian server with 3 GB of RAM</p>
           <ul class="tags"><li>Docker</li><li>Traefik</li><li>GitHub Actions</li><li>Tailscale</li></ul>
           <p class="activity" data-activity="servidor-domestico" hidden></p>
         </article>
 
         <article class="card">
-          <div class="card-top"><h4>Server Automation</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <div class="card-top"><h4>Server Automation</h4></div>
           <p class="goal"><strong>Goal:</strong> autonomous maintenance, protection and monitoring of the server, with failure alerting.</p>
           <ul>
             <li>Verified daily backups, with an encrypted off-site replica and Telegram alerts.</li>
             <li>Disk health monitoring and periodic restore tests, with early-warning alerts.</li>
             <li>Automatic nightly shutdown, conditional on backup completion.</li>
           </ul>
-          <p class="cadence"><span>●</span> backups at 18:00, 19:30 and 20:00; shuts down between 20:30 and 22:30</p>
+          <p class="cadence">backups at 18:00, 19:30 and 20:00; shuts down between 20:30 and 22:30</p>
           <ul class="tags"><li>Python</li><li>Bash</li><li>Restic</li><li>ShellCheck</li></ul>
           <p class="activity" data-activity="automacao-servidor" hidden></p>
         </article>
 
         <article class="card">
-          <div class="card-top"><h4>Homelab Control</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <div class="card-top"><h4>Homelab Control</h4></div>
           <p class="goal"><strong>Goal:</strong> a consolidated view of server status, without terminal access.</p>
           <ul>
             <li>Memory, load, disk usage with capacity forecasting, services and Docker containers.</li>
             <li>Age and result of every backup, including the off-site replica, and of scheduled tasks.</li>
             <li>Disk health, pending updates and connection quality; each alert links to the affected section.</li>
           </ul>
-          <p class="cadence"><span>●</span> refresh every 30 s; access restricted to the local network</p>
+          <p class="cadence">refresh every 30 s; access restricted to the local network</p>
           <ul class="tags"><li>Python</li><li>JavaScript</li><li>systemd</li></ul>
           <p class="activity" data-activity="homelab-control" hidden></p>
         </article>
@@ -196,40 +195,40 @@
       <div class="grid">
 
         <article class="card">
-          <div class="card-top"><h4>Inbox Assistant</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <div class="card-top"><h4>Inbox Assistant</h4></div>
           <p class="goal"><strong>Goal:</strong> automate email triage and document filing.</p>
           <ul>
             <li>Rule-based classification of read messages, with optional LLM classification.</li>
             <li>Attachment extraction with deduplication, forwarding invoices and documents to Paperless-ngx.</li>
             <li>Idempotent operations: no action that may already have run is repeated.</li>
           </ul>
-          <p class="cadence"><span>●</span> Python standard library only, no external dependencies</p>
+          <p class="cadence">Python standard library only, no external dependencies</p>
           <ul class="tags"><li>Python</li><li>IMAP</li><li>SQLite</li></ul>
           <p class="activity" data-activity="inbox-assistant" hidden></p>
         </article>
 
         <article class="card">
-          <div class="card-top"><h4>Radar X</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <div class="card-top"><h4>Radar X</h4></div>
           <p class="goal"><strong>Goal:</strong> track current affairs and draft posts with referenced sources.</p>
           <ul>
             <li>Aggregation of national, European and international news, clustering articles on the same story.</li>
             <li>Trending-topic detection and draft generation in European Portuguese in several tones.</li>
             <li>Publishing or scheduling on X and Threads, always with explicit confirmation.</li>
           </ul>
-          <p class="cadence"><span>●</span> sources: Google News, RTP, Portuguese Parliament, European Commission, ECB</p>
+          <p class="cadence">sources: Google News, RTP, Portuguese Parliament, European Commission, ECB</p>
           <ul class="tags"><li>Python</li><li>RSS</li><li>LLM</li></ul>
           <p class="activity" data-activity="radar-x" hidden></p>
         </article>
 
         <article class="card">
-          <div class="card-top"><h4>buffer-cli</h4><span class="badge"><svg aria-hidden="true"><use href="#i-lock"/></svg>Private</span></div>
+          <div class="card-top"><h4>buffer-cli</h4></div>
           <p class="goal"><strong>Goal:</strong> publish and schedule social media posts from the command line, quickly and safely.</p>
           <ul>
             <li>Publishing or scheduling on X and Threads, with text tailored to each network.</li>
             <li>Support for threads, images and video, and batch posting from a file.</li>
             <li>Preview, character count and duplicate detection.</li>
           </ul>
-          <p class="cadence"><span>●</span> <code>buffer --via x,threads --in 2h "…"</code></p>
+          <p class="cadence"><code>buffer --via x,threads --in 2h "…"</code></p>
           <ul class="tags"><li>Python</li><li>Buffer API</li><li>CLI</li></ul>
           <p class="activity" data-activity="buffer-cli" hidden></p>
         </article>
