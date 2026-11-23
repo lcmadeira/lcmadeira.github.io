@@ -9,6 +9,7 @@ Falha (código 1) se:
   - um link externo não abrir em novo separador (target="_blank" rel="noopener");
   - um link ou recurso interno apontar para um ficheiro que não existe;
   - as versões PT e EN não tiverem os mesmos cartões e links externos;
+  - um bloco JSON-LD (application/ld+json) ou o sitemap.xml forem inválidos;
   - data/activity.json for inválido ou tiver cartões que a página não tem;
   - um número do topo com data-count não bater com a página ("cards": cartões;
     outro nome: itens da lista com o mesmo data-count-list);
@@ -70,7 +71,11 @@ def check_pages():
         path = os.path.join(ROOT, name)
         if not os.path.exists(path):
             errors.append(f'falta {name}'); continue
-        p = Page(name); p.feed(open(path, encoding='utf-8').read()); p.close()
+        text = open(path, encoding='utf-8').read()
+        p = Page(name); p.feed(text); p.close()
+        for block in re.findall(r'<script type="application/ld\+json">(.*?)</script>', text, re.S):
+            try: json.loads(block)
+            except ValueError as e: errors.append(f'{name}: JSON-LD inválido: {e}')
         for tag, line in p.stack: errors.append(f'{name}:{line}: <{tag}> não fechado')
         for a in p.links:
             if a.get('target') != '_blank' or 'noopener' not in a.get('rel', ''):
@@ -96,6 +101,12 @@ def check_pages():
         if ext(pt) != ext(en):
             errors.append(f'PT e EN com links externos diferentes: {sorted(ext(pt) ^ ext(en))}')
     return pages
+
+def check_sitemap():
+    import xml.etree.ElementTree as ET
+    path = os.path.join(ROOT, 'sitemap.xml')
+    try: ET.parse(path)
+    except (OSError, ET.ParseError) as e: errors.append(f'sitemap.xml inválido: {e}')
 
 def check_activity(pages):
     path = os.path.join(ROOT, 'data', 'activity.json')
@@ -163,6 +174,7 @@ def check_external(pages):
 def main():
     pages = check_pages()
     check_activity(pages)
+    check_sitemap()
     check_privacy()
     if '--external' in sys.argv:
         check_external(pages)
