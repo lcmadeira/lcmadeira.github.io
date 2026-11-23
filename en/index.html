@@ -109,7 +109,7 @@
         <div><dt data-count="cards">10</dt><dd>projects, 1 of them public</dd></div>
         <div><dt data-count="stacks">9</dt><dd>Docker stacks on the server</dd></div>
         <div><dt>3</dt><dd>verified daily backups</dd></div>
-        <div><dt>15 min</dt><dd>SLA monitoring cycle</dd></div>
+        <div><dt>30 s</dt><dd>server dashboard refresh</dd></div>
       </dl>
     </div>
   </header>
@@ -153,28 +153,28 @@
     </div>
 
     <div class="group-block">
-      <h3 class="group">Automation at work</h3>
+      <h3 class="group">Operations automation</h3>
       <div class="grid">
 
         <article class="card">
           <div class="card-top"><h4><span class="card-ico"><svg aria-hidden="true"><use href="#c-gauge"/></svg></span>SLA Monitor</h4></div>
-          <p class="goal"><strong>Goal:</strong> automate the calculation of service levels (SLA) for a contact centre operation, eliminating manual processing.</p>
+          <p class="goal"><strong>Goal:</strong> automate the calculation of service-level (SLA) indicators, eliminating manual processing.</p>
           <ul>
-            <li>Automated extraction of the platform's monitoring file and population of the Excel template.</li>
+            <li>Automated extraction of monitoring data and population of an Excel template.</li>
             <li>Retries on failure and stale-data alerting.</li>
             <li>Persistent calculation history and CSV summary export.</li>
           </ul>
-          <p class="cadence">scheduled on weekdays, every 15 min, from 09:15 to 17:45</p>
+          <p class="cadence">scheduled at regular intervals during service hours</p>
           <ul class="tags"><li>Python</li><li>Excel</li><li>systemd</li></ul>
           <p class="activity" data-activity="monitor-sla" hidden></p>
         </article>
 
         <article class="card">
           <div class="card-top"><h4><span class="card-ico"><svg aria-hidden="true"><use href="#c-chart"/></svg></span>Operations Dashboard</h4></div>
-          <p class="goal"><strong>Goal:</strong> centralise a customer service team's daily KPIs and the production of the monthly report.</p>
+          <p class="goal"><strong>Goal:</strong> centralise an operations team's daily KPIs and the production of the monthly report.</p>
           <ul>
             <li>Intraday readings per service, with trend analysis and alerts.</li>
-            <li>Import of reports received by email, with a diff preview before committing.</li>
+            <li>Import of periodic reports, with a diff preview before committing.</li>
             <li>Monthly report generation in HTML and Excel.</li>
           </ul>
           <p class="cadence">local database with a verified daily backup</p>
@@ -190,7 +190,7 @@
             <li>Intraday chart compared with the same day of the previous week.</li>
             <li>Notifications when the value drops below defined thresholds or the trend is downward.</li>
           </ul>
-          <p class="cadence">updates with every extraction; warns after 30 min without data</p>
+          <p class="cadence">updates with every extraction; warns when data goes stale</p>
           <ul class="tags"><li>Python</li><li>GTK</li><li>GNOME</li></ul>
           <p class="activity" data-activity="indicador-servico" hidden></p>
         </article>

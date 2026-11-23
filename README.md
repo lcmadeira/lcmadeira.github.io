@@ -29,7 +29,7 @@ Página pessoal de Luís Carlos Madeira, publicada pelo GitHub Pages em <https:/
   2. se o repositório for privado, dar-lhe acesso no token `REPOS_READ_TOKEN` (definições do token no GitHub).
 
   Sem isto o cartão funciona na mesma; só não mostra a data.
-- **Números do topo** (`<dl class="stats">`): são escritos à mão, nas duas páginas. Ao acrescentar ou retirar um cartão, atualizar o número de projetos (e o "1 deles público", se mudar); a verificação falha se esse número não bater com os cartões. O número de stacks Docker tem de bater com a lista `ls -F stacks/` da secção "O que uso" (também verificado). Os outros dois (backups diários, ciclo do SLA) não são verificados: atualizar quando mudarem no servidor ou no SLA.
+- **Números do topo** (`<dl class="stats">`): são escritos à mão, nas duas páginas. Ao acrescentar ou retirar um cartão, atualizar o número de projetos (e o "1 deles público", se mudar); a verificação falha se esse número não bater com os cartões. O número de stacks Docker tem de bater com a lista `ls -F stacks/` da secção "O que uso" (também verificado). Os outros dois (backups diários, atualização do painel do servidor) não são verificados: atualizar quando mudarem no servidor.
 
 - **Estatísticas de visitas**: Cloudflare Web Analytics (sem cookies, só dados agregados: páginas, país, origem, dispositivo). O script está no fim de `index.html`, `en/index.html` e `404.html`; uma página nova também o deve ter. Os dados veem-se no painel da Cloudflare, em Análise → Web Analytics. Browsers com bloqueio (Brave, uBlock) não são contados.
 
@@ -39,7 +39,7 @@ Página pessoal de Luís Carlos Madeira, publicada pelo GitHub Pages em <https:/
 
 ### O que pode ser público
 
-Os cartões descrevem também projetos privados, alguns do trabalho. Nunca publicar nomes de clientes ou empresas, endereços IP, domínios, portas, emails (a única exceção é o email de contacto do topo, `PUBLIC_EMAIL` em `scripts/check-site.py`), métricas ou limiares reais, nem nomes de repositórios privados. Descrever o problema e a solução de forma genérica.
+Os cartões descrevem também projetos privados, alguns do trabalho. Nunca publicar nomes de clientes ou empresas, endereços IP, domínios, portas, emails (a única exceção é o email de contacto do topo, `PUBLIC_EMAIL` em `scripts/check-site.py`), métricas ou limiares reais, nem nomes de repositórios privados. Descrever o problema e a solução de forma genérica. Nos projetos do trabalho, não indicar o setor, a equipa, a plataforma, a origem dos dados nem horários.
 
 ## Ver e verificar antes de publicar
 
