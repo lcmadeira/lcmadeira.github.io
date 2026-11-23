@@ -75,7 +75,7 @@
       </div>
       <dl class="stats">
         <div><dt data-count="cards">10</dt><dd>projetos, 1 deles público</dd></div>
-        <div><dt>9</dt><dd>stacks Docker no servidor</dd></div>
+        <div><dt data-count="stacks">9</dt><dd>stacks Docker no servidor</dd></div>
         <div><dt>3</dt><dd>backups diários verificados</dd></div>
         <div><dt>15 min</dt><dd>ciclo de monitorização do SLA</dd></div>
       </dl>
@@ -264,31 +264,39 @@
       <h2 id="uso">O que uso</h2>
     </div>
     <div class="term">
-      <p class="term-cmd"><b>~</b> $ fastfetch</p>
-      <div class="ff">
-        <div class="ff-logo" aria-hidden="true">LM</div>
-        <div class="ff-info">
-          <p class="ff-host">lcmadeira<span>@</span>github.io</p>
-          <p class="ff-rule" aria-hidden="true">-------------------</p>
-          <dl>
-            <div><dt>so</dt><dd><a href="https://ubuntu.com/" target="_blank" rel="noopener">Ubuntu</a> <span class="sep">·</span> <a href="https://www.gnome.org/" target="_blank" rel="noopener">GNOME</a> (Wayland)</dd></div>
-            <div><dt>terminal</dt><dd><a href="https://sw.kovidgoyal.net/kitty/" target="_blank" rel="noopener">kitty</a> <span class="sep">·</span> <a href="https://github.com/tmux/tmux" target="_blank" rel="noopener">tmux</a> <span class="sep">·</span> <a href="https://www.zsh.org/" target="_blank" rel="noopener">zsh</a> <span class="sep">·</span> <a href="https://starship.rs/" target="_blank" rel="noopener">starship</a></dd></div>
-            <div><dt>editor</dt><dd><a href="https://www.sublimetext.com/" target="_blank" rel="noopener">Sublime Text</a></dd></div>
-            <div><dt>tema</dt><dd><a href="https://catppuccin.com/" target="_blank" rel="noopener">Catppuccin</a> Mocha</dd></div>
-            <div><dt>ia</dt><dd><a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a></dd></div>
-            <div><dt>browser</dt><dd><a href="https://brave.com/" target="_blank" rel="noopener">Brave</a></dd></div>
-            <div><dt>servidor</dt><dd><a href="https://www.debian.org/" target="_blank" rel="noopener">Debian 12</a> <span class="sep">·</span> <a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a> <span class="sep">·</span> <a href="https://tailscale.com/" target="_blank" rel="noopener">Tailscale</a></dd></div>
-            <div><dt>ci</dt><dd><a href="https://github.com/features/actions" target="_blank" rel="noopener">GitHub Actions</a></dd></div>
-            <div><dt>código</dt><dd><a href="https://www.python.org/" target="_blank" rel="noopener">Python</a> <span class="sep">·</span> <a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noopener">JavaScript</a> <span class="sep">·</span> <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener">Bash</a> <span class="sep">·</span> <a href="https://sqlite.org/" target="_blank" rel="noopener">SQLite</a></dd></div>
-          </dl>
-          <ul class="ff-palette" aria-hidden="true"><li style="background:#f5e0dc"></li><li style="background:#f2cdcd"></li><li style="background:#f5c2e7"></li><li style="background:#cba6f7"></li><li style="background:#f38ba8"></li><li style="background:#eba0ac"></li><li style="background:#fab387"></li><li style="background:#f9e2af"></li><li style="background:#a6e3a1"></li><li style="background:#94e2d5"></li><li style="background:#89dceb"></li><li style="background:#74c7ec"></li><li style="background:#89b4fa"></li><li style="background:#b4befe"></li></ul>
+      <div class="term-pane">
+        <p class="term-cmd"><b>~</b> $ fastfetch</p>
+        <div class="ff">
+          <div class="ff-logo" aria-hidden="true">LM</div>
+          <div class="ff-info">
+            <p class="ff-host">lcmadeira<span>@</span>github.io</p>
+            <p class="ff-rule" aria-hidden="true">-------------------</p>
+            <dl>
+              <div><dt>os</dt><dd><a href="https://ubuntu.com/" target="_blank" rel="noopener">Ubuntu</a> <span class="sep">·</span> <a href="https://www.gnome.org/" target="_blank" rel="noopener">GNOME</a> (Wayland)</dd></div>
+              <div><dt>terminal</dt><dd><a href="https://sw.kovidgoyal.net/kitty/" target="_blank" rel="noopener">kitty</a> <span class="sep">·</span> <a href="https://github.com/tmux/tmux" target="_blank" rel="noopener">tmux</a></dd></div>
+              <div><dt>shell</dt><dd><a href="https://www.zsh.org/" target="_blank" rel="noopener">zsh</a> <span class="sep">·</span> <a href="https://starship.rs/" target="_blank" rel="noopener">starship</a></dd></div>
+              <div><dt>editor</dt><dd><a href="https://www.sublimetext.com/" target="_blank" rel="noopener">Sublime Text</a></dd></div>
+              <div><dt>theme</dt><dd><a href="https://catppuccin.com/" target="_blank" rel="noopener">Catppuccin</a> Mocha</dd></div>
+              <div><dt>ai</dt><dd><a href="https://claude.com/claude-code" target="_blank" rel="noopener">Claude Code</a></dd></div>
+              <div><dt>browser</dt><dd><a href="https://brave.com/" target="_blank" rel="noopener">Brave</a></dd></div>
+              <div><dt>server</dt><dd><a href="https://www.debian.org/" target="_blank" rel="noopener">Debian 12</a> <span class="sep">·</span> <a href="https://www.docker.com/" target="_blank" rel="noopener">Docker</a> <span class="sep">·</span> <a href="https://tailscale.com/" target="_blank" rel="noopener">Tailscale</a></dd></div>
+              <div><dt>ci</dt><dd><a href="https://github.com/features/actions" target="_blank" rel="noopener">GitHub Actions</a></dd></div>
+              <div><dt>code</dt><dd><a href="https://www.python.org/" target="_blank" rel="noopener">Python</a> <span class="sep">·</span> <a href="https://developer.mozilla.org/docs/Web/JavaScript" target="_blank" rel="noopener">JavaScript</a> <span class="sep">·</span> <a href="https://www.gnu.org/software/bash/" target="_blank" rel="noopener">Bash</a> <span class="sep">·</span> <a href="https://sqlite.org/" target="_blank" rel="noopener">SQLite</a></dd></div>
+            </dl>
+            <ul class="ff-palette" aria-hidden="true"><li style="background:#f5e0dc"></li><li style="background:#f2cdcd"></li><li style="background:#f5c2e7"></li><li style="background:#cba6f7"></li><li style="background:#f38ba8"></li><li style="background:#eba0ac"></li><li style="background:#fab387"></li><li style="background:#f9e2af"></li><li style="background:#a6e3a1"></li><li style="background:#94e2d5"></li><li style="background:#89dceb"></li><li style="background:#74c7ec"></li><li style="background:#89b4fa"></li><li style="background:#b4befe"></li></ul>
+          </div>
         </div>
+      </div>
+      <div class="term-pane term-ls">
+        <p class="term-cmd"><b>~</b> $ ls -F stacks/</p>
+        <ul class="ls" data-count-list="stacks"><li>freshrss/</li><li>home/</li><li>netdata/</li><li>nextcloud/</li><li>paperless/</li><li>portainer/</li><li>socket-proxy/</li><li>traefik/</li><li>uptime-kuma/</li></ul>
+        <p class="term-cmd"><b>~</b> $ <span class="cursor" aria-hidden="true">▍</span></p>
       </div>
     </div>
   </section>
 
   <footer>
-    <span>Luís Carlos Madeira · Portugal</span>
+    <span>Luís Carlos Madeira · Évora · Portugal <svg class="flag" viewBox="0 0 30 20" role="img" aria-label="Bandeira de Portugal"><rect width="12" height="20" fill="#046a38"/><rect x="12" width="18" height="20" fill="#da291c"/><circle cx="12" cy="10" r="4.6" fill="none" stroke="#ffe900" stroke-width="1.4"/><path d="M9.7 7.4h4.6v3.6a2.3 2.3 0 0 1-4.6 0Z" fill="#fff" stroke="#da291c" stroke-width=".6"/></svg></span>
     <span>Página estática alojada no GitHub Pages</span>
   </footer>
 

@@ -177,7 +177,19 @@ h3.group::after { content: ""; flex: 1; height: 1px; background: var(--line); }
   border: 1px solid var(--t-line); border-radius: 10px;
   padding: 1.4rem 1.6rem 1.5rem;
   font: 400 0.9rem/1.7 var(--font-mono);
-  display: grid; gap: 1.1rem; min-width: 0;
+  display: grid; gap: 1.5rem; min-width: 0;
+}
+.term-pane { display: grid; gap: 1.1rem; align-content: start; min-width: 0; }
+.term-ls { border-top: 1px solid var(--t-line); padding-top: 1.4rem; }
+@media (min-width: 1060px) {
+  .term { grid-template-columns: minmax(0, 1fr) auto; column-gap: 2rem; }
+  .term-ls { border-top: 0; padding-top: 0; border-left: 1px solid var(--t-line); padding-left: 2rem; }
+}
+.ls { margin: 0; padding: 0; list-style: none; display: grid; grid-template-columns: repeat(2, auto); grid-template-rows: repeat(5, auto); grid-auto-flow: column; justify-content: start; column-gap: 2rem; color: #89b4fa; font-weight: 500; }
+.cursor { color: var(--t-fg); }
+@media (prefers-reduced-motion: no-preference) {
+  .cursor { animation: term-blink 1.1s steps(1) infinite; }
+  @keyframes term-blink { 50% { opacity: 0; } }
 }
 .term-cmd { margin: 0; color: var(--t-muted); }
 .term-cmd b { color: var(--t-key); font-weight: 500; }
@@ -197,8 +209,8 @@ h3.group::after { content: ""; flex: 1; height: 1px; background: var(--line); }
 .ff dl div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: 0.75rem; align-items: baseline; }
 .ff dt { color: var(--t-key); font-weight: 500; }
 .ff dd { margin: 0; min-width: 0; }
-.ff dd a { color: var(--t-fg); text-decoration: none; border-bottom: 1px dotted var(--t-muted); }
-.ff dd a:hover { color: var(--t-key); border-bottom-color: var(--t-key); }
+.ff dd a { color: var(--t-fg); text-decoration: none; }
+.ff dd a:hover { color: var(--t-key); text-decoration: underline dotted; text-underline-offset: 3px; }
 .ff dd a:focus-visible { outline: 2px solid var(--t-key); outline-offset: 2px; }
 .ff dd .sep { color: var(--t-muted); }
 .ff-palette { display: flex; flex-wrap: nowrap; gap: 0; margin: 0.9rem 0 0; padding: 0; list-style: none; }
@@ -210,6 +222,7 @@ h3.group::after { content: ""; flex: 1; height: 1px; background: var(--line); }
   .ff dl div { grid-template-columns: 5.6rem minmax(0, 1fr); gap: 0.5rem; }
 }
 
+.flag { width: 1.15rem; height: auto; vertical-align: -0.15em; margin-left: 0.2rem; border-radius: 2px; }
 footer { color: var(--muted); font-size: 0.85rem; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.5rem; border-top: 1px solid var(--line); padding-top: 1.25rem; }
 
 @media (prefers-reduced-motion: no-preference) {
