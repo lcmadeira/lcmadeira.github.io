@@ -11,55 +11,49 @@
 <head>
 <meta charset="utf-8">
 <title>Imagem de pré-visualização</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=IBM+Plex+Sans:wght@400&family=IBM+Plex+Mono:wght@400;500&display=block">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=block">
 <style>
-  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #11111b; }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; background: #0C0E13; font-family: "Inter", sans-serif; }
   .card {
     position: absolute; inset: 57px; box-sizing: border-box;
-    background: #181825; border: 1px solid #313244; border-radius: 24px;
-    padding: 56px 64px 52px;
+    background: #161A22; border: 1px solid #232834; border-radius: 24px;
+    padding: 52px 64px 50px;
     display: grid; grid-template-rows: auto 1fr auto;
   }
-  .prompt { margin: 0; font: 400 28px/1 "IBM Plex Mono", monospace; color: #7f849c; }
-  .prompt b { color: #cba6f7; font-weight: 400; }
-  .main { display: grid; grid-template-columns: 153px 1fr; column-gap: 58px; align-items: center; }
-  .logo {
-    width: 153px; height: 153px; box-sizing: border-box; border-radius: 30px;
-    background: #1e1e2e; border: 1px solid #313244;
-    display: grid; place-items: center;
-    font: 800 62px/1 "Bricolage Grotesque", sans-serif; color: #cba6f7; letter-spacing: -0.04em;
-  }
-  h1 { margin: 0 0 18px; font: 700 72px/1.05 "Bricolage Grotesque", sans-serif; color: #f5f5fa; letter-spacing: -0.02em; }
-  .lede { margin: 0; max-width: 700px; font: 400 29px/1.45 "IBM Plex Sans", sans-serif; color: #a6adc8; }
+  .kicker { margin: 0; font: 500 20px/1 "Inter", sans-serif; letter-spacing: .16em; text-transform: uppercase; color: #8A93A5; }
+  .main { display: grid; grid-template-columns: 150px 1fr; column-gap: 56px; align-items: center; }
+  .logo { width: 150px; height: 150px; display: block; }
+  h1 { margin: 0 0 18px; font: 700 68px/1.05 "Inter", sans-serif; color: #E7EAF0; letter-spacing: -0.03em; }
+  .lede { margin: 0; max-width: 720px; font: 400 29px/1.45 "Inter", sans-serif; color: #B7BFCC; }
   .nw { white-space: nowrap; }
-  .foot { display: flex; justify-content: space-between; align-items: center; }
-  .palette { display: flex; }
-  .palette i { width: 34px; height: 18px; }
-  .domain { font: 500 26px/1 "IBM Plex Mono", monospace; color: #cba6f7; }
+  .foot { display: flex; justify-content: space-between; align-items: center; padding-top: 26px; border-top: 1px solid #232834; }
+  .pills { display: flex; gap: 12px; }
+  .pills span { font: 500 20px/1 "Inter", sans-serif; color: #B7BFCC; border: 1px solid #2E3442; border-radius: 999px; padding: 9px 16px; display: flex; align-items: center; gap: 10px; }
+  .pills i { width: 10px; height: 10px; border-radius: 50%; background: #3CC48A; }
+  .domain { font: 600 24px/1 "Inter", sans-serif; color: #6EA8FE; }
 </style>
 </head>
 <body>
 <div class="card">
-  <p class="prompt"><b>~</b> $ whoami</p>
+  <p class="kicker" id="kicker">Portfólio · Évora, Portugal</p>
   <div class="main">
-    <div class="logo">LM</div>
+    <img class="logo" src="../favicon.svg" alt="">
     <div>
       <h1>Luís Carlos Madeira</h1>
       <p class="lede" id="lede">Automação de processos, monitorização de operações e infraestrutura <span class="nw">self-hosted</span>.</p>
     </div>
   </div>
   <div class="foot">
-    <div class="palette" id="palette"></div>
+    <div class="pills"><span><i></i>Python</span><span><i></i>JavaScript</span><span><i></i>Docker</span><span><i></i>GitHub Actions</span></div>
     <span class="domain">lcmadeira.github.io</span>
   </div>
 </div>
 <script>
   if (location.search.indexOf('en') !== -1) {
     document.documentElement.lang = 'en';
+    document.getElementById('kicker').textContent = 'Portfolio · Évora, Portugal';
     document.getElementById('lede').innerHTML = 'Process automation, operations monitoring and <span class="nw">self-hosted</span> infrastructure.';
   }
-  ['#f5e0dc','#f2cdcd','#f5c2e7','#cba6f7','#f38ba8','#eba0ac','#fab387','#f9e2af','#a6e3a1','#94e2d5','#89dceb','#74c7ec','#89b4fa','#b4befe']
-    .forEach(function (c) { var i = document.createElement('i'); i.style.background = c; document.getElementById('palette').appendChild(i); });
 </script>
 </body>
 </html>

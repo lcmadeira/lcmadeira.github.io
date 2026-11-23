@@ -24,12 +24,12 @@ Ao mudar o funcionamento do site, atualizar este README; ao tomar uma decisão, 
 | `en/index.html` | Página em inglês, com a mesma estrutura e os mesmos cartões |
 | `404.html` | Página de erro; usa caminhos absolutos (`/assets/...`) porque é servida em qualquer endereço |
 | `robots.txt`, `sitemap.xml` | Indicações para os motores de pesquisa; o sitemap lista as duas línguas com `hreflang` |
-| `assets/site.css` | Estilos partilhados pelas três páginas, com tema claro e escuro (Catppuccin Latte e Mocha) |
+| `assets/site.css` | Estilos partilhados pelas três páginas: tema escuro único, com o sistema visual do Painel Pessoal (cores e regras no comentário do topo) |
 | `assets/activity.js` | Preenche a linha "atualizado há X" de cada cartão a partir de `data/activity.json` |
 | `assets/404.js` | Mostra na página de erro o endereço pedido |
 | `data/activity.json` | Data da última alteração de cada projeto, gerada pela automação diária |
 | `assets/og.png`, `assets/og-en.png` | Imagens de pré-visualização para as redes sociais (1200×630), geradas a partir de `scripts/og-image.html` (instruções no próprio ficheiro); a frase tem de ser igual à do topo |
-| `favicon.ico`, `assets/*icon*.png` | Ícone do site (monograma LM) |
+| `favicon.svg`, `favicon.ico`, `assets/*icon*.png` | Ícone do site (monograma LM). O original é o `favicon.svg`; os PNG e o ICO são gerados a partir dele (ver `docs/manutencao.md`) |
 | `scripts/check-site.py` | Verificações antes de publicar (ver abaixo) |
 | `scripts/update-activity.py` | Atualiza `data/activity.json` |
 | `scripts/og-image.html` | Modelo das imagens de pré-visualização (não é uma página do site) |
@@ -87,7 +87,7 @@ Localmente, os termos privados só são verificados com a variável `PRIVATE_TER
 | GitHub Pages | Alojamento, HTTPS | Ramo `master` |
 | Cloudflare Web Analytics | Estatísticas de visitas sem cookies (páginas, país, origem, dispositivo); painel em Análise → Web Analytics. Browsers com bloqueio (Brave, uBlock) não são contados | Script no fim das três páginas; uma página nova também o deve ter |
 | Google Search Console | Pesquisas, cliques e indexação; sitemap submetido | Meta `google-site-verification` em `index.html` (não remover) |
-| Google Fonts | Bricolage Grotesque, IBM Plex Sans e Mono | `<link>` no `<head>`; autorizado na CSP |
+| Google Fonts | Inter (o terminal usa a letra monoespaçada do sistema) | `<link>` no `<head>`; autorizado na CSP |
 
 A pesquisa usa ainda `robots.txt`, `sitemap.xml` e um bloco JSON-LD `Person` no `<head>` de cada página. Se mudar a frase do topo, os links ou o email, atualizar também o JSON-LD.
 

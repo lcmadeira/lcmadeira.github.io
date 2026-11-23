@@ -16,4 +16,5 @@ O que ficou por fazer e o que se sabe que não é perfeito. Ao fazer uma ideia, 
 - **Estatísticas por defeito**: o Brave e os bloqueadores de anúncios não deixam carregar o script da Cloudflare; os números ficam abaixo da realidade.
 - **Sem cabeçalhos HTTP próprios** no GitHub Pages: a CSP vai por meta tag e não cobre `frame-ancestors`.
 - **Histórico do Git público** com versões antigas mais detalhadas dos cartões do trabalho (ver `docs/decisoes.md`).
-- **Fontes da Google**: o site depende de `fonts.googleapis.com`; sem acesso, usa as fontes do sistema (definidas como alternativa no CSS).
+- **Fontes da Google**: o site depende de `fonts.googleapis.com` para a Inter; sem acesso, usa as fontes do sistema (definidas como alternativa no CSS).
+- **Só tema escuro**: quem prefere tema claro vê o site escuro (decisão em `docs/decisoes.md`).

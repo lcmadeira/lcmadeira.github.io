@@ -6,7 +6,7 @@ Site pessoal estático, público. Antes de alterar, ler `README.md` (como funcio
 
 - Escrever em português europeu; o inglês da página `/en/` em grafia britânica.
 - Mudar **as duas línguas** (`index.html` e `en/index.html`) na mesma alteração.
-- Correr `python3 scripts/check-site.py` antes de cada commit; em alterações visuais, ver o resultado em ecrã largo e estreito, nos temas claro e escuro (`docs/manutencao.md`, "Como testar").
+- Correr `python3 scripts/check-site.py` antes de cada commit; em alterações visuais, ver o resultado em ecrã largo e estreito (`docs/manutencao.md`, "Como testar").
 - Trabalhar num ramo e abrir um pull request; nunca fazer push direto para o `master` nem merge sem autorização explícita do autor.
 - Atualizar a documentação na mesma alteração: `README.md` se mudar o funcionamento, `docs/decisoes.md` se for uma decisão, `docs/ideias.md` se uma ideia for feita ou abandonada.
 - Commits com o email `noreply` do GitHub (já configurado); o GitHub recusa pushes que exponham o email pessoal.
