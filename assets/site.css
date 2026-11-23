@@ -58,7 +58,9 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 /* Cabeçalho */
 .intro { display: grid; gap: 1.5rem; padding-bottom: 2rem; border-bottom: 1px solid var(--b); }
 .intro-top { display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
-.kicker { margin: 0; font-size: .74rem; font-weight: 500; letter-spacing: .14em; text-transform: uppercase; color: var(--t3); }
+.prompt { margin: 0; font: 600 clamp(1.15rem, 2.2vw, 1.35rem)/1 var(--mono); color: var(--text); letter-spacing: -.01em; }
+.prompt b { color: var(--accent); font-weight: 700; }
+.prompt span { color: var(--t3); }
 .intro-body { display: grid; gap: 1.75rem; align-items: end; }
 .intro-main { display: grid; gap: 1.1rem; }
 @media (min-width: 900px) { .intro-body { grid-template-columns: minmax(0, 1fr) 24rem; gap: 3rem; } }
