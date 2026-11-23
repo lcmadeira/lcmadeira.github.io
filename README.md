@@ -29,7 +29,7 @@ Página pessoal de Luís Carlos Madeira, publicada pelo GitHub Pages em <https:/
   2. se o repositório for privado, dar-lhe acesso no token `REPOS_READ_TOKEN` (definições do token no GitHub).
 
   Sem isto o cartão funciona na mesma; só não mostra a data.
-- **Números do topo** (`<dl class="stats">`): são escritos à mão, nas duas páginas. Ao acrescentar ou retirar um cartão, atualizar o número de projetos (e o "1 deles público", se mudar); a verificação falha se esse número não bater com os cartões. Os outros três (stacks Docker, backups diários, ciclo do SLA) não são verificados: atualizar quando mudarem no servidor ou no SLA.
+- **Números do topo** (`<dl class="stats">`): são escritos à mão, nas duas páginas. Ao acrescentar ou retirar um cartão, atualizar o número de projetos (e o "1 deles público", se mudar); a verificação falha se esse número não bater com os cartões. O número de stacks Docker tem de bater com a lista `ls -F stacks/` da secção "O que uso" (também verificado). Os outros dois (backups diários, ciclo do SLA) não são verificados: atualizar quando mudarem no servidor ou no SLA.
 
 ### O que pode ser público
 
@@ -52,7 +52,7 @@ A atividade dos cartões só aparece com o site servido por HTTP, não ao abrir 
 - um link ou recurso interno apontar para um ficheiro que não existe;
 - as páginas PT e EN tiverem cartões ou links externos diferentes;
 - `data/activity.json` for inválido ou tiver cartões que a página não tem;
-- o número de projetos no topo não bater com o número de cartões;
+- o número de projetos ou de stacks no topo não bater com os cartões ou com a lista de stacks;
 - aparecer um endereço IPv4, um email (exceto o de contacto, `PUBLIC_EMAIL`) ou um termo privado em qualquer ficheiro publicado;
 - (com `--external`) um link externo devolver 404 ou 410. X e Threads bloqueiam pedidos automáticos e não são verificados.
 
