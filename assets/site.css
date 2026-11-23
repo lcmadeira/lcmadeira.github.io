@@ -244,12 +244,7 @@ h3.group::after { content: ""; flex: 1; height: 1px; background: var(--b); }
   @keyframes term-blink { 50% { opacity: 0; } }
 }
 .ff { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2.25rem; align-items: start; }
-.ff-logo {
-  width: 7rem; aspect-ratio: 1; max-width: 100%;
-  border-radius: 1.4rem; background: var(--card); border: 1px solid var(--b);
-  display: grid; place-items: center;
-  font: 700 2.7rem/1 var(--font); color: var(--accent); letter-spacing: -.05em;
-}
+.ff-logo { display: block; width: 7rem; height: auto; max-width: 100%; }
 .ff-info { display: grid; gap: .05rem; min-width: 0; }
 .ff-host { margin: 0; color: var(--accent); font-weight: 500; }
 .ff-host span { color: var(--t3); }
@@ -274,7 +269,7 @@ h3.group::after { content: ""; flex: 1; height: 1px; background: var(--b); }
 @media (max-width: 560px) {
   .term { padding: 1.1rem 1rem 1.2rem; font-size: .82rem; }
   .ff { grid-template-columns: minmax(0, 1fr); gap: 1.1rem; }
-  .ff-logo { width: 4.5rem; border-radius: 1rem; font-size: 1.75rem; }
+  .ff-logo { width: 4.5rem; }
   .ff dl div { grid-template-columns: 5.6rem minmax(0, 1fr); gap: .5rem; }
 }
 
