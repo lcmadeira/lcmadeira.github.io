@@ -25,11 +25,12 @@ Formato: **decisão**: razão. *(data, pull request quando existe)*
 
 ## Design
 
-- **Sistema visual do Painel Pessoal** (`lcmadeira.github.io/dash`): fundo quase preto em três níveis (fundo, superfície, cartão), texto em três níveis, azul `#6EA8FE` para interação e destaque, verde, âmbar e vermelho só com significado (recente, aviso, erro); letra Inter; pílulas arredondadas para selos, tecnologias e estado; etiquetas em maiúsculas espaçadas. O autor preferia este estilo ao Catppuccin: o portfólio e o projeto em destaque ficam com a mesma identidade. *(23-11-2026)*
-- **`~ $ whoami` no topo, em destaque** (letra monoespaçada, `~` a azul): dá o tom técnico e liga ao terminal de "O que uso". Foi trocado por uma etiqueta "Portfólio · Évora, Portugal" ao adotar o estilo do painel e reposto a pedido do autor; Évora fica no rodapé. *(23-11-2026)*
-- **Só tema escuro**, como o painel: um segundo tema duplicava o trabalho de cada alteração visual sem ganho claro para um portfólio técnico. `color-scheme: dark` e uma única `theme-color`. *(23-11-2026)*
-- **Ícone LM desenhado com traços** (`favicon.svg`), sem depender de letra instalada: L claro e M azul sobre o cartão escuro; legível a 16 px. Os PNG e o ICO são gerados a partir do SVG. O logótipo do fastfetch em "O que uso" é o mesmo ficheiro, para haver uma só marca. *(23-11-2026)*
-- **Paleta do fastfetch** com as cores do sistema visual, em vez das 14 do Catppuccin. *(23-11-2026)*
+- **Sistema visual do Painel Pessoal** (`lcmadeira.github.io/dash`): fundo quase preto em três níveis (fundo, superfície, cartão), texto em três níveis, azul `#6EA8FE` para interação e destaque, verde, âmbar e vermelho só com significado (recente, aviso, erro); letra Inter; pílulas arredondadas para selos, tecnologias e estado; etiquetas em maiúsculas espaçadas. O autor preferia este estilo ao Catppuccin: o portfólio e o projeto em destaque ficam com a mesma identidade. *(23-11-2026, #32)*
+- **`~ $ whoami` no topo, em destaque** (letra monoespaçada, `~` a azul): dá o tom técnico e liga ao terminal de "O que uso". Foi trocado por uma etiqueta "Portfólio · Évora, Portugal" ao adotar o estilo do painel e reposto a pedido do autor; Évora fica no rodapé. *(23-11-2026, #33)*
+- **Só tema escuro**, como o painel: um segundo tema duplicava o trabalho de cada alteração visual sem ganho claro para um portfólio técnico. `color-scheme: dark` e uma única `theme-color`. *(23-11-2026, #32)*
+- **Ícone LM desenhado com traços** (`favicon.svg`), sem depender de letra instalada: L claro e M azul sobre o cartão escuro; legível a 16 px. Os PNG e o ICO são gerados a partir do SVG. O logótipo do fastfetch em "O que uso" é o mesmo ficheiro, para haver uma só marca. *(23-11-2026, #32 e #35)*
+- **Paleta do fastfetch** com as cores do sistema visual, em vez das 14 do Catppuccin. *(23-11-2026, #32)*
+- **Frase do topo com `text-wrap: balance`**: as linhas ficam com tamanho parecido e nenhuma palavra fica sozinha na última ("self-hosted." ficava). *(23-11-2026, #34)*
 - **Sem selo "Privado" nos cartões**: a introdução da secção já o diz, e o selo repetido criava ruído e partia títulos. *(23-11-2026, #15)*
 - **Verde só para estado** (atividade recente); o rodapé de cada cartão (horário/contexto) é texto neutro. *(23-11-2026, #15)*
 - **Ícone de traço por cartão**, desenhado à mão em SVG (sem bibliotecas), para distinguir os grupos de relance. *(23-11-2026, #16)*
@@ -44,6 +45,7 @@ Formato: **decisão**: razão. *(data, pull request quando existe)*
 - **Regra do `master`: proíbe apagar e reescrever à força, mas não obriga a pull request**: a automação diária faz push direto de `data/activity.json`, e uma regra de pull request obrigatório bloqueava-a. *(23-11-2026)*
 - **Email dos commits: o `noreply` do GitHub**, com bloqueio de pushes que exponham o email pessoal. Os commits antigos ficam como estão: reescrever o histórico é destrutivo e o endereço já tinha sido recolhido. *(23-11-2026)*
 - **Histórico do Git não reescrito**: versões antigas do HTML contêm descrições mais detalhadas dos projetos do trabalho. Aceite: tirá-las obrigava a push forçado, que a regra do `master` agora impede. *(23-11-2026)*
+- **Email do bot no workflow de atividade** (`41898282+github-actions[bot]@users.noreply.github.com`): é o endereço público e oficial do bot das GitHub Actions, não um segredo. No Git o email é só uma etiqueta; o que dá acesso ao repositório é o token temporário de cada execução (`contents: write`) e o autor é o único com escrita. Usado para os commits automáticos não aparecerem em nome do autor. *(23-11-2026)*
 - **Licença MIT só para o código**; textos, nome, marca "LM" e imagens reservados. *(23-11-2026, #24)*
 
 ## Pesquisa
