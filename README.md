@@ -33,7 +33,7 @@ Página pessoal de Luís Carlos Madeira, publicada pelo GitHub Pages em <https:/
 
 ### O que pode ser público
 
-Os cartões descrevem também projetos privados, alguns do trabalho. Nunca publicar nomes de clientes ou empresas, endereços IP, domínios, portas, emails, métricas ou limiares reais, nem nomes de repositórios privados. Descrever o problema e a solução de forma genérica.
+Os cartões descrevem também projetos privados, alguns do trabalho. Nunca publicar nomes de clientes ou empresas, endereços IP, domínios, portas, emails (a única exceção é o email de contacto do topo, `PUBLIC_EMAIL` em `scripts/check-site.py`), métricas ou limiares reais, nem nomes de repositórios privados. Descrever o problema e a solução de forma genérica.
 
 ## Ver e verificar antes de publicar
 
@@ -53,7 +53,7 @@ A atividade dos cartões só aparece com o site servido por HTTP, não ao abrir 
 - as páginas PT e EN tiverem cartões ou links externos diferentes;
 - `data/activity.json` for inválido ou tiver cartões que a página não tem;
 - o número de projetos no topo não bater com o número de cartões;
-- aparecer um endereço IPv4, um email ou um termo privado em qualquer ficheiro publicado;
+- aparecer um endereço IPv4, um email (exceto o de contacto, `PUBLIC_EMAIL`) ou um termo privado em qualquer ficheiro publicado;
 - (com `--external`) um link externo devolver 404 ou 410. X e Threads bloqueiam pedidos automáticos e não são verificados.
 
 Localmente, os termos privados só são verificados com a variável `PRIVATE_TERMS` definida; sem ela aparece um aviso. Na CI são sempre verificados.

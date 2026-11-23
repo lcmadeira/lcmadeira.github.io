@@ -11,8 +11,8 @@ Falha (código 1) se:
   - as versões PT e EN não tiverem os mesmos cartões e links externos;
   - data/activity.json for inválido ou tiver cartões que a página não tem;
   - o número de projetos no topo (data-count="cards") não bater com os cartões;
-  - aparecer um endereço IPv4, um email ou um termo privado em qualquer ficheiro
-    publicado. Os termos privados vêm da variável PRIVATE_TERMS (um por linha,
+  - aparecer um endereço IPv4, um email (exceto o de contacto, PUBLIC_EMAIL) ou um
+    termo privado em qualquer ficheiro publicado. Os termos privados vêm da variável PRIVATE_TERMS (um por linha,
     segredo do repositório), para a lista não ficar ela própria pública.
 """
 import html.parser, json, os, re, sys, urllib.request, urllib.error
@@ -22,6 +22,8 @@ PAGES = ['index.html', 'en/index.html', '404.html']
 VOID = {'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'source', 'track', 'wbr'}
 SVG_LEAF = {'path', 'use', 'circle', 'rect', 'line', 'polyline', 'polygon', 'ellipse'}
 # Bloqueiam pedidos automáticos: não se verificam (só o formato).
+# Único email que pode ser publicado: o botão de contacto no topo.
+PUBLIC_EMAIL = 'lcmadeira@outlook.pt'
 SKIP_EXTERNAL = ('https://x.com/', 'https://www.threads.com/')
 errors, warnings = [], []
 
@@ -123,7 +125,7 @@ def check_privacy():
                 if all(int(x) <= 255 for x in m.group().split('.')):
                     errors.append(f'{rel}:{n}: endereço IPv4 ({m.group()})')
             for m in email.finditer(line):
-                if not m.group().startswith('noreply@'):
+                if not m.group().startswith('noreply@') and m.group() != PUBLIC_EMAIL:
                     errors.append(f'{rel}:{n}: endereço de email')
             for i, r in enumerate(term_re):
                 if r.search(line):
