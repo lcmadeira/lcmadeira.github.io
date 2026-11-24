@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-23T22:31:25Z",
+  "updated": "2026-11-24T18:02:18Z",
   "projects": {
     "automacao-servidor": "2026-11-23T18:59:57Z",
     "buffer-cli": "2026-11-10T18:46:20Z",
@@ -7,8 +7,8 @@
     "inbox-assistant": "2026-11-23T21:29:58Z",
     "indicador-servico": "2026-11-19T17:56:48Z",
     "monitor-sla": "2026-11-16T12:08:46Z",
-    "painel-operacao": "2026-11-12T20:26:49Z",
-    "painel-pessoal": "2026-11-23T17:56:02Z",
+    "painel-operacao": "2026-11-24T12:54:47Z",
+    "painel-pessoal": "2026-11-24T10:37:30Z",
     "radar-x": "2026-11-19T11:15:27Z",
     "servidor-domestico": "2026-11-23T21:27:53Z"
   }
