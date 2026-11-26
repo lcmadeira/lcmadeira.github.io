@@ -31,6 +31,7 @@ Formato: **decisão**: razão. *(data, pull request quando existe)*
 - **Ícone LM desenhado com traços** (`favicon.svg`), sem depender de letra instalada: L claro e M azul sobre o cartão escuro; legível a 16 px. Os PNG e o ICO são gerados a partir do SVG. O logótipo do fastfetch em "O que uso" é o mesmo ficheiro, para haver uma só marca. *(23-11-2026, #32 e #35)*
 - **Paleta do fastfetch** com as cores do sistema visual, em vez das 14 do Catppuccin. *(23-11-2026, #32)*
 - **Frase do topo com `text-wrap: balance`**: as linhas ficam com tamanho parecido e nenhuma palavra fica sozinha na última ("self-hosted." ficava). *(23-11-2026, #34)*
+- **Frase do topo numa só linha em ecrã largo, nas duas línguas**: com `max-width: 40rem` só a inglesa cabia (a portuguesa tem ~676 px e partia-se em duas mesmo com espaço). Passou a `46rem`, e o espaço entre a frase e os números de `3rem` para `2.25rem`, para caber a partir de ~1120 px de janela; abaixo disso continua equilibrada em duas linhas. *(26-11-2026, #43)*
 - **Sem selo "Privado" nos cartões**: a introdução da secção já o diz, e o selo repetido criava ruído e partia títulos. *(23-11-2026, #15)*
 - **Verde só para estado** (atividade recente); o rodapé de cada cartão (horário/contexto) é texto neutro. *(23-11-2026, #15)*
 - **Ícone de traço por cartão**, desenhado à mão em SVG (sem bibliotecas), para distinguir os grupos de relance. *(23-11-2026, #16)*

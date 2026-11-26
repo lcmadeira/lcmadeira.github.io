@@ -63,7 +63,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 .prompt span { color: var(--t3); }
 .intro-body { display: grid; gap: 1.75rem; align-items: end; }
 .intro-main { display: grid; gap: 1.1rem; }
-@media (min-width: 900px) { .intro-body { grid-template-columns: minmax(0, 1fr) 24rem; gap: 3rem; } }
+@media (min-width: 900px) { .intro-body { grid-template-columns: minmax(0, 1fr) 24rem; gap: 2.25rem; } }
 h1 {
   margin: 0;
   font: 700 clamp(2.1rem, 5vw, 3rem)/1.08 var(--font);
@@ -71,7 +71,7 @@ h1 {
   color: var(--text);
   text-wrap: balance;
 }
-.lede { margin: 0; max-width: 40rem; font-size: 1.13rem; line-height: 1.55; color: var(--t2); text-wrap: balance; }
+.lede { margin: 0; max-width: 46rem; font-size: 1.13rem; line-height: 1.55; color: var(--t2); text-wrap: balance; }
 
 .links { display: flex; flex-wrap: wrap; gap: .5rem; margin: 0; padding: 0; list-style: none; }
 .links a {
