@@ -32,6 +32,7 @@ Formato: **decisão**: razão. *(data, pull request quando existe)*
 - **Paleta do fastfetch** com as cores do sistema visual, em vez das 14 do Catppuccin. *(23-11-2026, #32)*
 - **Frase do topo com `text-wrap: balance`**: as linhas ficam com tamanho parecido e nenhuma palavra fica sozinha na última ("self-hosted." ficava). *(23-11-2026, #34)*
 - **Frase do topo numa só linha em ecrã largo, nas duas línguas**: com `max-width: 40rem` só a inglesa cabia (a portuguesa tem ~676 px e partia-se em duas mesmo com espaço). Passou a `46rem`, e o espaço entre a frase e os números de `3rem` para `2.25rem`, para caber a partir de ~1120 px de janela; abaixo disso continua equilibrada em duas linhas. *(26-11-2026, #43)*
+- **Sem faixa de captura por baixo dos cartões**: experimentada no #44 (captura do Homelab Control com dados fictícios, largura total da grelha) e retirada a pedido do autor no mesmo dia; não repetir este formato. *(26-11-2026, #45)*
 - **Sem selo "Privado" nos cartões**: a introdução da secção já o diz, e o selo repetido criava ruído e partia títulos. *(23-11-2026, #15)*
 - **Verde só para estado** (atividade recente); o rodapé de cada cartão (horário/contexto) é texto neutro. *(23-11-2026, #15)*
 - **Ícone de traço por cartão**, desenhado à mão em SVG (sem bibliotecas), para distinguir os grupos de relance. *(23-11-2026, #16)*
