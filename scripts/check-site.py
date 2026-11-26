@@ -3,6 +3,7 @@
 
   python3 scripts/check-site.py             # verificações locais
   python3 scripts/check-site.py --external  # e também os links externos
+  python3 scripts/check-site.py --fix-versions  # atualiza os ?v= do CSS e do JS locais
 
 Falha (código 1) se:
   - um ficheiro HTML tiver etiquetas por fechar ou ids repetidos;
@@ -10,6 +11,8 @@ Falha (código 1) se:
   - um link ou recurso interno apontar para um ficheiro que não existe;
   - as versões PT e EN não tiverem os mesmos cartões e links externos;
   - um bloco JSON-LD (application/ld+json) ou o sitemap.xml forem inválidos;
+  - um CSS ou JS local for incluído sem ?v= igual ao início do SHA-256 do ficheiro
+    (sem isso, o browser junta HTML novo com CSS antigo da cache durante 10 minutos);
   - a meta description de uma página indexável faltar ou não tiver entre
     DESC_MIN e DESC_MAX caracteres (os motores de pesquisa cortam o resto);
   - data/activity.json for inválido ou tiver cartões que a página não tem;
@@ -19,7 +22,7 @@ Falha (código 1) se:
     termo privado em qualquer ficheiro publicado. Os termos privados vêm da variável PRIVATE_TERMS (um por linha,
     segredo do repositório), para a lista não ficar ela própria pública.
 """
-import html.parser, json, os, re, sys, urllib.request, urllib.error
+import hashlib, html.parser, json, os, re, sys, urllib.request, urllib.error
 
 ROOT = os.path.normpath(os.path.join(os.path.dirname(__file__), '..'))
 PAGES = ['index.html', 'en/index.html', '404.html']
@@ -32,6 +35,10 @@ SKIP_EXTERNAL = ('https://x.com/', 'https://www.threads.com/')
 # Meta description: o Bing Webmaster Tools assinala fora de 25-160 caracteres.
 DESC_MIN, DESC_MAX = 25, 160
 INDEXABLE = ('index.html', 'en/index.html')  # a 404 não é para indexar
+VERSIONED = ('.css', '.js')  # recursos locais com ?v= (o GitHub Pages guarda-os 10 min em cache)
+
+def asset_version(path):
+    return hashlib.sha256(open(path, 'rb').read()).hexdigest()[:8]
 errors, warnings = [], []
 
 class Page(html.parser.HTMLParser):
@@ -94,6 +101,7 @@ def check_pages():
             if a.get('target') != '_blank' or 'noopener' not in a.get('rel', ''):
                 errors.append(f'{name}: link externo sem novo separador: {a["href"]}')
         base = os.path.dirname(path)
+        fixed = text
         for ref in p.refs:
             clean = ref.split('#')[0].split('?')[0]
             if not clean: continue
@@ -101,6 +109,16 @@ def check_pages():
             if clean.endswith('/'): target = os.path.join(target, 'index.html')
             if not os.path.exists(target):
                 errors.append(f'{name}: aponta para {ref}, que não existe')
+            elif clean.endswith(VERSIONED):
+                want = f'{clean}?v={asset_version(target)}'
+                if ref != want:
+                    if '--fix-versions' in sys.argv:
+                        fixed = fixed.replace(f'"{ref}"', f'"{want}"')
+                    else:
+                        errors.append(f'{name}: {ref} deve ser {want} (correr com --fix-versions)')
+        if fixed != text:
+            open(path, 'w', encoding='utf-8').write(fixed)
+            print(f'{name}: versões do CSS/JS atualizadas')
         for key, text in p.count.items():
             real = p.cards if key == 'cards' else p.lists.get(key)
             if real is None: errors.append(f'{name}: data-count="{key}" sem lista data-count-list correspondente')
