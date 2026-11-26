@@ -36,6 +36,7 @@ Ao mudar o funcionamento do site, atualizar este README; ao tomar uma decisão, 
 | `.github/workflows/` | Automação: `check.yml` e `activity.yml` |
 | `lighthouserc.json` | Páginas e limites da auditoria Lighthouse na CI (ver "Automação") |
 | `.github/dependabot.yml` | Atualizações semanais das GitHub Actions |
+| `.gitignore` | Ignora a cache do Python e os relatórios locais do Lighthouse (`.lighthouseci/`) |
 | `LICENSE` | Licença MIT do código |
 | `docs/`, `CLAUDE.md` | Documentação (ver acima) |
 
@@ -63,7 +64,10 @@ Os cartões descrevem também projetos privados, alguns do trabalho. Nunca publi
 python3 -m http.server 8000          # abrir http://localhost:8000 e http://localhost:8000/en/
 python3 scripts/check-site.py        # verificações locais
 python3 scripts/check-site.py --external   # e também os links externos
+python3 scripts/check-site.py --fix-versions   # depois de mudar o CSS ou o JS: atualiza os ?v=
 ```
+
+O Lighthouse da CI também corre localmente (ver "Como testar" em `docs/manutencao.md`).
 
 A atividade dos cartões só aparece com o site servido por HTTP, não ao abrir o ficheiro diretamente.
 
@@ -94,6 +98,8 @@ Localmente, os termos privados só são verificados com a variável `PRIVATE_TER
 | Google Fonts | Inter (o terminal usa a letra monoespaçada do sistema) | `<link>` no `<head>`; autorizado na CSP |
 
 A pesquisa usa ainda `robots.txt`, `sitemap.xml` e um bloco JSON-LD `Person` no `<head>` de cada página. Se mudar a frase do topo, os links ou o email, atualizar também o JSON-LD.
+
+Fora deste repositório, o site é apontado pelo README do perfil do GitHub (repositório público `lcmadeira/lcmadeira`) e pelo campo "site" dos repositórios `lcmadeira.github.io` e `dash`. O Painel Pessoal (`/dash/`) tem as suas próprias metas, imagem de pré-visualização e JSON-LD no repositório `dash`; daqui só vem a entrada no sitemap.
 
 ## Proteções do repositório
 

@@ -8,8 +8,9 @@ Formato: **decisão**: razão. *(data, pull request quando existe)*
 
 - **Site estático sem build e sem Jekyll** (`.nojekyll`): três páginas HTML, um CSS e dois scripts pequenos. Nada para compilar nem dependências para atualizar; o GitHub Pages serve os ficheiros tal como estão. *(19-11-2026)*
 - **Duas línguas em páginas separadas** (`/` e `/en/`) com a mesma estrutura: mais simples do que traduzir no browser e indexável pelo Google em cada língua (`hreflang`, sitemap). A verificação obriga a terem os mesmos cartões e links. *(19-11-2026)*
-- **Sem domínio próprio**: fica em `lcmadeira.github.io` por decisão do autor. *(23-11-2026)*
 - ~~**Tema Catppuccin** (Latte no claro, Mocha no escuro), seguindo a preferência do sistema; o bloco de terminal é sempre Mocha, de propósito.~~ *(19-11-2026; substituída a 23-11-2026, ver "Design")*
+- **Sem domínio próprio**: fica em `lcmadeira.github.io` por decisão do autor. *(23-11-2026)*
+- **CSS e JS com `?v=` do conteúdo** (início do SHA-256), verificado pelo `check-site.py`: o GitHub Pages guarda-os 10 minutos em cache e, sem versão, o browser juntava HTML novo com CSS antigo (no #44 a página apareceu partida). `--fix-versions` atualiza as três páginas. *(26-11-2026, #46)*
 
 ## Conteúdo
 
@@ -31,15 +32,14 @@ Formato: **decisão**: razão. *(data, pull request quando existe)*
 - **Ícone LM desenhado com traços** (`favicon.svg`), sem depender de letra instalada: L claro e M azul sobre o cartão escuro; legível a 16 px. Os PNG e o ICO são gerados a partir do SVG. O logótipo do fastfetch em "O que uso" é o mesmo ficheiro, para haver uma só marca. *(23-11-2026, #32 e #35)*
 - **Paleta do fastfetch** com as cores do sistema visual, em vez das 14 do Catppuccin. *(23-11-2026, #32)*
 - **Frase do topo com `text-wrap: balance`**: as linhas ficam com tamanho parecido e nenhuma palavra fica sozinha na última ("self-hosted." ficava). *(23-11-2026, #34)*
-- **Frase do topo numa só linha em ecrã largo, nas duas línguas**: com `max-width: 40rem` só a inglesa cabia (a portuguesa tem ~676 px e partia-se em duas mesmo com espaço). Passou a `46rem`, e o espaço entre a frase e os números de `3rem` para `2.25rem`, para caber a partir de ~1120 px de janela; abaixo disso continua equilibrada em duas linhas. *(26-11-2026, #43)*
-- **Sem faixa de captura por baixo dos cartões**: experimentada no #44 (captura do Homelab Control com dados fictícios, largura total da grelha) e retirada a pedido do autor no mesmo dia; não repetir este formato. *(26-11-2026, #45)*
-- **CSS e JS com `?v=` do conteúdo** (início do SHA-256), verificado pelo `check-site.py`: o GitHub Pages guarda-os 10 minutos em cache e, sem versão, o browser juntava HTML novo com CSS antigo (no #44 a página apareceu partida). `--fix-versions` atualiza as três páginas. *(26-11-2026, #46)*
 - **Sem selo "Privado" nos cartões**: a introdução da secção já o diz, e o selo repetido criava ruído e partia títulos. *(23-11-2026, #15)*
 - **Verde só para estado** (atividade recente); o rodapé de cada cartão (horário/contexto) é texto neutro. *(23-11-2026, #15)*
 - **Ícone de traço por cartão**, desenhado à mão em SVG (sem bibliotecas), para distinguir os grupos de relance. *(23-11-2026, #16)*
 - **Números no topo** à direita em ecrã largo, por baixo no telemóvel; os que podem ser verificados são-no (`data-count`). *(23-11-2026, #16, #17, #19)*
 - **Contraste medido pela fórmula WCAG** em todas as combinações de cores; o texto mais fraco (`--t3`) tem pelo menos 5,6:1 sobre o cartão. As bordas dos cartões ficam abaixo de 3:1 de propósito: são decorativas. *(23-11-2026, #17; refeito com o sistema visual novo)*
 - **Auditoria Lighthouse na CI, com acessibilidade a 100 obrigatória**: o contraste era verificado por cálculo e a estrutura à mão; o Lighthouse (que usa o axe) apanha regressões em cada pull request. Desempenho só como aviso, porque varia com a máquina da CI. A primeira execução encontrou links demasiado juntos no terminal de "O que uso" (alvo de toque abaixo de 24 px, WCAG 2.5.8), corrigido com `min-height: 24px`. Lighthouse preferido ao axe isolado: cobre também boas práticas, SEO e desempenho com uma só ferramenta. *(26-11-2026, #38)*
+- **Frase do topo numa só linha em ecrã largo, nas duas línguas**: com `max-width: 40rem` só a inglesa cabia (a portuguesa tem ~676 px e partia-se em duas mesmo com espaço). Passou a `46rem`, e o espaço entre a frase e os números de `3rem` para `2.25rem`, para caber a partir de ~1120 px de janela; abaixo disso continua equilibrada em duas linhas. *(26-11-2026, #43)*
+- **Sem faixa de captura por baixo dos cartões**: experimentada no #44 (captura do Homelab Control com dados fictícios, largura total da grelha) e retirada a pedido do autor no mesmo dia; não repetir este formato. *(26-11-2026, #45)*
 
 ## Privacidade, segurança e confiança
 
@@ -55,7 +55,10 @@ Formato: **decisão**: razão. *(data, pull request quando existe)*
 ## Pesquisa
 
 - **`robots.txt`, `sitemap.xml` e JSON-LD `Person`**; site verificado no Google Search Console por meta tag em `index.html` (não remover: o Google volta a confirmá-la). *(23-11-2026, #22 e #23)*
+- **`og:image` com `?v=N`**: ao refazer as imagens de pré-visualização, subir o número para as redes não usarem a imagem em cache. *(23-11-2026, #20)*
 - **O sitemap inclui o Painel Pessoal** (`/dash/`): é publicado noutro repositório mas no mesmo domínio, e o `robots.txt` só pode existir na raiz; é a página com mais pesquisas potenciais (eletricidade, combustíveis, Euribor). As metas e o JSON-LD do painel vivem no repositório `dash`. *(26-11-2026, #39; dash#44)*
 - **Bing Webmaster Tools verificado por meta tag** (`msvalidate.01` em `index.html`), como o Google: o GitHub Pages não permite DNS próprio no domínio `github.io` e um ficheiro XML na raiz seria mais um ficheiro a manter. Não remover: o Bing volta a confirmá-la. *(26-11-2026, #40)*
 - **Logótipo do terminal com `alt` curto** ("Monograma LM"), em vez de `alt=""`: a imagem é decorativa e o vazio era o correto para a acessibilidade, mas o Bing assinala-o como texto alternativo em falta; duas palavras resolvem o aviso sem incomodar os leitores de ecrã. *(26-11-2026, #41)*
-- **`og:image` com `?v=N`**: ao refazer as imagens de pré-visualização, subir o número para as redes não usarem a imagem em cache. *(23-11-2026, #20)*
+- **Meta description entre 25 e 160 caracteres, verificada na CI** (`check-site.py` no site, teste no `dash`): o Bing assinalou a do painel, com 201. *(26-11-2026, #42; dash#45 e dash#46)*
+- **Painel Pessoal com metas próprias, imagem de pré-visualização e texto estático** ("Sobre este painel" no fim da página, em HTML): o resto da página é gerado por JavaScript e não tinha descrição, canonical nem Open Graph. Feito no repositório `dash`. *(26-11-2026, dash#44 e dash#46)*
+- **Perfil do GitHub aponta para o site**: README de perfil (repositório público `lcmadeira/lcmadeira`) com links para o portfólio e o painel, e descrição, site e tópicos nos repositórios públicos `lcmadeira.github.io` e `dash`. São os links normais (sem `nofollow`) mais fáceis de ter; os das bios do X e do Threads (normalmente `nofollow`) ajudam a descobrir o site mas pouco contam para a classificação. *(26-11-2026)*
