@@ -253,7 +253,7 @@ h3.group::after { content: ""; flex: 1; height: 1px; background: var(--b); }
 .ff dl div { display: grid; grid-template-columns: 6.5rem minmax(0, 1fr); gap: .75rem; align-items: baseline; }
 .ff dt { color: var(--accent); font-weight: 500; }
 .ff dd { margin: 0; min-width: 0; color: var(--text); }
-.ff dd a { color: var(--text); text-decoration: none; }
+.ff dd a { display: inline-block; min-height: 24px; color: var(--text); text-decoration: none; } /* alvo de toque de 24 px (WCAG 2.5.8) */
 .ff dd a:hover { color: var(--accent); text-decoration: underline dotted; text-underline-offset: 3px; }
 .ff dd .sep { color: var(--t3); }
 .ff-palette { display: flex; gap: 0; margin: .9rem 0 0; padding: 0; list-style: none; }

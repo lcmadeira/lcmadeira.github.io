@@ -121,7 +121,8 @@ def check_activity(pages):
 
 def published_files():
     for d, dirs, files in os.walk(ROOT):
-        dirs[:] = [x for x in dirs if x != '.git']
+        # .lighthouseci: relatórios locais do Lighthouse, ignorados pelo Git (números de versão parecem IP)
+        dirs[:] = [x for x in dirs if x not in ('.git', '.lighthouseci')]
         for f in files:
             if f.endswith(('.html', '.css', '.js', '.json', '.py', '.yml', '.yaml', '.md', '.txt', '.svg', '.webmanifest')):
                 yield os.path.join(d, f)
