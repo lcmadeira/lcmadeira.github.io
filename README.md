@@ -74,6 +74,7 @@ A atividade dos cartões só aparece com o site servido por HTTP, não ao abrir 
 - um link ou recurso interno apontar para um ficheiro que não existe;
 - as páginas PT e EN tiverem cartões ou links externos diferentes;
 - um bloco JSON-LD (dados estruturados no `<head>`) ou o `sitemap.xml` forem inválidos;
+- a meta description de `/` ou `/en/` faltar ou não tiver entre 25 e 160 caracteres (o que os motores de pesquisa mostram; o Bing assinala fora deste intervalo);
 - `data/activity.json` for inválido ou tiver cartões que a página não tem;
 - o número de projetos ou de serviços no topo não bater com os cartões ou com a lista `apps/`;
 - aparecer um endereço IPv4, um email (exceto o de contacto, `PUBLIC_EMAIL`) ou um termo privado em qualquer ficheiro publicado;
