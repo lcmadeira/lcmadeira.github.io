@@ -140,9 +140,10 @@
         <div class="feature-side">
           <p class="side-label">What it shows</p>
           <ul>
-            <li>IPMA weather, petrol prices in Portugal and Spain, HICP and Euribor</li>
+            <li>IPMA weather, petrol prices in Portugal and Spain, natural gas, HICP and Euribor</li>
             <li>Hourly OMIE electricity prices and the cheapest window of the day</li>
             <li>PSI 20, exchange rates, crypto and 7, 30 and 90-day charts</li>
+            <li>Public debt, exports and CO₂ emissions from electricity generation</li>
             <li>News, earthquakes, air quality, and air and maritime traffic</li>
           </ul>
           <p class="cadence">no build step: HTML, CSS and JavaScript; CI with 6 jobs and a daily check of the live page</p>
@@ -173,9 +174,9 @@
           <div class="card-top"><h4><span class="card-ico"><svg aria-hidden="true"><use href="#c-chart"/></svg></span>Operations Dashboard</h4></div>
           <p class="goal"><strong>Goal:</strong> centralise an operations team's daily KPIs and the production of the monthly report.</p>
           <ul>
-            <li>Intraday readings per service, with trend analysis and alerts.</li>
+            <li>Intraday readings per service, with trend analysis, an end-of-day projection and alerts.</li>
             <li>Import of periodic reports, with a preview of changes before saving.</li>
-            <li>Monthly report generation in HTML and Excel.</li>
+            <li>Monthly report and weekly summary generation in HTML and Excel.</li>
           </ul>
           <p class="cadence">local database with a verified daily backup</p>
           <ul class="tags"><li>JavaScript</li><li>Node.js</li><li>SQLite</li></ul>
@@ -209,6 +210,7 @@
             <li>Nextcloud, Paperless-ngx, FreshRSS, Uptime Kuma and Netdata behind a reverse proxy.</li>
             <li>Infrastructure as code: each service is a Docker Compose stack versioned in Git.</li>
             <li>Continuous deployment: a push to the main branch triggers deployment once CI passes.</li>
+            <li>Hardened host: key-only SSH, a restrictive firewall and least-privilege containers.</li>
           </ul>
           <p class="cadence">Docker services on a Debian server with 3 GB of RAM</p>
           <ul class="tags"><li>Docker</li><li>Traefik</li><li>GitHub Actions</li><li>Tailscale</li></ul>
@@ -219,11 +221,11 @@
           <div class="card-top"><h4><span class="card-ico"><svg aria-hidden="true"><use href="#c-shield"/></svg></span>Server Automation</h4></div>
           <p class="goal"><strong>Goal:</strong> maintain, protect and monitor the server autonomously, with alerts on failure.</p>
           <ul>
-            <li>Verified daily backups, with an encrypted off-site replica and Telegram alerts.</li>
+            <li>Verified daily backups, with an encrypted off-site replica; alerts, a weekly summary and a query assistant on Telegram.</li>
             <li>SMART disk health monitoring and periodic restore tests, with early-warning alerts.</li>
-            <li>Automatic nightly shutdown, once backups have completed.</li>
+            <li>Nightly shutdown once backups have completed (or on critical battery), and automatic start-up on the next working day.</li>
           </ul>
-          <p class="cadence">backups at 18:00, 19:30 and 20:00; shuts down between 20:30 and 22:30</p>
+          <p class="cadence">backups at 18:00, 19:30 and 20:00; shuts down at night and starts itself on working days</p>
           <ul class="tags"><li>Python</li><li>Bash</li><li>Restic</li><li>ShellCheck</li></ul>
           <p class="activity" data-activity="automacao-servidor" hidden></p>
         </article>
@@ -234,7 +236,7 @@
           <ul>
             <li>Memory, load, disk usage with capacity forecasting, services and Docker containers.</li>
             <li>Age and outcome of every backup (including the off-site replica) and of scheduled tasks.</li>
-            <li>Disk health, pending updates and connection quality; each alert links to the affected section.</li>
+            <li>Disk health, TLS certificate expiry, pending updates and connection quality; each alert links to the affected section.</li>
           </ul>
           <p class="cadence">refreshes every 30 s; local network access only</p>
           <ul class="tags"><li>Python</li><li>JavaScript</li><li>systemd</li></ul>
@@ -253,7 +255,7 @@
           <p class="goal"><strong>Goal:</strong> automate email triage and document filing.</p>
           <ul>
             <li>Rule-based sorting of read messages, with optional LLM classification.</li>
-            <li>Deduplicated attachment extraction; invoices and documents are filed in Paperless-ngx.</li>
+            <li>Deduplicated attachment extraction; invoices and documents are filed in Paperless-ngx; daily digest on Telegram.</li>
             <li>Idempotent operations: no action that may already have run is repeated.</li>
           </ul>
           <p class="cadence">Python standard library only, no external dependencies</p>
