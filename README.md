@@ -23,7 +23,7 @@ Ao mudar o funcionamento do site, atualizar este README; ao tomar uma decisão, 
 | `index.html` | Página em português |
 | `en/index.html` | Página em inglês, com a mesma estrutura e os mesmos cartões |
 | `404.html` | Página de erro; usa caminhos absolutos (`/assets/...`) porque é servida em qualquer endereço |
-| `robots.txt`, `sitemap.xml` | Indicações para os motores de pesquisa; o sitemap lista as duas línguas com `hreflang` |
+| `robots.txt`, `sitemap.xml` | Indicações para os motores de pesquisa; o sitemap lista as duas línguas com `hreflang` e o Painel Pessoal (`/dash/`, publicado a partir do repositório `dash`, no mesmo domínio) |
 | `assets/site.css` | Estilos partilhados pelas três páginas: tema escuro único, com o sistema visual do Painel Pessoal (cores e regras no comentário do topo) |
 | `assets/activity.js` | Preenche a linha "atualizado há X" de cada cartão a partir de `data/activity.json` |
 | `assets/404.js` | Mostra na página de erro o endereço pedido |
