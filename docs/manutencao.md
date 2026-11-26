@@ -76,3 +76,12 @@ firefox --headless --window-size=1280,3000 --screenshot ~/snap/firefox/common/pa
 firefox --headless --window-size=390,5000  --screenshot ~/snap/firefox/common/telemovel.png http://localhost:8000/en/
 ```
 
+A auditoria Lighthouse da CI também corre localmente. Precisa de um Chrome ou Chromium; sem nenhum instalado, descarrega-se um para uma pasta temporária:
+
+```bash
+npx -y @puppeteer/browsers@2 install chrome-headless-shell@stable --path /tmp/lh-chrome
+CHROME_PATH=$(ls /tmp/lh-chrome/chrome-headless-shell/*/*/chrome-headless-shell) npx -y @lhci/cli@0.16.1 autorun
+```
+
+Os relatórios ficam em `.lighthouseci/reports/` (ignorado pelo Git). Localmente a consola mostra um erro do beacon da Cloudflare (CORS em `localhost`); é esperado e não baixa as boas práticas abaixo do limite.
+

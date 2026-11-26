@@ -21,3 +21,21 @@ jobs:
         env:
           PRIVATE_TERMS: ${{ secrets.PRIVATE_TERMS }}
         run: python3 scripts/check-site.py --external
+
+  # Acessibilidade, boas práticas, SEO e desempenho com o Lighthouse (limites em lighthouserc.json).
+  lighthouse:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Lighthouse nas três páginas
+        run: npx --yes @lhci/cli@0.16.1 autorun
+      - name: Guardar os relatórios
+        if: always()
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: lighthouse
+          path: .lighthouseci/reports/
+          retention-days: 14

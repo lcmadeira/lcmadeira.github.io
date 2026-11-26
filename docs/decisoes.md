@@ -36,6 +36,7 @@ Formato: **decisão**: razão. *(data, pull request quando existe)*
 - **Ícone de traço por cartão**, desenhado à mão em SVG (sem bibliotecas), para distinguir os grupos de relance. *(23-11-2026, #16)*
 - **Números no topo** à direita em ecrã largo, por baixo no telemóvel; os que podem ser verificados são-no (`data-count`). *(23-11-2026, #16, #17, #19)*
 - **Contraste medido pela fórmula WCAG** em todas as combinações de cores; o texto mais fraco (`--t3`) tem pelo menos 5,6:1 sobre o cartão. As bordas dos cartões ficam abaixo de 3:1 de propósito: são decorativas. *(23-11-2026, #17; refeito com o sistema visual novo)*
+- **Auditoria Lighthouse na CI, com acessibilidade a 100 obrigatória**: o contraste era verificado por cálculo e a estrutura à mão; o Lighthouse (que usa o axe) apanha regressões em cada pull request. Desempenho só como aviso, porque varia com a máquina da CI. A primeira execução encontrou links demasiado juntos no terminal de "O que uso" (alvo de toque abaixo de 24 px, WCAG 2.5.8), corrigido com `min-height: 24px`. Lighthouse preferido ao axe isolado: cobre também boas práticas, SEO e desempenho com uma só ferramenta. *(26-11-2026, #38)*
 
 ## Privacidade, segurança e confiança
 

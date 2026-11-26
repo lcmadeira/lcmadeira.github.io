@@ -34,6 +34,7 @@ Ao mudar o funcionamento do site, atualizar este README; ao tomar uma decisão, 
 | `scripts/update-activity.py` | Atualiza `data/activity.json` |
 | `scripts/og-image.html` | Modelo das imagens de pré-visualização (não é uma página do site) |
 | `.github/workflows/` | Automação: `check.yml` e `activity.yml` |
+| `lighthouserc.json` | Páginas e limites da auditoria Lighthouse na CI (ver "Automação") |
 | `.github/dependabot.yml` | Atualizações semanais das GitHub Actions |
 | `LICENSE` | Licença MIT do código |
 | `docs/`, `CLAUDE.md` | Documentação (ver acima) |
@@ -101,7 +102,7 @@ A pesquisa usa ainda `robots.txt`, `sitemap.xml` e um bloco JSON-LD `Person` no 
 
 | Workflow | Quando corre | O que faz |
 | --- | --- | --- |
-| `check.yml` (Verificar site) | Em cada pull request e em cada push para `master` | Corre `scripts/check-site.py --external` |
+| `check.yml` (Verificar site) | Em cada pull request e em cada push para `master` | Corre `scripts/check-site.py --external` e, num segundo job, o Lighthouse nas três páginas (`lighthouserc.json`): falha se a acessibilidade ficar abaixo de 100, as boas práticas abaixo de 90 ou o SEO abaixo de 90 (a 404 fica de fora do SEO, porque não é para indexar); o desempenho abaixo de 90 só dá aviso. Os relatórios ficam 14 dias nos artefactos da execução |
 | `activity.yml` (Atualizar atividade dos projetos) | Todos os dias às 06:30 UTC, ou à mão em *Actions* | Lê a data do último push de cada projeto, verifica o site e, se alguma data mudou, faz commit de `data/activity.json` no `master` |
 
 ## Segredos do repositório
