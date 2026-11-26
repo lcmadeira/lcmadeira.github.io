@@ -16,4 +16,4 @@ Site pessoal estático, público. Antes de alterar, ler `README.md` (como funcio
 - Publicar dados privados: o repositório e as descrições dos pull requests são públicos. Ver "O que pode ser público" no `README.md`, incluindo a regra dos projetos do trabalho. Isto vale também para mensagens de commit e descrições de pull requests: descrever a alteração sem citar o texto sensível que se retira.
 - Acrescentar `<script>` sem `src` ou `style="…"` (a CSP bloqueia-os) ou recursos externos sem os acrescentar à CSP das três páginas.
 - Reescrever o histórico ou forçar push (a regra do `master` impede-o e não é para contornar).
-- Remover a meta tag `google-site-verification` de `index.html`.
+- Remover as meta tags `google-site-verification` e `msvalidate.01` (Bing) de `index.html`.

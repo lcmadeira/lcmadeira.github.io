@@ -88,6 +88,7 @@ Localmente, os termos privados só são verificados com a variável `PRIVATE_TER
 | GitHub Pages | Alojamento, HTTPS | Ramo `master` |
 | Cloudflare Web Analytics | Estatísticas de visitas sem cookies (páginas, país, origem, dispositivo); painel em Análise → Web Analytics. Browsers com bloqueio (Brave, uBlock) não são contados | Script no fim das três páginas; uma página nova também o deve ter |
 | Google Search Console | Pesquisas, cliques e indexação; sitemap submetido | Meta `google-site-verification` em `index.html` (não remover) |
+| Bing Webmaster Tools | O mesmo para o Bing (e motores que o usam, como o DuckDuckGo e o Ecosia) | Meta `msvalidate.01` em `index.html` (não remover) |
 | Google Fonts | Inter (o terminal usa a letra monoespaçada do sistema) | `<link>` no `<head>`; autorizado na CSP |
 
 A pesquisa usa ainda `robots.txt`, `sitemap.xml` e um bloco JSON-LD `Person` no `<head>` de cada página. Se mudar a frase do topo, os links ou o email, atualizar também o JSON-LD.
