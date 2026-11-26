@@ -74,6 +74,7 @@ A atividade dos cartões só aparece com o site servido por HTTP, não ao abrir 
 - um link ou recurso interno apontar para um ficheiro que não existe;
 - as páginas PT e EN tiverem cartões ou links externos diferentes;
 - um bloco JSON-LD (dados estruturados no `<head>`) ou o `sitemap.xml` forem inválidos;
+- um CSS ou JS de `assets/` for incluído sem `?v=` igual ao início do SHA-256 do ficheiro (ao mudar o CSS ou o JS, correr `python3 scripts/check-site.py --fix-versions`, que atualiza as três páginas);
 - a meta description de `/` ou `/en/` faltar ou não tiver entre 25 e 160 caracteres (o que os motores de pesquisa mostram; o Bing assinala fora deste intervalo);
 - `data/activity.json` for inválido ou tiver cartões que a página não tem;
 - o número de projetos ou de serviços no topo não bater com os cartões ou com a lista `apps/`;
@@ -122,7 +123,7 @@ Para os definir ou alterar com a linha de comandos: `gh secret set <NOME> -R lcm
 ## Fluxo de trabalho
 
 1. Criar um ramo a partir do `master` atualizado.
-2. Fazer as alterações nas duas línguas e correr `python3 scripts/check-site.py`.
+2. Fazer as alterações nas duas línguas e correr `python3 scripts/check-site.py` (com `--fix-versions` se o CSS ou o JS mudou).
 3. Abrir um pull request; a CI verifica-o.
 4. Fazer o merge. O Pages publica em um ou dois minutos e o ramo remoto é apagado automaticamente.
 5. Atualizar a documentação na mesma alteração, se for caso disso (ver "Documentação").
