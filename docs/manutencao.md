@@ -85,3 +85,9 @@ CHROME_PATH=$(ls /tmp/lh-chrome/chrome-headless-shell/*/*/chrome-headless-shell)
 
 Os relatórios ficam em `.lighthouseci/reports/` (ignorado pelo Git). Localmente a consola mostra um erro do beacon da Cloudflare (CORS em `localhost`); é esperado e não baixa as boas práticas abaixo do limite.
 
+## Capturas dos projetos
+
+As capturas mostram o painel verdadeiro com **dados fictícios**: nunca fotografar o painel real (tem nomes de máquinas, IPs e valores reais).
+
+- **Homelab Control**: o painel corre localmente a partir de uma cópia do seu código, com a recolha de dados substituída por dados fictícios; o gerador e as instruções passo a passo estão fora do repositório, em `~/.local/share/portfolio-shots/homelab-control/` (`LEIA-ME.md`). Resultado: `homelab-control.webp` (2880×2420, tamanho real) e `homelab-control-card.webp` (1200 px de largura).
+- Antes de publicar, ver a imagem inteira: só nomes genéricos (`servidor`, `/srv/dados`, `eth0`), domínios `example.org`, nenhum IP.
