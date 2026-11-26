@@ -52,4 +52,5 @@ Formato: **decisão**: razão. *(data, pull request quando existe)*
 ## Pesquisa
 
 - **`robots.txt`, `sitemap.xml` e JSON-LD `Person`**; site verificado no Google Search Console por meta tag em `index.html` (não remover: o Google volta a confirmá-la). *(23-11-2026, #22 e #23)*
+- **O sitemap inclui o Painel Pessoal** (`/dash/`): é publicado noutro repositório mas no mesmo domínio, e o `robots.txt` só pode existir na raiz; é a página com mais pesquisas potenciais (eletricidade, combustíveis, Euribor). As metas e o JSON-LD do painel vivem no repositório `dash`. *(26-11-2026, #39; dash#44)*
 - **`og:image` com `?v=N`**: ao refazer as imagens de pré-visualização, subir o número para as redes não usarem a imagem em cache. *(23-11-2026, #20)*
