@@ -28,6 +28,7 @@ Ao mudar o funcionamento do site, atualizar este README; ao tomar uma decisão, 
 | `assets/activity.js` | Preenche a linha "atualizado há X" de cada cartão a partir de `data/activity.json` |
 | `assets/404.js` | Mostra na página de erro o endereço pedido |
 | `data/activity.json` | Data da última alteração de cada projeto, gerada pela automação diária |
+| `assets/homelab-control.webp`, `assets/homelab-control-card.webp` | Captura do Homelab Control com dados fictícios (tamanho real e versão para a página), na faixa `<figure class="shot">` por baixo dos cartões do Homelab. Ver "Capturas dos projetos" em `docs/manutencao.md` |
 | `assets/og.png`, `assets/og-en.png` | Imagens de pré-visualização para as redes sociais (1200×630), geradas a partir de `scripts/og-image.html` (instruções no próprio ficheiro); a frase tem de ser igual à do topo |
 | `favicon.svg`, `favicon.ico`, `assets/*icon*.png` | Ícone do site (monograma LM). O original é o `favicon.svg`; os PNG e o ICO são gerados a partir dele (ver `docs/manutencao.md`) |
 | `scripts/check-site.py` | Verificações antes de publicar (ver abaixo) |
