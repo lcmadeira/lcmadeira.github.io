@@ -10,6 +10,8 @@ Falha (código 1) se:
   - um link ou recurso interno apontar para um ficheiro que não existe;
   - as versões PT e EN não tiverem os mesmos cartões e links externos;
   - um bloco JSON-LD (application/ld+json) ou o sitemap.xml forem inválidos;
+  - a meta description de uma página indexável faltar ou não tiver entre
+    DESC_MIN e DESC_MAX caracteres (os motores de pesquisa cortam o resto);
   - data/activity.json for inválido ou tiver cartões que a página não tem;
   - um número do topo com data-count não bater com a página ("cards": cartões;
     outro nome: itens da lista com o mesmo data-count-list);
@@ -27,6 +29,9 @@ SVG_LEAF = {'path', 'use', 'circle', 'rect', 'line', 'polyline', 'polygon', 'ell
 # Único email que pode ser publicado: o botão de contacto no topo.
 PUBLIC_EMAIL = 'lcmadeira@outlook.pt'
 SKIP_EXTERNAL = ('https://x.com/', 'https://www.threads.com/')
+# Meta description: o Bing Webmaster Tools assinala fora de 25-160 caracteres.
+DESC_MIN, DESC_MAX = 25, 160
+INDEXABLE = ('index.html', 'en/index.html')  # a 404 não é para indexar
 errors, warnings = [], []
 
 class Page(html.parser.HTMLParser):
@@ -34,12 +39,14 @@ class Page(html.parser.HTMLParser):
         super().__init__(convert_charrefs=True)
         self.name, self.stack, self.ids, self.links, self.refs, self.activity = name, [], set(), [], [], set()
         self.cards, self.count, self.in_count, self.lists, self.in_list = 0, {}, None, {}, None
+        self.description = None
     def handle_starttag(self, tag, attrs):
         a = dict(attrs)
         if 'id' in a:
             if a['id'] in self.ids: errors.append(f'{self.name}: id repetido "{a["id"]}"')
             self.ids.add(a['id'])
         if 'data-activity' in a: self.activity.add(a['data-activity'])
+        if tag == 'meta' and a.get('name') == 'description': self.description = a.get('content', '')
         if tag == 'article' and 'card' in a.get('class', '').split(): self.cards += 1
         if 'data-count' in a: self.in_count = a['data-count']; self.count[self.in_count] = ''
         if 'data-count-list' in a: self.in_list = a['data-count-list']; self.lists[self.in_list] = 0
@@ -77,6 +84,12 @@ def check_pages():
             try: json.loads(block)
             except ValueError as e: errors.append(f'{name}: JSON-LD inválido: {e}')
         for tag, line in p.stack: errors.append(f'{name}:{line}: <{tag}> não fechado')
+        if name in INDEXABLE:
+            if p.description is None:
+                errors.append(f'{name}: falta a meta description')
+            elif not DESC_MIN <= len(p.description) <= DESC_MAX:
+                errors.append(f'{name}: meta description com {len(p.description)} caracteres '
+                              f'(deve ter entre {DESC_MIN} e {DESC_MAX})')
         for a in p.links:
             if a.get('target') != '_blank' or 'noopener' not in a.get('rel', ''):
                 errors.append(f'{name}: link externo sem novo separador: {a["href"]}')
